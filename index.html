@@ -1,0 +1,2701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic AI - Discover Your Visual Identity</title>
+  <meta name="description" content="AI-powered aesthetic generator. Get your personalized color palette, fonts, logo, and social media ready content in 60 seconds.">
+  <meta property="og:title" content="Aesthetic AI - Discover Your Visual Identity">
+  <meta property="og:description" content="Upload a photo, choose your vibe, get your complete aesthetic package. Free.">
+  <meta property="og:image" content="https://aestheticai.app/og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600&family=Orbitron:wght@500;600;700;800&family=Space+Mono:wght@400;700&family=Bodoni+Moda:ital,wght@0,400;0,600;1,400&family=Cormorant:wght@400;500;600&family=Italiana&family=Raleway:wght@300;400;500&family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /*
+     * â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     * GOLDEN RATIO DESIGN SYSTEM - Ï† (Phi) = 1.618033988749895
+     * â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     * 
+     * All proportions, spacing, typography, and timing follow Ï†
+     * Creating natural visual harmony and resonance
+     */
+    
+    :root {
+      /* â•â• GOLDEN RATIO CONSTANTS â•â• */
+      --phi: 1.618033988749895;
+      --phi-inv: 0.618033988749895;  /* 1/Ï† */
+      --phi-sq: 2.618033988749895;   /* Ï†Â² */
+      --phi-cu: 4.236067977499790;   /* Ï†Â³ */
+      
+      /* â•â• GOLDEN RATIO TYPOGRAPHY SCALE â•â• 
+         Base: 16px, multiplied by Ï†^n */
+      --text-xs: 9.889px;      /* 16 Ã· Ï† */
+      --text-sm: 12.944px;     /* 16 Ã· Ï†^0.5 */
+      --text-base: 16px;       /* Base */
+      --text-lg: 20.944px;     /* 16 Ã— Ï†^0.5 */
+      --text-xl: 25.888px;     /* 16 Ã— Ï† */
+      --text-2xl: 33.889px;    /* 16 Ã— Ï†^1.5 */
+      --text-3xl: 41.888px;    /* 16 Ã— Ï†Â² */
+      --text-4xl: 54.833px;    /* 16 Ã— Ï†^2.5 */
+      --text-5xl: 67.777px;    /* 16 Ã— Ï†Â³ */
+      --text-6xl: 88.722px;    /* 16 Ã— Ï†^3.5 */
+      
+      /* â•â• GOLDEN RATIO SPACING SCALE â•â• */
+      --space-3xs: 3px;        /* 8 Ã· Ï†Â² */
+      --space-2xs: 5px;        /* 8 Ã· Ï† */
+      --space-xs: 8px;         /* Base unit */
+      --space-sm: 13px;        /* 8 Ã— Ï† */
+      --space-md: 21px;        /* 8 Ã— Ï†Â² */
+      --space-lg: 34px;        /* 8 Ã— Ï†Â³ - Fibonacci! */
+      --space-xl: 55px;        /* 8 Ã— Ï†â´ - Fibonacci! */
+      --space-2xl: 89px;       /* Fibonacci */
+      --space-3xl: 144px;      /* Fibonacci */
+      
+      /* â•â• GOLDEN RATIO ANIMATION TIMING â•â• */
+      --duration-fast: 161.8ms;
+      --duration-base: 261.8ms;
+      --duration-slow: 423.6ms;
+      --duration-slower: 685.4ms;
+      --duration-slowest: 1109ms;
+      
+      /* â•â• GOLDEN SPIRAL BEZIER CURVE â•â• 
+         Derived from golden ratio control points */
+      --ease-golden: cubic-bezier(0.382, 0, 0.618, 1);
+      --ease-golden-in: cubic-bezier(0.618, 0, 1, 0.382);
+      --ease-golden-out: cubic-bezier(0, 0.618, 0.382, 1);
+      --ease-golden-bounce: cubic-bezier(0.382, 1.618, 0.618, 1);
+      
+      /* â•â• GOLDEN RATIO COLOR LUMINANCE â•â• 
+         Colors spaced by Ï† in luminance */
+      --lum-1: 6.18%;
+      --lum-2: 10%;
+      --lum-3: 16.18%;
+      --lum-4: 26.18%;
+      --lum-5: 42.36%;
+      --lum-6: 68.54%;
+      --lum-7: 85%;
+      --lum-8: 93.82%;
+      
+      /* â•â• BASE COLORS (Enhanced Vibrancy) â•â• */
+      --bg-primary: oklch(10% 0.02 280);
+      --bg-secondary: oklch(16.18% 0.04 280);
+      --bg-tertiary: oklch(26.18% 0.06 260);
+      --text-primary: oklch(96% 0.01 280);
+      --text-secondary: oklch(85% 0.02 280);
+      
+      /* â•â• ACCENT COLORS (Golden Angle Hues: 137.5Â°) â•â• */
+      --accent-violet: oklch(68.54% 0.18 280);
+      --accent-rose: oklch(68.54% 0.20 350);
+      --accent-gold: oklch(75% 0.16 85);
+      --accent-emerald: oklch(72% 0.17 155);
+      --accent-cyan: oklch(75% 0.14 195);
+      
+      /* â•â• GOLDEN RATIO BORDER RADIUS â•â• */
+      --radius-sm: 5px;
+      --radius-md: 8px;
+      --radius-lg: 13px;
+      --radius-xl: 21px;
+      --radius-2xl: 34px;
+      --radius-full: 9999px;
+      
+      /* â•â• GOLDEN RATIO SHADOWS â•â• */
+      --shadow-sm: 0 2px 3px oklch(0% 0 0 / 0.1);
+      --shadow-md: 0 3px 8px oklch(0% 0 0 / 0.12), 0 2px 3px oklch(0% 0 0 / 0.08);
+      --shadow-lg: 0 8px 21px oklch(0% 0 0 / 0.15), 0 3px 8px oklch(0% 0 0 / 0.1);
+      --shadow-xl: 0 13px 34px oklch(0% 0 0 / 0.18), 0 8px 13px oklch(0% 0 0 / 0.12);
+      --shadow-2xl: 0 21px 55px oklch(0% 0 0 / 0.22), 0 13px 21px oklch(0% 0 0 / 0.15);
+      --shadow-glow: 0 0 34px oklch(68.54% 0.18 280 / 0.4);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: linear-gradient(
+        137.5deg, /* Golden angle! */
+        var(--bg-primary) 0%,
+        var(--bg-secondary) 38.2%,
+        var(--bg-tertiary) 100%
+      );
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: var(--phi);
+      letter-spacing: -0.01em;
+    }
+    
+    /* â•â• GOLDEN RATIO CONTAINER â•â• */
+    .container {
+      max-width: 809px; /* 500 Ã— Ï† */
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* â•â• GOLDEN SPIRAL BACKGROUND â•â• */
+    .golden-spiral-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.618;
+      overflow: hidden;
+    }
+    
+    .spiral-arc {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid oklch(100% 0 0 / 0.03);
+      animation: spiralPulse var(--duration-slowest) var(--ease-golden) infinite;
+    }
+    
+    @keyframes spiralPulse {
+      0%, 100% { opacity: 0.618; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.0618); }
+    }
+    
+    /* Generate Fibonacci spiral arcs */
+    .spiral-arc:nth-child(1) { width: 89px; height: 89px; top: 61.8%; left: 61.8%; animation-delay: 0ms; }
+    .spiral-arc:nth-child(2) { width: 144px; height: 144px; top: 55%; left: 55%; animation-delay: 161.8ms; }
+    .spiral-arc:nth-child(3) { width: 233px; height: 233px; top: 45%; left: 45%; animation-delay: 323.6ms; }
+    .spiral-arc:nth-child(4) { width: 377px; height: 377px; top: 30%; left: 30%; animation-delay: 485.4ms; }
+    .spiral-arc:nth-child(5) { width: 610px; height: 610px; top: 10%; left: 10%; animation-delay: 647.2ms; }
+    .spiral-arc:nth-child(6) { width: 987px; height: 987px; top: -15%; left: -15%; animation-delay: 809ms; }
+    
+    /* â•â• FLOATING ORBS (Golden positioned) â•â• */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 38.2% 38.2%, /* Golden ratio position */
+        oklch(100% 0 0 / 0.08) 0%,
+        transparent 61.8%
+      );
+      animation: orbFloat var(--duration-slowest) var(--ease-golden) infinite;
+      filter: blur(1px);
+    }
+    
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      38.2% { transform: translateY(-21px) rotate(8deg) scale(1.0618); }
+      61.8% { transform: translateY(-34px) rotate(-5deg) scale(0.9382); }
+    }
+    
+    .orb:nth-child(1) { width: 144px; height: 144px; top: 10%; left: 5%; animation-duration: 6180ms; }
+    .orb:nth-child(2) { width: 233px; height: 233px; top: 30%; right: 10%; animation-duration: 10000ms; animation-delay: 618ms; }
+    .orb:nth-child(3) { width: 89px; height: 89px; bottom: 20%; left: 15%; animation-duration: 8090ms; animation-delay: 1000ms; }
+    .orb:nth-child(4) { width: 377px; height: 377px; bottom: 5%; right: 5%; animation-duration: 13090ms; animation-delay: 1618ms; opacity: 0.3; }
+    
+    /* â•â• ANNOUNCEMENT BAR â•â• */
+    .announcement-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: linear-gradient(
+        90deg,
+        var(--accent-violet) 0%,
+        var(--accent-rose) 61.8%,
+        var(--accent-violet) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmerGold 4236ms linear infinite;
+      color: white;
+      padding: var(--space-sm) var(--space-lg);
+      text-align: center;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      z-index: 1000;
+      cursor: pointer;
+      transition: transform var(--duration-base) var(--ease-golden);
+      box-shadow: var(--shadow-md);
+    }
+    
+    @keyframes shimmerGold {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    
+    .announcement-bar:hover {
+      transform: scale(1.01);
+    }
+    
+    .announcement-bar .highlight {
+      background: oklch(100% 0 0 / 0.2);
+      padding: var(--space-3xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      margin-left: var(--space-xs);
+      font-weight: 600;
+    }
+    
+    body.has-announcement {
+      padding-top: 44px;
+    }
+    
+    /* â•â• HEADER â•â• */
+    header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+      animation: fadeSlideUp var(--duration-slow) var(--ease-golden-out);
+    }
+    
+    @keyframes fadeSlideUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(var(--space-lg)); 
+        filter: blur(4px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+        filter: blur(0);
+      }
+    }
+    
+    .tagline {
+      font-size: var(--text-sm);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.618;
+      margin-bottom: var(--space-sm);
+      font-weight: 500;
+    }
+    
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(var(--text-3xl), 8vw, var(--text-5xl));
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      background: linear-gradient(
+        137.5deg,
+        oklch(98% 0.01 280) 0%,
+        var(--accent-violet) 38.2%,
+        var(--accent-rose) 61.8%,
+        var(--accent-gold) 100%
+      );
+      background-size: 300% 300%;
+      animation: gradientShift 6180ms ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    .subtitle {
+      font-size: var(--text-lg);
+      opacity: 0.8;
+      margin-top: var(--space-sm);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+    
+    /* â•â• SOCIAL PROOF â•â• */
+    .social-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: var(--text-sm);
+      opacity: 0.75;
+    }
+    
+    .proof-avatars {
+      display: flex;
+    }
+    
+    .proof-avatar {
+      width: var(--space-lg);
+      height: var(--space-lg);
+      border-radius: var(--radius-full);
+      border: 2px solid var(--bg-primary);
+      margin-left: calc(var(--space-xs) * -1);
+      background: linear-gradient(137.5deg, var(--accent-violet), var(--accent-rose));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .proof-avatar:first-child {
+      margin-left: 0;
+    }
+    
+    .proof-stars {
+      color: var(--accent-gold);
+      letter-spacing: 2px;
+    }
+    
+    /* â•â• STAGE CONTAINERS â•â• */
+    .stage {
+      display: none;
+      animation: fadeSlideUp var(--duration-slow) var(--ease-golden-out);
+    }
+    
+    .stage.active {
+      display: block;
+    }
+    
+    /* â•â• UPLOAD AREA â•â• */
+    .upload-area {
+      border: 2px dashed oklch(100% 0 0 / 0.25);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-golden);
+      background: oklch(100% 0 0 / 0.02);
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .upload-area::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        137.5deg,
+        oklch(68.54% 0.18 280 / 0) 0%,
+        oklch(68.54% 0.18 280 / 0.05) 100%
+      );
+      opacity: 0;
+      transition: opacity var(--duration-base) var(--ease-golden);
+    }
+    
+    .upload-area:hover {
+      border-color: oklch(100% 0 0 / 0.5);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+    
+    .upload-area:hover::before {
+      opacity: 1;
+    }
+    
+    .upload-icon {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-md);
+      display: block;
+      animation: gentleBounce 2618ms var(--ease-golden) infinite;
+    }
+    
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      38.2% { transform: translateY(-8px); }
+      61.8% { transform: translateY(-5px); }
+    }
+    
+    .upload-area h3 {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .upload-area p {
+      opacity: 0.618;
+      font-size: var(--text-base);
+    }
+    
+    .free-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: linear-gradient(137.5deg, var(--accent-emerald), oklch(65% 0.2 155));
+      color: white;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      margin-top: var(--space-md);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .privacy-note {
+      margin-top: var(--space-lg);
+      padding: var(--space-md);
+      background: oklch(100% 0 0 / 0.03);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      font-size: var(--text-sm);
+      opacity: 0.618;
+    }
+    
+    /* â•â• USAGE COUNTER â•â• */
+    .usage-counter {
+      margin-top: var(--space-lg);
+      padding: var(--space-md) var(--space-lg);
+      background: oklch(100% 0 0 / 0.03);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(4px);
+    }
+    
+    .usage-text {
+      font-size: var(--text-sm);
+    }
+    
+    .usage-text strong {
+      color: var(--accent-violet);
+    }
+    
+    .usage-bar {
+      width: 89px; /* Fibonacci */
+      height: var(--space-xs);
+      background: oklch(100% 0 0 / 0.1);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .usage-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose));
+      border-radius: var(--radius-full);
+      transition: width var(--duration-slow) var(--ease-golden);
+    }
+    
+    /* â•â• PHOTO PREVIEW â•â• */
+    .photo-preview {
+      width: 144px; /* Fibonacci */
+      height: 144px;
+      margin: 0 auto var(--space-lg);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid oklch(100% 0 0 / 0.2);
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .photo-preview:hover {
+      transform: scale(1.0618);
+      box-shadow: var(--shadow-2xl), var(--shadow-glow);
+    }
+    
+    .photo-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter var(--duration-slow) var(--ease-golden);
+    }
+    
+    .photo-preview .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      opacity: 0.5;
+    }
+    
+    /* â•â• SECTION TITLE â•â• */
+    .section-title {
+      text-align: center;
+      font-size: var(--text-xl);
+      font-weight: 600;
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.01em;
+    }
+    
+    /* â•â• VIBE GRID â•â• */
+    .vibe-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+    
+    @media (min-width: 610px) { /* 377 Ã— Ï† */
+      .vibe-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .vibe-btn {
+      padding: var(--space-md) var(--space-sm);
+      background: oklch(100% 0 0 / 0.03);
+      border: 2px solid transparent;
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-golden);
+      color: inherit;
+      font-family: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .vibe-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(137.5deg, oklch(100% 0 0 / 0.05), transparent);
+      opacity: 0;
+      transition: opacity var(--duration-base) var(--ease-golden);
+    }
+    
+    .vibe-btn:hover {
+      background: oklch(100% 0 0 / 0.08);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .vibe-btn:hover::before {
+      opacity: 1;
+    }
+    
+    .vibe-btn.selected {
+      background: oklch(100% 0 0 / 0.12);
+      border-color: oklch(100% 0 0 / 0.4);
+      box-shadow: var(--shadow-lg), 0 0 21px oklch(68.54% 0.18 280 / 0.2);
+    }
+    
+    .vibe-btn.premium {
+      opacity: 0.618;
+    }
+    
+    .vibe-btn.premium::after {
+      content: 'ðŸ‘‘';
+      position: absolute;
+      top: var(--space-xs);
+      right: var(--space-xs);
+      font-size: var(--text-xs);
+    }
+    
+    .vibe-emoji {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .vibe-name {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    
+    .vibe-colors {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+      margin-top: var(--space-xs);
+    }
+    
+    .vibe-color {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid oklch(100% 0 0 / 0.15);
+      transition: transform var(--duration-fast) var(--ease-golden);
+    }
+    
+    .vibe-btn:hover .vibe-color {
+      transform: scale(1.2);
+    }
+    
+    /* â•â• PRIMARY BUTTON â•â• */
+    .btn-primary {
+      width: 100%;
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-base);
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      background: linear-gradient(137.5deg, var(--accent-violet) 0%, var(--accent-rose) 100%);
+      color: white;
+      transition: all var(--duration-base) var(--ease-golden);
+      font-family: inherit;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; right: 0; bottom: 0;
+      width: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        oklch(100% 0 0 / 0.2),
+        transparent
+      );
+      transition: left var(--duration-slow) var(--ease-golden);
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary:disabled {
+      opacity: 0.382;
+      cursor: not-allowed;
+    }
+    
+    .btn-primary:not(:disabled):hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-xl), var(--shadow-glow);
+    }
+    
+    .btn-primary:not(:disabled):active {
+      transform: translateY(-1px);
+    }
+    
+    /* â•â• LOADING â•â• */
+    .loading-container {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+    }
+    
+    .spinner {
+      width: 89px; /* Fibonacci */
+      height: 89px;
+      margin: 0 auto var(--space-lg);
+      border-radius: 50%;
+      border: 3px solid oklch(100% 0 0 / 0.1);
+      border-top-color: var(--accent-violet);
+      animation: goldenSpin 1618ms linear infinite;
+      position: relative;
+    }
+    
+    .spinner::after {
+      content: '';
+      position: absolute;
+      top: 8px; left: 8px; right: 8px; bottom: 8px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: var(--accent-rose);
+      animation: goldenSpin 1000ms linear infinite reverse;
+    }
+    
+    @keyframes goldenSpin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+      font-size: var(--text-lg);
+      font-weight: 500;
+      margin-bottom: var(--space-lg);
+      min-height: 27px;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: var(--space-xs);
+      background: oklch(100% 0 0 / 0.1);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose), var(--accent-gold));
+      background-size: 200% 100%;
+      animation: shimmerGold 1618ms linear infinite;
+      border-radius: var(--radius-full);
+      transition: width var(--duration-slow) var(--ease-golden);
+    }
+    
+    /* â•â• RESULT CARDS â•â• */
+    .result-card {
+      background: oklch(98% 0.005 280 / 0.95);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-md);
+      box-shadow: var(--shadow-xl);
+      color: oklch(15% 0.02 280);
+      backdrop-filter: blur(8px);
+      transition: all var(--duration-base) var(--ease-golden);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .result-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose), var(--accent-gold));
+      opacity: 0;
+      transition: opacity var(--duration-base) var(--ease-golden);
+    }
+    
+    .result-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-2xl);
+    }
+    
+    .result-card:hover::before {
+      opacity: 1;
+    }
+    
+    .result-card.dark {
+      background: oklch(12% 0.02 280 / 0.95);
+      color: oklch(92% 0.01 280);
+    }
+    
+    .card-label {
+      font-size: var(--text-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: var(--space-sm);
+      font-weight: 500;
+    }
+    
+    /* â•â• TRANSFORMED PHOTO â•â• */
+    .transformed-photo-container {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .transformed-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin: 0 auto;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .transformed-photo:hover {
+      transform: scale(1.0618);
+    }
+    
+    .transformed-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .transformed-photo .filter-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+    }
+    
+    /* â•â• RESULT HEADLINE â•â• */
+    .result-headline {
+      font-size: var(--text-2xl);
+      margin: 0 0 var(--space-xs);
+      text-align: center;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    
+    .result-tagline {
+      font-size: var(--text-base);
+      text-align: center;
+      opacity: 0.618;
+      font-style: italic;
+      margin-bottom: var(--space-lg);
+      line-height: var(--phi);
+    }
+    
+    /* â•â• PALETTE â•â• */
+    .palette-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+    
+    .palette-swatch {
+      width: 55px; /* Fibonacci */
+      height: 55px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-golden-bounce);
+    }
+    
+    .palette-swatch:hover {
+      transform: scale(1.1618) translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .palette-swatch .hex {
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: var(--text-xs);
+      opacity: 0.5;
+      white-space: nowrap;
+      font-family: 'Space Mono', monospace;
+    }
+    
+    /* â•â• FONTS DISPLAY â•â• */
+    .fonts-row {
+      display: flex;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+    
+    .font-sample {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-md);
+    }
+    
+    .font-preview {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-xs);
+      line-height: 1;
+    }
+    
+    .font-name {
+      font-size: var(--text-sm);
+      opacity: 0.8;
+      font-weight: 500;
+    }
+    
+    .font-role {
+      font-size: var(--text-xs);
+      opacity: 0.5;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: var(--space-3xs);
+    }
+    
+    .font-divider {
+      width: 1px;
+      height: 55px;
+      background: currentColor;
+      opacity: 0.15;
+    }
+    
+    /* â•â• LOGO DISPLAY â•â• */
+    .logo-container {
+      text-align: center;
+      padding: var(--space-lg);
+      background: oklch(0% 0 0 / 0.03);
+      border-radius: var(--radius-lg);
+    }
+    
+    .logo-svg {
+      max-width: 233px; /* Fibonacci */
+      height: auto;
+      margin-bottom: var(--space-md);
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .logo-svg:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 8px 21px oklch(0% 0 0 / 0.15));
+    }
+    
+    .logo-text {
+      font-size: var(--text-sm);
+      opacity: 0.5;
+    }
+    
+    /* â•â• STYLE NOTES â•â• */
+    .style-list {
+      list-style: none;
+    }
+    
+    .style-list li {
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid oklch(0% 0 0 / 0.06);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: var(--text-sm);
+      line-height: var(--phi);
+    }
+    
+    .style-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .style-bullet {
+      opacity: 0.382;
+      flex-shrink: 0;
+    }
+    
+    /* â•â• SOCIAL EXPORT â•â• */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+    }
+    
+    @media (min-width: 610px) {
+      .social-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+    
+    .social-btn {
+      padding: var(--space-md) var(--space-sm);
+      border-radius: var(--radius-lg);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-golden);
+      font-family: inherit;
+      font-size: var(--text-xs);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      position: relative;
+    }
+    
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .social-btn.selected {
+      border-color: currentColor;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .social-btn.locked {
+      opacity: 0.382;
+    }
+    
+    .social-btn.locked::after {
+      content: 'ðŸ”’';
+      position: absolute;
+      top: var(--space-3xs);
+      right: var(--space-3xs);
+      font-size: var(--text-xs);
+    }
+    
+    .social-icon {
+      font-size: var(--text-xl);
+    }
+    
+    /* â•â• PREVIEW CANVAS â•â• */
+    .preview-area {
+      margin-top: var(--space-md);
+      text-align: center;
+    }
+    
+    .preview-canvas-container {
+      display: inline-block;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      max-width: 100%;
+      position: relative;
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .preview-canvas-container:hover {
+      transform: scale(1.02);
+    }
+    
+    .watermark-notice {
+      position: absolute;
+      bottom: var(--space-sm);
+      left: 50%;
+      transform: translateX(-50%);
+      background: oklch(0% 0 0 / 0.7);
+      color: white;
+      padding: var(--space-3xs) var(--space-sm);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-xs);
+      backdrop-filter: blur(4px);
+    }
+    
+    #exportCanvas {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* â•â• ACTION BUTTONS â•â• */
+    .action-row {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    
+    .btn-secondary {
+      flex: 1;
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .btn-download {
+      background: oklch(15% 0.02 280);
+      color: white;
+      border: none;
+    }
+    
+    .btn-download:hover {
+      background: oklch(25% 0.02 280);
+      transform: translateY(-2px);
+    }
+    
+    .btn-reset {
+      background: transparent;
+      border: 2px solid oklch(0% 0 0 / 0.15);
+      color: inherit;
+    }
+    
+    .btn-reset:hover {
+      border-color: oklch(0% 0 0 / 0.3);
+      transform: translateY(-2px);
+    }
+    
+    /* â•â• SHARE UNLOCK CARD â•â• */
+    .share-unlock-card {
+      background: linear-gradient(
+        137.5deg,
+        oklch(68.54% 0.18 280 / 0.15),
+        oklch(68.54% 0.20 350 / 0.15)
+      );
+      border: 2px solid var(--accent-violet);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-md);
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    
+    .share-unlock-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-xs);
+      color: white;
+    }
+    
+    .share-unlock-card p {
+      font-size: var(--text-sm);
+      opacity: 0.8;
+      margin-bottom: var(--space-md);
+      color: white;
+    }
+    
+    .share-buttons {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .share-btn {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-lg);
+      border: none;
+      font-family: inherit;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .share-btn.twitter { background: #1da1f2; color: white; }
+    .share-btn.tiktok { background: #000; color: white; }
+    .share-btn.copy-link { background: white; color: oklch(15% 0.02 280); }
+    
+    .share-btn:hover {
+      transform: scale(1.0618);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* â•â• REFERRAL CARD â•â• */
+    .referral-card {
+      background: linear-gradient(137.5deg, oklch(92% 0.08 85), oklch(85% 0.12 85));
+      border-radius: var(--radius-2xl);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-md);
+      text-align: center;
+      color: oklch(30% 0.1 85);
+    }
+    
+    .referral-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .referral-card p {
+      font-size: var(--text-sm);
+      opacity: 0.8;
+      margin-bottom: var(--space-md);
+    }
+    
+    .referral-progress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+    
+    .referral-dot {
+      width: var(--space-lg);
+      height: var(--space-lg);
+      border-radius: 50%;
+      background: oklch(30% 0.1 85 / 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      transition: all var(--duration-base) var(--ease-golden-bounce);
+    }
+    
+    .referral-dot.filled {
+      background: oklch(30% 0.1 85);
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .referral-link-box {
+      display: flex;
+      gap: var(--space-xs);
+    }
+    
+    .referral-link-box input {
+      flex: 1;
+      padding: var(--space-sm) var(--space-md);
+      border: 2px solid oklch(30% 0.1 85 / 0.3);
+      border-radius: var(--radius-md);
+      font-family: 'Space Mono', monospace;
+      font-size: var(--text-xs);
+      background: white;
+    }
+    
+    .referral-link-box button {
+      padding: var(--space-sm) var(--space-md);
+      background: oklch(30% 0.1 85);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .referral-link-box button:hover {
+      transform: scale(1.05);
+    }
+    
+    /* â•â• WATERMARK â•â• */
+    .watermark {
+      text-align: center;
+      margin-top: var(--space-lg);
+      opacity: 0.382;
+      font-size: var(--text-xs);
+      letter-spacing: 0.05em;
+    }
+    
+    /* â•â• HIDDEN ELEMENTS â•â• */
+    .hidden { display: none !important; }
+    #fileInput { display: none; }
+    
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       MODALS - Enhanced with Golden Ratio
+       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+    
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: oklch(0% 0 0 / 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+    }
+    
+    .modal-overlay.active {
+      display: flex;
+    }
+    
+    .modal {
+      background: white;
+      border-radius: var(--radius-2xl);
+      max-width: 433px; /* ~267 Ã— Ï† */
+      width: 100%;
+      padding: var(--space-xl) var(--space-lg);
+      position: relative;
+      animation: modalSlide var(--duration-slow) var(--ease-golden-out);
+      color: oklch(15% 0.02 280);
+    }
+    
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: translateY(var(--space-lg)) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      background: none;
+      border: none;
+      font-size: var(--text-xl);
+      cursor: pointer;
+      opacity: 0.382;
+      transition: all var(--duration-fast) var(--ease-golden);
+      width: var(--space-lg);
+      height: var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-full);
+    }
+    
+    .modal-close:hover {
+      opacity: 1;
+      background: oklch(0% 0 0 / 0.05);
+    }
+    
+    .modal-icon {
+      font-size: var(--text-4xl);
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+    
+    .modal h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: var(--text-xl);
+      text-align: center;
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.02em;
+    }
+    
+    .modal .subtitle {
+      text-align: center;
+      font-size: var(--text-sm);
+      color: oklch(50% 0.02 280);
+      margin-bottom: var(--space-lg);
+      line-height: var(--phi);
+    }
+    
+    .modal-input {
+      width: 100%;
+      padding: var(--space-md);
+      border: 2px solid oklch(90% 0.01 280);
+      border-radius: var(--radius-lg);
+      font-family: inherit;
+      font-size: var(--text-base);
+      margin-bottom: var(--space-sm);
+      transition: all var(--duration-fast) var(--ease-golden);
+    }
+    
+    .modal-input:focus {
+      outline: none;
+      border-color: var(--accent-violet);
+      box-shadow: 0 0 0 4px oklch(68.54% 0.18 280 / 0.1);
+    }
+    
+    .modal-btn {
+      width: 100%;
+      padding: var(--space-md);
+      border: none;
+      border-radius: var(--radius-lg);
+      font-family: inherit;
+      font-size: var(--text-base);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .modal-btn-primary {
+      background: linear-gradient(137.5deg, var(--accent-violet), var(--accent-rose));
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .modal-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+    
+    .modal-terms {
+      text-align: center;
+      font-size: var(--text-xs);
+      color: oklch(60% 0.01 280);
+      margin-top: var(--space-md);
+      line-height: var(--phi);
+    }
+    
+    .modal-terms a {
+      color: var(--accent-violet);
+      text-decoration: none;
+    }
+    
+    .modal-terms a:hover {
+      text-decoration: underline;
+    }
+    
+    .modal-benefits {
+      background: oklch(97% 0.005 280);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    
+    .modal-benefits ul {
+      list-style: none;
+      font-size: var(--text-sm);
+    }
+    
+    .modal-benefits li {
+      padding: var(--space-xs) 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    
+    .modal-benefits li::before {
+      content: 'âœ“';
+      color: var(--accent-emerald);
+      font-weight: bold;
+    }
+    
+    /* â•â• PREMIUM TIERS â•â• */
+    .premium-tier {
+      border: 2px solid oklch(90% 0.01 280);
+      border-radius: var(--radius-xl);
+      padding: var(--space-md);
+      margin-bottom: var(--space-sm);
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-golden);
+    }
+    
+    .premium-tier:hover,
+    .premium-tier.selected {
+      border-color: var(--accent-violet);
+      background: oklch(68.54% 0.18 280 / 0.03);
+    }
+    
+    .premium-tier.popular {
+      border-color: var(--accent-gold);
+      position: relative;
+    }
+    
+    .premium-tier.popular::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--accent-gold), oklch(70% 0.18 60));
+      color: white;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      padding: var(--space-3xs) var(--space-sm);
+      border-radius: var(--radius-md);
+      letter-spacing: 0.05em;
+    }
+    
+    .tier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .tier-name {
+      font-weight: 600;
+      font-size: var(--text-base);
+    }
+    
+    .tier-price {
+      font-weight: 700;
+      font-size: var(--text-lg);
+      color: var(--accent-violet);
+    }
+    
+    .tier-price span {
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: oklch(60% 0.01 280);
+    }
+    
+    .tier-features {
+      font-size: var(--text-sm);
+      color: oklch(50% 0.01 280);
+    }
+    
+    /* â•â• EXIT MODAL â•â• */
+    .exit-modal .modal {
+      background: linear-gradient(137.5deg, oklch(16.18% 0.04 280), oklch(12% 0.03 260));
+      color: white;
+    }
+    
+    .exit-modal .subtitle {
+      color: oklch(80% 0.02 280);
+    }
+    
+    .exit-modal .modal-input {
+      background: oklch(100% 0 0 / 0.1);
+      border-color: oklch(100% 0 0 / 0.2);
+      color: white;
+    }
+    
+    .exit-modal .modal-input::placeholder {
+      color: oklch(100% 0 0 / 0.5);
+    }
+    
+    .exit-modal .modal-benefits {
+      background: oklch(100% 0 0 / 0.05);
+    }
+    
+    .exit-modal .modal-benefits li {
+      color: white;
+    }
+    
+    .countdown {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      background: linear-gradient(137.5deg, var(--accent-rose), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--space-xs);
+      font-family: 'Space Mono', monospace;
+    }
+    
+    /* â•â• TOAST â•â• */
+    .toast {
+      position: fixed;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: oklch(15% 0.02 280);
+      color: white;
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      z-index: 3000;
+      transition: transform var(--duration-base) var(--ease-golden-bounce);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .toast.success {
+      background: linear-gradient(137.5deg, var(--accent-emerald), oklch(65% 0.2 155));
+    }
+    
+    /* â•â• CONFETTI EFFECT â•â• */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="has-announcement">
+  <!-- Announcement Bar -->
+  <div class="announcement-bar" id="announcementBar" onclick="showPremiumModal()">
+    ðŸŽ‰ Launch Special: <strong>50% OFF Pro</strong> â€” Unlimited aesthetics, no watermarks
+    <span class="highlight">Claim Now â†’</span>
+  </div>
+  
+  <!-- Golden Spiral Background -->
+  <div class="golden-spiral-bg">
+    <div class="spiral-arc"></div>
+    <div class="spiral-arc"></div>
+    <div class="spiral-arc"></div>
+    <div class="spiral-arc"></div>
+    <div class="spiral-arc"></div>
+    <div class="spiral-arc"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+  
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="tagline">âœ¦ AI-POWERED âœ¦</div>
+      <h1>AESTHETIC AI</h1>
+      <p class="subtitle">Discover your signature visual identity in 60 seconds</p>
+      
+      <div class="social-proof">
+        <div class="proof-item">
+          <div class="proof-avatars">
+            <div class="proof-avatar">S</div>
+            <div class="proof-avatar">M</div>
+            <div class="proof-avatar">J</div>
+            <div class="proof-avatar">+</div>
+          </div>
+          <span id="userCount">12,847</span> aesthetics created
+        </div>
+        <div class="proof-item">
+          <span class="proof-stars">â˜…â˜…â˜…â˜…â˜…</span> 4.9 rating
+        </div>
+      </div>
+    </header>
+    
+    <!-- Upload Stage -->
+    <div class="stage active" id="uploadStage">
+      <div class="upload-area" id="uploadArea">
+        <span class="upload-icon">ðŸ“¸</span>
+        <h3>Upload Your Photo</h3>
+        <p>A selfie or portrait works best</p>
+        <div class="free-badge">âœ¨ 100% Free â€” No credit card</div>
+      </div>
+      <input type="file" id="fileInput" accept="image/*">
+      
+      <div class="usage-counter" id="usageCounter">
+        <div class="usage-text">
+          <span id="usageRemaining">3</span> of <strong>3 free</strong> generations left
+        </div>
+        <div class="usage-bar">
+          <div class="usage-fill" id="usageFill" style="width: 100%"></div>
+        </div>
+      </div>
+      
+      <div class="privacy-note">ðŸ”’ Your photo is processed locally and never stored</div>
+    </div>
+    
+    <!-- Vibe Stage -->
+    <div class="stage" id="vibeStage">
+      <div class="photo-preview" id="photoPreview">
+        <img id="previewImg" src="" alt="Your photo">
+        <div class="overlay" id="previewOverlay"></div>
+      </div>
+      <h2 class="section-title">Choose Your Vibe âœ¦</h2>
+      <div class="vibe-grid" id="vibeGrid"></div>
+      <button class="btn-primary" id="generateBtn" disabled>Generate My Aesthetic âœ¨</button>
+    </div>
+    
+    <!-- Loading Stage -->
+    <div class="stage" id="loadingStage">
+      <div class="loading-container">
+        <div class="spinner"></div>
+        <p class="loading-text" id="loadingText">Initializing...</p>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Results Stage -->
+    <div class="stage" id="resultStage">
+      <div class="results-container" id="resultsContainer">
+        
+        <!-- Share to Unlock Card -->
+        <div class="share-unlock-card" id="shareUnlockCard">
+          <h3>ðŸ”“ Share to Unlock Premium Export</h3>
+          <p>Share your result & get watermark-free downloads instantly!</p>
+          <div class="share-buttons">
+            <button class="share-btn twitter" onclick="shareTwitter()">ð• Share</button>
+            <button class="share-btn tiktok" onclick="shareTikTok()">ðŸŽµ TikTok</button>
+            <button class="share-btn copy-link" onclick="copyShareLink()">ðŸ”— Copy Link</button>
+          </div>
+        </div>
+        
+        <!-- Main Result Card -->
+        <div class="result-card" id="mainCard">
+          <div class="transformed-photo-container">
+            <div class="transformed-photo" id="transformedPhoto">
+              <img id="transformedImg" src="" alt="Transformed">
+              <div class="filter-overlay" id="filterOverlay"></div>
+            </div>
+          </div>
+          <div class="card-label" style="text-align:center">YOUR AESTHETIC</div>
+          <h2 class="result-headline" id="resultHeadline"></h2>
+          <p class="result-tagline" id="resultTagline"></p>
+          <div class="palette-row" id="paletteRow"></div>
+        </div>
+        
+        <!-- Fonts Card -->
+        <div class="result-card" id="fontsCard">
+          <div class="card-label">YOUR FONTS</div>
+          <div class="fonts-row" id="fontsRow"></div>
+        </div>
+        
+        <!-- Logo Card -->
+        <div class="result-card" id="logoCard">
+          <div class="card-label">YOUR LOGO</div>
+          <div class="logo-container" id="logoContainer"></div>
+        </div>
+        
+        <!-- Style Notes Card -->
+        <div class="result-card" id="styleCard">
+          <div class="card-label">STYLE NOTES</div>
+          <ul class="style-list" id="styleList"></ul>
+        </div>
+        
+        <!-- Social Export Card -->
+        <div class="result-card" id="socialCard">
+          <div class="card-label">EXPORT FOR SOCIAL</div>
+          <div class="social-grid" id="socialGrid"></div>
+          <div class="preview-area" id="previewArea">
+            <div class="preview-canvas-container">
+              <canvas id="exportCanvas"></canvas>
+              <div class="watermark-notice" id="watermarkNotice">Free version includes watermark</div>
+            </div>
+          </div>
+          <div class="action-row">
+            <button class="btn-secondary btn-download" id="downloadBtn">â¬‡ï¸ Download</button>
+            <button class="btn-secondary btn-reset" id="copyBtn">ðŸ“‹ Copy</button>
+          </div>
+        </div>
+        
+        <!-- Referral Card -->
+        <div class="referral-card" id="referralCard">
+          <h3>ðŸŽ Give 3, Get Pro Free</h3>
+          <p>Invite 3 friends and unlock Pro features forever!</p>
+          <div class="referral-progress">
+            <div class="referral-dot" id="ref1">1</div>
+            <div class="referral-dot" id="ref2">2</div>
+            <div class="referral-dot" id="ref3">3</div>
+          </div>
+          <div class="referral-link-box">
+            <input type="text" id="referralLink" value="" readonly>
+            <button onclick="copyReferralLink()">Copy</button>
+          </div>
+        </div>
+        
+        <div class="action-row">
+          <button class="btn-secondary btn-reset" id="resetBtn" style="flex:1">ðŸ”„ Create Another</button>
+        </div>
+        
+        <div class="watermark">Made with Aesthetic AI âœ¦ aestheticai.app</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MODALS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  
+  <!-- Email Capture Modal -->
+  <div class="modal-overlay" id="emailModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('emailModal')">Ã—</button>
+      <div class="modal-icon">âœ¨</div>
+      <h2>Your Aesthetic is Ready!</h2>
+      <p class="subtitle">Enter your email to unlock your results and get weekly aesthetic inspiration.</p>
+      
+      <div class="modal-benefits">
+        <ul>
+          <li>Access your complete aesthetic profile</li>
+          <li>Download logo & social templates</li>
+          <li>Get weekly trend alerts & new vibes</li>
+        </ul>
+      </div>
+      
+      <input type="email" class="modal-input" id="emailInput" placeholder="your@email.com">
+      <button class="modal-btn modal-btn-primary" onclick="submitEmail()">
+        Unlock My Aesthetic â†’
+      </button>
+      
+      <p class="modal-terms">
+        By continuing, you agree to our <a href="#">Terms</a> & <a href="#">Privacy Policy</a>.<br>
+        Unsubscribe anytime.
+      </p>
+    </div>
+  </div>
+  
+  <!-- Premium Upgrade Modal -->
+  <div class="modal-overlay" id="premiumModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('premiumModal')">Ã—</button>
+      <div class="modal-icon">ðŸ‘‘</div>
+      <h2>Upgrade to Pro</h2>
+      <p class="subtitle">Unlimited aesthetics, all vibes, no watermarks.</p>
+      
+      <div class="premium-tier" onclick="selectTier(this, 'monthly')">
+        <div class="tier-header">
+          <span class="tier-name">Monthly</span>
+          <span class="tier-price">$4.99<span>/mo</span></span>
+        </div>
+        <div class="tier-features">Cancel anytime â€¢ All features</div>
+      </div>
+      
+      <div class="premium-tier popular selected" onclick="selectTier(this, 'annual')">
+        <div class="tier-header">
+          <span class="tier-name">Annual</span>
+          <span class="tier-price">$2.49<span>/mo</span></span>
+        </div>
+        <div class="tier-features">Billed $29.99/year â€¢ Save 50%</div>
+      </div>
+      
+      <div class="premium-tier" onclick="selectTier(this, 'lifetime')">
+        <div class="tier-header">
+          <span class="tier-name">Lifetime</span>
+          <span class="tier-price">$49.99<span> once</span></span>
+        </div>
+        <div class="tier-features">Pay once, own forever</div>
+      </div>
+      
+      <button class="modal-btn modal-btn-primary" onclick="subscribePro()" style="margin-top: var(--space-md)">
+        Start 7-Day Free Trial â†’
+      </button>
+      
+      <p class="modal-terms">No charge until trial ends. Cancel anytime.</p>
+    </div>
+  </div>
+  
+  <!-- Exit Intent Modal -->
+  <div class="modal-overlay exit-modal" id="exitModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('exitModal')" style="color:white">Ã—</button>
+      <div class="modal-icon">â°</div>
+      <h2>Wait! Special Offer</h2>
+      <p class="subtitle">Get 60% OFF Pro â€” only for the next:</p>
+      
+      <div class="countdown" id="exitCountdown">14:59</div>
+      
+      <div class="modal-benefits">
+        <ul>
+          <li>Unlimited aesthetic generations</li>
+          <li>All 16+ premium vibes</li>
+          <li>No watermarks on exports</li>
+          <li>Priority AI processing</li>
+        </ul>
+      </div>
+      
+      <input type="email" class="modal-input" id="exitEmailInput" placeholder="your@email.com">
+      <button class="modal-btn modal-btn-primary" onclick="submitExitEmail()">
+        Claim 60% OFF â†’
+      </button>
+      
+      <p class="modal-terms" style="color:oklch(100% 0 0 / 0.5)">
+        We'll send your discount code instantly.
+      </p>
+    </div>
+  </div>
+  
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span id="toastIcon">âœ“</span>
+    <span id="toastText">Copied!</span>
+  </div>
+
+<script>
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// AESTHETIC AI - GOLDEN RATIO ENHANCED
+// All timing, spacing, and proportions follow Ï† = 1.618033988749895
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+const PHI = 1.618033988749895;
+const PHI_INV = 0.618033988749895;
+
+// â•â• API CONFIGURATION â•â•
+const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:3000/api'
+  : 'https://api.aestheticai.app/api';
+
+// â•â• VIBES DATA (Golden ratio color luminance spacing) â•â•
+const VIBES = [
+  { id: 'dark-academia', name: 'Dark Academia', emoji: 'ðŸ“š', 
+    colors: ['#2C1810', '#5C4033', '#8B7355', '#D4C4B0', '#F5F0E8'], 
+    filter: 'sepia(30%) contrast(110%) brightness(95%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(44,24,16,0.3), rgba(139,115,85,0.2))', 
+    dark: false, premium: false },
+  { id: 'coastal-grandmother', name: 'Coastal Grandmother', emoji: 'ðŸš', 
+    colors: ['#1E3A5F', '#5B8A9A', '#9BBEC8', '#E8DED2', '#FAF7F2'], 
+    filter: 'brightness(105%) saturate(90%) contrast(95%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(30,58,95,0.2), rgba(155,190,200,0.15))', 
+    dark: false, premium: false },
+  { id: 'clean-girl', name: 'Clean Girl', emoji: 'âœ¨', 
+    colors: ['#2D2D2D', '#6B6B6B', '#A8A8A8', '#E5DDD5', '#FFFAF5'], 
+    filter: 'brightness(105%) contrast(105%) saturate(85%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(45,45,45,0.1), rgba(229,221,213,0.1))', 
+    dark: false, premium: false },
+  { id: 'cottagecore', name: 'Cottagecore', emoji: 'ðŸŒ¿', 
+    colors: ['#4A5D4A', '#7D9A6B', '#B5C99A', '#E9D8A6', '#FFF8E7'], 
+    filter: 'saturate(110%) brightness(102%) sepia(10%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(74,93,74,0.2), rgba(181,201,154,0.15))', 
+    dark: false, premium: false },
+  { id: 'y2k-cyber', name: 'Y2K Cyber', emoji: 'ðŸ’¿', 
+    colors: ['#FF00FF', '#00FFFF', '#FF69B4', '#C0C0C0', '#FFFFFF'], 
+    filter: 'saturate(140%) contrast(110%) brightness(105%) hue-rotate(10deg)', 
+    overlay: 'linear-gradient(137.5deg, rgba(255,0,255,0.15), rgba(0,255,255,0.15))', 
+    dark: false, premium: false },
+  { id: 'old-money', name: 'Old Money', emoji: 'ðŸ›ï¸', 
+    colors: ['#1C2833', '#2E4053', '#5D6D7E', '#AEB6BF', '#F4F3EE'], 
+    filter: 'contrast(105%) brightness(98%) saturate(80%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(28,40,51,0.25), rgba(93,109,126,0.15))', 
+    dark: false, premium: false },
+  { id: 'soft-romantic', name: 'Soft Romantic', emoji: 'ðŸŒ¸', 
+    colors: ['#8B4B6B', '#C08497', '#E6B8C2', '#F5E1E9', '#FFF9FB'], 
+    filter: 'brightness(105%) saturate(95%) contrast(95%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(139,75,107,0.2), rgba(230,184,194,0.15))', 
+    dark: false, premium: false },
+  { id: 'urban-minimalist', name: 'Urban Minimalist', emoji: 'ðŸ™ï¸', 
+    colors: ['#0A0A0A', '#333333', '#666666', '#E0E0E0', '#FFFFFF'], 
+    filter: 'grayscale(30%) contrast(115%) brightness(100%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(10,10,10,0.2), rgba(102,102,102,0.1))', 
+    dark: true, premium: false },
+  // Premium vibes
+  { id: 'ethereal-fairy', name: 'Ethereal Fairy', emoji: 'ðŸ§š', 
+    colors: ['#4A3F6B', '#7B6BA8', '#B8A9D9', '#E8E0F0', '#FDF8FF'], 
+    filter: 'brightness(108%) saturate(85%) hue-rotate(-10deg)', 
+    overlay: 'linear-gradient(137.5deg, rgba(74,63,107,0.2), rgba(184,169,217,0.2))', 
+    dark: false, premium: true },
+  { id: 'dark-romance', name: 'Dark Romance', emoji: 'ðŸ¥€', 
+    colors: ['#1A0A0A', '#4A1C1C', '#8B3A3A', '#C08080', '#F5E8E8'], 
+    filter: 'contrast(120%) saturate(90%) brightness(90%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(26,10,10,0.4), rgba(139,58,58,0.2))', 
+    dark: true, premium: true },
+  { id: 'golden-hour', name: 'Golden Hour', emoji: 'ðŸŒ…', 
+    colors: ['#8B4513', '#CD853F', '#DEB887', '#F5DEB3', '#FFFAF0'], 
+    filter: 'sepia(20%) saturate(120%) brightness(105%) contrast(105%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(139,69,19,0.2), rgba(222,184,135,0.15))', 
+    dark: false, premium: true },
+  { id: 'neon-nights', name: 'Neon Nights', emoji: 'ðŸŒƒ', 
+    colors: ['#0D0D1A', '#1A1A40', '#4A0080', '#FF00AA', '#00FFFF'], 
+    filter: 'contrast(130%) saturate(150%) brightness(95%)', 
+    overlay: 'linear-gradient(137.5deg, rgba(74,0,128,0.3), rgba(255,0,170,0.15))', 
+    dark: true, premium: true },
+];
+
+const FONTS = {
+  'dark-academia': { display: 'Playfair Display', body: 'Crimson Text' },
+  'coastal-grandmother': { display: 'Cormorant Garamond', body: 'Lora' },
+  'clean-girl': { display: 'DM Sans', body: 'Outfit' },
+  'cottagecore': { display: 'Libre Baskerville', body: 'Quicksand' },
+  'y2k-cyber': { display: 'Orbitron', body: 'Space Mono' },
+  'old-money': { display: 'Bodoni Moda', body: 'Cormorant' },
+  'soft-romantic': { display: 'Italiana', body: 'Raleway' },
+  'urban-minimalist': { display: 'Bebas Neue', body: 'Work Sans' },
+  'ethereal-fairy': { display: 'Cormorant Garamond', body: 'Raleway' },
+  'dark-romance': { display: 'Playfair Display', body: 'Crimson Text' },
+  'golden-hour': { display: 'Libre Baskerville', body: 'Lora' },
+  'neon-nights': { display: 'Orbitron', body: 'Space Mono' },
+};
+
+const SOCIAL_PLATFORMS = [
+  { id: 'instagram-post', name: 'IG Post', icon: 'ðŸ“·', width: 1080, height: 1080, premium: false },
+  { id: 'instagram-story', name: 'IG Story', icon: 'ðŸ“±', width: 1080, height: 1920, premium: false },
+  { id: 'tiktok', name: 'TikTok', icon: 'ðŸŽµ', width: 1080, height: 1920, premium: true },
+  { id: 'twitter', name: 'X/Twitter', icon: 'ðŸ¦', width: 1200, height: 675, premium: true },
+  { id: 'linkedin', name: 'LinkedIn', icon: 'ðŸ’¼', width: 1200, height: 627, premium: true },
+  { id: 'pinterest', name: 'Pinterest', icon: 'ðŸ“Œ', width: 1000, height: 1500, premium: true },
+];
+
+// Loading messages timed to golden ratio intervals
+const LOADING_MESSAGES = [
+  'Analyzing your unique features...',
+  'Extracting color harmonies...',
+  'Generating your custom logo...',
+  'Curating your perfect palette...',
+  'Matching typography vibes...',
+  'Crafting your aesthetic identity...',
+  'Preparing social templates...',
+  'Finalizing your look...'
+];
+
+// â•â• STATE â•â•
+let state = {
+  imageData: null,
+  selectedVibe: null,
+  result: null,
+  selectedPlatform: 'instagram-post',
+  isPro: false,
+  usageCount: parseInt(localStorage.getItem('usageCount') || '0'),
+  maxFreeUsage: 3,
+  email: localStorage.getItem('userEmail') || null,
+  visitorId: localStorage.getItem('visitorId') || generateVisitorId(),
+  referralCount: parseInt(localStorage.getItem('referralCount') || '0'),
+  hasShared: localStorage.getItem('hasShared') === 'true',
+  selectedTier: 'annual'
+};
+
+function generateVisitorId() {
+  const id = 'u_' + Math.random().toString(36).substr(2, 9);
+  localStorage.setItem('visitorId', id);
+  return id;
+}
+
+// â•â• DOM HELPERS â•â•
+const $ = id => document.getElementById(id);
+
+// â•â• INITIALIZATION â•â•
+async function init() {
+  createVibeGrid();
+  createSocialGrid();
+  bindEvents();
+  updateUsageUI();
+  updateReferralUI();
+  setupExitIntent();
+  await fetchUserCount();
+  checkReferral();
+}
+
+function createVibeGrid() {
+  const grid = $('vibeGrid');
+  VIBES.forEach((vibe, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'vibe-btn' + (vibe.premium && !state.isPro ? ' premium' : '');
+    btn.dataset.id = vibe.id;
+    btn.style.animationDelay = `${i * 61.8}ms`; // Golden timing
+    btn.innerHTML = `
+      <div class="vibe-emoji">${vibe.emoji}</div>
+      <div class="vibe-name">${vibe.name}</div>
+      <div class="vibe-colors">
+        ${vibe.colors.map(c => `<div class="vibe-color" style="background:${c}"></div>`).join('')}
+      </div>
+    `;
+    btn.onclick = () => selectVibe(vibe.id);
+    grid.appendChild(btn);
+  });
+}
+
+function createSocialGrid() {
+  const grid = $('socialGrid');
+  SOCIAL_PLATFORMS.forEach(platform => {
+    const isLocked = platform.premium && !state.isPro && !state.hasShared;
+    const btn = document.createElement('button');
+    btn.className = 'social-btn' + (platform.id === state.selectedPlatform ? ' selected' : '') + (isLocked ? ' locked' : '');
+    btn.dataset.id = platform.id;
+    btn.innerHTML = `
+      <span class="social-icon">${platform.icon}</span>
+      <span>${platform.name}</span>
+    `;
+    btn.onclick = () => selectPlatform(platform.id);
+    grid.appendChild(btn);
+  });
+}
+
+function bindEvents() {
+  $('uploadArea').onclick = () => $('fileInput').click();
+  $('fileInput').onchange = handleFileSelect;
+  $('generateBtn').onclick = generateAesthetic;
+  $('resetBtn').onclick = resetApp;
+  $('downloadBtn').onclick = downloadExport;
+  $('copyBtn').onclick = copyResults;
+}
+
+function setupExitIntent() {
+  let shown = false;
+  document.addEventListener('mouseout', (e) => {
+    if (!shown && !state.email && e.clientY < 10) {
+      shown = true;
+      showModal('exitModal');
+      startExitCountdown();
+    }
+  });
+}
+
+function startExitCountdown() {
+  let time = 15 * 60;
+  const countdown = $('exitCountdown');
+  const interval = setInterval(() => {
+    time--;
+    const mins = Math.floor(time / 60);
+    const secs = time % 60;
+    countdown.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+    if (time <= 0) clearInterval(interval);
+  }, 1000);
+}
+
+async function fetchUserCount() {
+  try {
+    const res = await fetch(`${API_BASE}/stats`);
+    const data = await res.json();
+    $('userCount').textContent = (data.totalUsers || 12847).toLocaleString();
+  } catch {
+    // Fallback with golden growth simulation
+    const base = 12847;
+    const hoursSinceLaunch = Math.floor((Date.now() - new Date('2025-01-01').getTime()) / (1000 * 60 * 60));
+    $('userCount').textContent = (base + Math.floor(hoursSinceLaunch * PHI)).toLocaleString();
+  }
+}
+
+function checkReferral() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const ref = urlParams.get('ref');
+  if (ref && ref !== state.visitorId) {
+    localStorage.setItem('referredBy', ref);
+    // Track referral on backend
+    fetch(`${API_BASE}/referral/track`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ referrerId: ref, visitorId: state.visitorId })
+    }).catch(() => {});
+  }
+}
+
+// â•â• USAGE MANAGEMENT â•â•
+function updateUsageUI() {
+  const remaining = Math.max(0, state.maxFreeUsage - state.usageCount);
+  $('usageRemaining').textContent = remaining;
+  $('usageFill').style.width = `${(remaining / state.maxFreeUsage) * 100}%`;
+  
+  if (state.isPro) {
+    $('usageCounter').innerHTML = '<div class="usage-text">ðŸ‘‘ <strong>Pro</strong> â€” Unlimited generations</div>';
+  }
+}
+
+function updateReferralUI() {
+  for (let i = 1; i <= 3; i++) {
+    const dot = $(`ref${i}`);
+    if (state.referralCount >= i) {
+      dot.classList.add('filled');
+      dot.textContent = 'âœ“';
+    }
+  }
+  $('referralLink').value = `https://aestheticai.app/?ref=${state.visitorId}`;
+}
+
+// â•â• STAGE MANAGEMENT â•â•
+function showStage(stageId) {
+  document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+  $(stageId).classList.add('active');
+}
+
+// â•â• MODAL MANAGEMENT â•â•
+function showModal(modalId) {
+  $(modalId).classList.add('active');
+}
+
+function closeModal(modalId) {
+  $(modalId).classList.remove('active');
+}
+
+function showPremiumModal() {
+  showModal('premiumModal');
+}
+
+function selectTier(el, tier) {
+  state.selectedTier = tier;
+  document.querySelectorAll('.premium-tier').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// â•â• FILE HANDLING â•â•
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  if (!state.isPro && state.usageCount >= state.maxFreeUsage) {
+    showPremiumModal();
+    return;
+  }
+  
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    state.imageData = event.target.result;
+    $('previewImg').src = state.imageData;
+    showStage('vibeStage');
+  };
+  reader.readAsDataURL(file);
+}
+
+// â•â• VIBE SELECTION â•â•
+function selectVibe(vibeId) {
+  const vibe = VIBES.find(v => v.id === vibeId);
+  
+  if (vibe.premium && !state.isPro) {
+    showPremiumModal();
+    return;
+  }
+  
+  state.selectedVibe = vibeId;
+  
+  document.querySelectorAll('.vibe-btn').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.id === vibeId);
+  });
+  
+  $('previewImg').style.filter = vibe.filter;
+  $('previewOverlay').style.background = vibe.overlay;
+  $('generateBtn').disabled = false;
+}
+
+// â•â• GENERATION â•â•
+async function generateAesthetic() {
+  showStage('loadingStage');
+  
+  // Golden ratio timed loading animation
+  const goldenDelay = 423.6; // Ï†Â² Ã— 100
+  for (let i = 0; i < LOADING_MESSAGES.length; i++) {
+    $('loadingText').textContent = LOADING_MESSAGES[i];
+    $('progressFill').style.width = `${(i + 1) * (100 / LOADING_MESSAGES.length)}%`;
+    await sleep(goldenDelay);
+  }
+  
+  const vibe = VIBES.find(v => v.id === state.selectedVibe);
+  const fonts = FONTS[state.selectedVibe];
+  
+  let aiResult;
+  try {
+    // Call backend API for generation
+    const response = await fetch(`${API_BASE}/generate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        vibeId: state.selectedVibe,
+        vibeName: vibe.name,
+        visitorId: state.visitorId
+      })
+    });
+    
+    if (response.ok) {
+      aiResult = await response.json();
+    } else {
+      throw new Error('API error');
+    }
+  } catch (err) {
+    // Fallback generation
+    aiResult = {
+      headline: `${vibe.name} Energy`,
+      tagline: `Your aesthetic radiates effortless ${vibe.name.toLowerCase()} sophistication.`,
+      styleNotes: [
+        'Lead with your dominant color in headers and key visuals',
+        'Use the lightest shade for backgrounds to create breathing room',
+        'Accent sparingly with your deepest tone for maximum impact',
+        'Pair fonts intentionallyâ€”display for headlines, body for readability'
+      ],
+      logoText: vibe.name.split(' ')[0],
+      logoTagline: 'Curated Aesthetic'
+    };
+  }
+  
+  state.result = {
+    ...aiResult,
+    vibe,
+    fonts,
+    palette: vibe.colors
+  };
+  
+  // Increment usage
+  state.usageCount++;
+  localStorage.setItem('usageCount', state.usageCount.toString());
+  updateUsageUI();
+  
+  // Track generation
+  trackEvent('generate', { vibe: vibe.id });
+  
+  // Show email gate if not captured yet
+  if (!state.email) {
+    showModal('emailModal');
+  }
+  
+  renderResults();
+  showStage('resultStage');
+  
+  // Celebration confetti
+  createConfetti();
+}
+
+// â•â• EMAIL CAPTURE â•â•
+async function submitEmail() {
+  const email = $('emailInput').value.trim();
+  if (!email || !email.includes('@')) {
+    $('emailInput').style.borderColor = '#ef4444';
+    return;
+  }
+  
+  state.email = email;
+  localStorage.setItem('userEmail', email);
+  
+  try {
+    await fetch(`${API_BASE}/subscribe`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        visitorId: state.visitorId,
+        source: 'result_modal',
+        referredBy: localStorage.getItem('referredBy') || null
+      })
+    });
+  } catch {}
+  
+  closeModal('emailModal');
+  showToast('Welcome! Your aesthetic is ready.', 'success');
+  trackEvent('email_signup', { source: 'result_modal' });
+}
+
+async function submitExitEmail() {
+  const email = $('exitEmailInput').value.trim();
+  if (!email || !email.includes('@')) {
+    $('exitEmailInput').style.borderColor = '#ef4444';
+    return;
+  }
+  
+  state.email = email;
+  localStorage.setItem('userEmail', email);
+  
+  try {
+    await fetch(`${API_BASE}/subscribe`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        visitorId: state.visitorId,
+        source: 'exit_intent',
+        discount: '60%',
+        referredBy: localStorage.getItem('referredBy') || null
+      })
+    });
+  } catch {}
+  
+  closeModal('exitModal');
+  showToast('ðŸŽ‰ 60% discount code sent to your email!', 'success');
+  trackEvent('email_signup', { source: 'exit_intent' });
+}
+
+async function subscribePro() {
+  trackEvent('subscribe_click', { tier: state.selectedTier });
+  
+  try {
+    const response = await fetch(`${API_BASE}/checkout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tier: state.selectedTier,
+        visitorId: state.visitorId,
+        email: state.email
+      })
+    });
+    
+    const { url } = await response.json();
+    if (url) {
+      window.location.href = url;
+    }
+  } catch {
+    showToast('Opening checkout...', 'success');
+  }
+}
+
+// â•â• SHARING â•â•
+function shareTwitter() {
+  const text = `Just discovered my aesthetic is "${state.result.headline}" âœ¨\n\nFind yours free at aestheticai.app/?ref=${state.visitorId}`;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
+  markAsShared();
+}
+
+function shareTikTok() {
+  copyShareLink();
+  showToast('Link copied! Paste in TikTok caption', 'success');
+  markAsShared();
+}
+
+function copyShareLink() {
+  const link = `https://aestheticai.app/?ref=${state.visitorId}`;
+  navigator.clipboard?.writeText(link);
+  showToast('Share link copied!', 'success');
+  markAsShared();
+}
+
+async function markAsShared() {
+  state.hasShared = true;
+  localStorage.setItem('hasShared', 'true');
+  
+  document.querySelectorAll('.social-btn.locked').forEach(btn => {
+    btn.classList.remove('locked');
+  });
+  
+  $('shareUnlockCard').style.display = 'none';
+  $('watermarkNotice').textContent = 'ðŸŽ‰ Watermark-free unlocked!';
+  
+  try {
+    await fetch(`${API_BASE}/share`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ visitorId: state.visitorId })
+    });
+  } catch {}
+  
+  trackEvent('share_complete');
+}
+
+function copyReferralLink() {
+  const link = $('referralLink').value;
+  navigator.clipboard?.writeText(link);
+  showToast('Referral link copied!', 'success');
+}
+
+// â•â• RESULTS RENDERING â•â•
+function renderResults() {
+  const { result } = state;
+  const { vibe, fonts, palette } = result;
+  
+  // Update page theme with golden gradient
+  document.body.style.background = `linear-gradient(137.5deg, ${palette[4]} 0%, ${palette[3]} 38.2%, ${palette[2]}22 100%)`;
+  document.body.style.color = palette[0];
+  
+  // Transform photo
+  $('transformedImg').src = state.imageData;
+  $('transformedImg').style.filter = vibe.filter;
+  $('filterOverlay').style.background = vibe.overlay;
+  
+  // Main card
+  $('resultHeadline').textContent = result.headline;
+  $('resultHeadline').style.fontFamily = `'${fonts.display}', serif`;
+  $('resultTagline').textContent = result.tagline;
+  $('resultTagline').style.fontFamily = `'${fonts.body}', sans-serif`;
+  
+  // Palette with golden spacing
+  $('paletteRow').innerHTML = palette.map(color => `
+    <div class="palette-swatch" style="background:${color}" onclick="copyColor('${color}')">
+      <span class="hex">${color}</span>
+    </div>
+  `).join('');
+  
+  // Fonts
+  $('fontsRow').innerHTML = `
+    <div class="font-sample">
+      <div class="font-preview" style="font-family:'${fonts.display}',serif">Aa</div>
+      <div class="font-name">${fonts.display}</div>
+      <div class="font-role">Headlines</div>
+    </div>
+    <div class="font-divider"></div>
+    <div class="font-sample">
+      <div class="font-preview" style="font-family:'${fonts.body}',sans-serif">Aa</div>
+      <div class="font-name">${fonts.body}</div>
+      <div class="font-role">Body Text</div>
+    </div>
+  `;
+  
+  renderLogo();
+  
+  // Style notes
+  $('styleList').innerHTML = result.styleNotes.map(note => `
+    <li><span class="style-bullet">âœ¦</span> ${note}</li>
+  `).join('');
+  
+  // Update card colors
+  document.querySelectorAll('.result-card').forEach(card => {
+    card.style.color = vibe.dark ? '#f0f0f0' : palette[0];
+    if (vibe.dark) card.classList.add('dark');
+  });
+  
+  // Social buttons
+  document.querySelectorAll('.social-btn').forEach(btn => {
+    btn.style.background = palette[3];
+    btn.style.color = palette[0];
+  });
+  
+  $('shareUnlockCard').style.display = state.hasShared ? 'none' : 'block';
+  
+  renderExport();
+}
+
+function renderLogo() {
+  const { result } = state;
+  const { palette, fonts } = result;
+  
+  // Golden ratio proportioned logo
+  const logoSvg = `
+    <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" class="logo-svg" onclick="downloadLogo()">
+      <defs>
+        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:${palette[4]}"/>
+          <stop offset="61.8%" style="stop-color:${palette[3]}"/>
+          <stop offset="100%" style="stop-color:${palette[2]}"/>
+        </linearGradient>
+      </defs>
+      <rect x="10" y="10" width="280" height="100" rx="13" fill="url(#logoGrad)" stroke="${palette[2]}" stroke-width="2"/>
+      <circle cx="40" cy="60" r="21" fill="${palette[1]}" opacity="0.25"/>
+      <circle cx="260" cy="60" r="13" fill="${palette[2]}" opacity="0.25"/>
+      <text x="150" y="55" text-anchor="middle" font-family="${fonts.display}, serif" font-size="28" font-weight="600" fill="${palette[0]}">
+        ${result.logoText || 'AESTHETIC'}
+      </text>
+      <text x="150" y="80" text-anchor="middle" font-family="${fonts.body}, sans-serif" font-size="12" fill="${palette[1]}" letter-spacing="3">
+        ${(result.logoTagline || 'CURATED STYLE').toUpperCase()}
+      </text>
+      <line x1="74" y1="92" x2="226" y2="92" stroke="${palette[2]}" stroke-width="1" opacity="0.382"/>
+    </svg>
+  `;
+  
+  $('logoContainer').innerHTML = `${logoSvg}<p class="logo-text">Click to download SVG</p>`;
+}
+
+// â•â• SOCIAL EXPORT â•â•
+function selectPlatform(platformId) {
+  const platform = SOCIAL_PLATFORMS.find(p => p.id === platformId);
+  
+  if (platform.premium && !state.isPro && !state.hasShared) {
+    showToast('Share to unlock this format! â†‘', '');
+    return;
+  }
+  
+  state.selectedPlatform = platformId;
+  
+  document.querySelectorAll('.social-btn').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.id === platformId);
+  });
+  
+  renderExport();
+}
+
+function renderExport() {
+  const platform = SOCIAL_PLATFORMS.find(p => p.id === state.selectedPlatform);
+  const { result, imageData } = state;
+  const { palette, fonts, vibe } = result;
+  
+  const canvas = $('exportCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  // Golden ratio scaled preview
+  const scale = Math.min(377 / platform.width, 610 / platform.height); // Fibonacci numbers
+  canvas.width = platform.width * scale;
+  canvas.height = platform.height * scale;
+  
+  canvas.dataset.actualWidth = platform.width;
+  canvas.dataset.actualHeight = platform.height;
+  
+  // Golden gradient background
+  const gradient = ctx.createLinearGradient(0, 0, canvas.width * PHI_INV, canvas.height);
+  gradient.addColorStop(0, palette[4]);
+  gradient.addColorStop(0.382, palette[3]);
+  gradient.addColorStop(1, palette[2] + '44');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = () => {
+    let imgSize, imgX, imgY;
+    
+    if (platform.id.includes('story') || platform.id === 'tiktok' || platform.id === 'pinterest') {
+      imgSize = canvas.width * PHI_INV; // Golden ratio sizing
+      imgX = (canvas.width - imgSize) / 2;
+      imgY = canvas.height * 0.1;
+    } else {
+      imgSize = canvas.height * 0.382; // Golden ratio
+      imgX = (canvas.width - imgSize) / 2;
+      imgY = canvas.height * 0.1;
+    }
+    
+    // Draw circular image
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(imgX + imgSize/2, imgY + imgSize/2, imgSize/2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.clip();
+    ctx.filter = vibe.filter;
+    ctx.drawImage(img, imgX, imgY, imgSize, imgSize);
+    ctx.filter = 'none';
+    ctx.restore();
+    
+    // Golden ratio border
+    ctx.strokeStyle = palette[2];
+    ctx.lineWidth = 3 * scale;
+    ctx.beginPath();
+    ctx.arc(imgX + imgSize/2, imgY + imgSize/2, imgSize/2, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // Text with golden positioning
+    let textY = imgY + imgSize + (canvas.height * 0.0618); // Ï†â»Â²
+    
+    ctx.fillStyle = palette[0];
+    ctx.font = `bold ${Math.round(24 * scale)}px "${fonts.display}", serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText(result.headline, canvas.width / 2, textY);
+    
+    textY += 30 * scale * PHI_INV;
+    ctx.fillStyle = palette[1];
+    ctx.font = `italic ${Math.round(14 * scale)}px "${fonts.body}", sans-serif`;
+    ctx.fillText(result.tagline, canvas.width / 2, textY);
+    
+    // Palette with golden spacing
+    textY += 40 * scale;
+    const swatchSize = 34 * scale; // Fibonacci
+    const gap = 8 * scale;
+    const totalWidth = (swatchSize * 5) + (gap * 4);
+    let swatchX = (canvas.width - totalWidth) / 2;
+    
+    palette.forEach(color => {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.roundRect(swatchX, textY, swatchSize, swatchSize, 8 * scale);
+      ctx.fill();
+      swatchX += swatchSize + gap;
+    });
+    
+    // Watermark
+    if (!state.hasShared && !state.isPro) {
+      ctx.fillStyle = palette[0];
+      ctx.globalAlpha = 0.5;
+      ctx.font = `bold ${Math.round(11 * scale)}px "Space Grotesk", sans-serif`;
+      ctx.fillText('Made with AestheticAI.app', canvas.width / 2, canvas.height - (21 * scale));
+      ctx.globalAlpha = 1;
+    }
+  };
+  img.src = imageData;
+}
+
+// â•â• DOWNLOADS â•â•
+function downloadExport() {
+  trackEvent('download', { platform: state.selectedPlatform });
+  
+  const canvas = $('exportCanvas');
+  const link = document.createElement('a');
+  link.download = `aesthetic-${state.result.vibe.id}-${state.selectedPlatform}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function downloadLogo() {
+  const svg = $('logoContainer').querySelector('.logo-svg');
+  const svgData = new XMLSerializer().serializeToString(svg);
+  const blob = new Blob([svgData], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  
+  const link = document.createElement('a');
+  link.download = `logo-${state.result.vibe.id}.svg`;
+  link.href = url;
+  link.click();
+  
+  URL.revokeObjectURL(url);
+  trackEvent('download_logo');
+}
+
+function copyColor(color) {
+  navigator.clipboard?.writeText(color);
+  showToast(`Copied ${color}!`);
+}
+
+function copyResults() {
+  const { result } = state;
+  const text = `My Aesthetic: ${result.headline}
+${result.tagline}
+
+ðŸŽ¨ Palette: ${result.palette.join(' ')}
+âœï¸ Fonts: ${result.fonts.display} + ${result.fonts.body}
+
+${result.styleNotes.map(n => 'âœ¦ ' + n).join('\n')}
+
+Generated by Aesthetic AI âœ¦ aestheticai.app`;
+  
+  navigator.clipboard?.writeText(text);
+  showToast('Copied to clipboard!');
+}
+
+// â•â• RESET â•â•
+function resetApp() {
+  if (!state.isPro && state.usageCount >= state.maxFreeUsage) {
+    showPremiumModal();
+    return;
+  }
+  
+  state.imageData = null;
+  state.selectedVibe = null;
+  state.result = null;
+  state.selectedPlatform = 'instagram-post';
+  
+  document.body.style.background = '';
+  document.body.style.color = '';
+  $('fileInput').value = '';
+  $('previewImg').style.filter = '';
+  $('previewOverlay').style.background = '';
+  $('generateBtn').disabled = true;
+  
+  document.querySelectorAll('.vibe-btn').forEach(btn => btn.classList.remove('selected'));
+  document.querySelectorAll('.result-card').forEach(card => card.classList.remove('dark'));
+  
+  showStage('uploadStage');
+  updateUsageUI();
+}
+
+// â•â• UTILITIES â•â•
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function showToast(message, type = '') {
+  const toast = $('toast');
+  $('toastText').textContent = message;
+  toast.className = 'toast show' + (type ? ` ${type}` : '');
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2618); // Golden timing
+}
+
+function createConfetti() {
+  const colors = state.result.palette;
+  for (let i = 0; i < 55; i++) { // Fibonacci
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = `${Math.random() * 100}%`;
+    confetti.style.top = '50%';
+    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    confetti.style.width = `${5 + Math.random() * 8}px`;
+    confetti.style.height = confetti.style.width;
+    confetti.style.animation = `confettiFall ${1618 + Math.random() * 1000}ms ease-out forwards`;
+    confetti.style.animationDelay = `${i * 34}ms`; // Fibonacci
+    document.body.appendChild(confetti);
+    
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
+
+function trackEvent(event, data = {}) {
+  // Send to backend analytics
+  fetch(`${API_BASE}/track`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      event,
+      data,
+      visitorId: state.visitorId,
+      timestamp: Date.now()
+    })
+  }).catch(() => {});
+}
+
+// â•â• START â•â•
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
