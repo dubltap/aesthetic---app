@@ -1,0 +1,258 @@
+—<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Aesthetic AI — Discover Your Visual Identity | dubltap.io</title>
+  <meta name="description" content="Aesthetic AI is a free AI-powered visual identity generator. Upload a photo, choose your vibe, and get your complete aesthetic package — color palette, fonts, logo direction, and social-media-ready content — in 60 seconds.">
+  <link rel="canonical" href="https://aesthetic.dubltap.io/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About Aesthetic AI — Discover Your Visual Identity">
+  <meta property="og:description" content="Free AI aesthetic generator. Your personalized color palette, fonts, logo direction, and social content in 60 seconds. No design experience needed.">
+  <meta property="og:image" content="https://aesthetic.dubltap.io/og-image.png">
+  <meta property="og:url" content="https://aesthetic.dubltap.io/about.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aesthetic AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Aesthetic AI — Visual Identity Generator">
+  <meta name="twitter:description" content="Your complete aesthetic package in 60 seconds. Free.">
+  <meta name="twitter:image" content="https://aesthetic.dubltap.io/og-image.png">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "About Aesthetic AI: Free AI-Powered Visual Identity Generator",
+    "description": "Aesthetic AI is a free AI tool that generates a complete visual identity package — color palette, fonts, logo direction, and social media content — personalized to your unique aesthetic in under 60 seconds.",
+    "image": "https://aesthetic.dubltap.io/og-image.png",
+    "author": {"@type": "Organization", "name": "dubltap.io", "url": "https://dubltap.io"},
+    "publisher": {"@type": "Organization", "name": "dubltap.io", "logo": {"@type": "ImageObject", "url": "https://dubltap.io/dubltap-mascot.png"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://aesthetic.dubltap.io/about.html"},
+    "datePublished": "2026-02-23",
+    "dateModified": "2026-02-23",
+    "keywords": "AI aesthetic generator, visual identity AI, color palette generator AI, brand aesthetic AI, free aesthetic tool, social media aesthetic, personal brand AI, aesthetic mood board"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f0a14;
+      --bg-card: #1a1124;
+      --pink-500: #ec4899;
+      --pink-400: #f472b6;
+      --violet-500: #8b5cf6;
+      --violet-400: #a78bfa;
+      --gold-400: #fbbf24;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.85);
+      --text-muted: rgba(255,255,255,0.6);
+      --gradient-aesthetic: linear-gradient(135deg, #ec4899, #8b5cf6, #6366f1);
+      --radius-lg: 13px;
+      --radius-full: 9999px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.7; }
+    .header { padding: 16px 24px; border-bottom: 1px solid rgba(236,72,153,0.15); display: flex; align-items: center; justify-content: space-between; background: rgba(15,10,20,0.85); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+    .logo-text { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: 0.5px; background: var(--gradient-aesthetic); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--pink-400); }
+    .btn-cta { padding: 10px 22px; background: var(--gradient-aesthetic); color: white; border-radius: var(--radius-full); text-decoration: none; font-weight: 700; font-size: 14px; }
+    .hero { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; text-align: center; }
+    .hero-badge { display: inline-block; background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.3); color: var(--pink-400); border-radius: var(--radius-full); padding: 6px 18px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 54px); font-weight: 700; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .hero h1 em { background: var(--gradient-aesthetic); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-style: normal; }
+    .hero p { font-size: 18px; color: var(--text-secondary); max-width: 620px; margin: 0 auto 36px; }
+    .content { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; }
+    .section { margin-bottom: 56px; }
+    .section h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; margin-bottom: 18px; letter-spacing: -0.3px; }
+    .section h2 .accent { color: var(--pink-400); }
+    .section p { font-size: 16px; color: var(--text-secondary); margin-bottom: 16px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 24px; }
+    .feature-card { background: var(--bg-card); border: 1px solid rgba(236,72,153,0.15); border-radius: var(--radius-lg); padding: 24px; }
+    .feature-card .icon { font-size: 32px; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+    .vibe-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .vibe-tag { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.3); color: var(--violet-400); border-radius: var(--radius-full); padding: 6px 16px; font-size: 14px; font-weight: 500; }
+    .highlight-box { background: rgba(236,72,153,0.06); border: 1px solid rgba(236,72,153,0.2); border-radius: var(--radius-lg); padding: 28px; margin: 28px 0; }
+    .steps { counter-reset: step; list-style: none; }
+    .steps li { counter-increment: step; display: flex; gap: 20px; align-items: flex-start; margin-bottom: 24px; }
+    .steps li::before { content: counter(step); min-width: 40px; height: 40px; background: var(--gradient-aesthetic); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+    .steps li .step-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .steps li .step-content p { font-size: 15px; color: var(--text-muted); margin: 0; }
+    .email-section { background: linear-gradient(135deg, rgba(236,72,153,0.1), rgba(139,92,246,0.08)); border: 1px solid rgba(236,72,153,0.25); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-bottom: 56px; }
+    .email-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; margin-bottom: 12px; }
+    .email-section p { color: var(--text-secondary); margin-bottom: 28px; }
+    .email-form { display: flex; gap: 12px; max-width: 440px; margin: 0 auto; }
+    .email-form input { flex: 1; padding: 14px 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-full); color: white; font-size: 15px; outline: none; }
+    .email-form input:focus { border-color: var(--pink-400); }
+    .email-form button { padding: 14px 26px; background: var(--gradient-aesthetic); color: white; border: none; border-radius: var(--radius-full); font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+    .internal-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+    .internal-link { display: block; padding: 16px 20px; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); color: white; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; }
+    .internal-link:hover { border-color: rgba(236,72,153,0.4); background: rgba(236,72,153,0.07); color: var(--pink-400); }
+    .internal-link .link-icon { font-size: 20px; margin-bottom: 6px; display: block; }
+    .footer { text-align: center; padding: 24px; color: var(--text-muted); font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer a { color: var(--pink-400); text-decoration: none; }
+    @media (max-width: 600px) { .email-form { flex-direction: column; } .hero { padding: 48px 20px 40px; } }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo-text">✦ Aesthetic AI</div>
+  <nav class="nav-links">
+    <a href="https://aesthetic.dubltap.io">Try Free</a>
+    <a href="https://dubltap.io/blog">Blog</a>
+    <a href="https://dubltap.io">dubltap.io</a>
+    <a href="https://aesthetic.dubltap.io" class="btn-cta">Discover Your Aesthetic →</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">🎨 AI-Powered • Free Forever</div>
+  <h1>Your Complete Visual Identity,<br><em>Discovered in 60 Seconds.</em></h1>
+  <p>Aesthetic AI is the free AI tool that builds your complete visual identity package — color palette, typography, logo direction, and social-media-ready content — from a single photo and your vibe description.</p>
+  <a href="https://aesthetic.dubltap.io" class="btn-cta" style="font-size:16px; padding:14px 32px;">Discover My Aesthetic →</a>
+</section>
+
+<main class="content">
+  <article>
+
+    <section class="section">
+      <h2>What Is <span class="accent">Aesthetic AI</span>?</h2>
+      <p>Aesthetic AI is a free AI-powered visual identity generator that answers the question every creator, entrepreneur, and personal brand faces: "What does my visual style actually look like?" Instead of hiring a brand designer or spending weeks on Pinterest mood boards, you upload a photo (or describe your vibe in words) and Aesthetic AI delivers a complete, cohesive visual identity package in under 60 seconds.</p>
+      <p>Your package includes a customized color palette with hex codes, font pairings that match your personality, logo direction and style recommendations, and example social media layouts — all ready to use, save, and take to your designer or Canva template.</p>
+      <div class="highlight-box">
+        <p>✦ <strong>Every aesthetic is unique.</strong> Aesthetic AI doesn't pull from generic templates. It generates a visual identity built around you — your personality, your audience, your goals. The result is a brand aesthetic that actually feels like yours.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Who Is It <span class="accent">For?</span></h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon">💫</div>
+          <h3>Content Creators</h3>
+          <p>Build a recognizable visual identity across Instagram, TikTok, YouTube, and Substack — without a design budget.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🏪</div>
+          <h3>Small Business Owners</h3>
+          <p>Get a professional brand aesthetic for your shop, menu, packaging, or storefront in minutes instead of months.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎤</div>
+          <h3>Musicians &amp; Artists</h3>
+          <p>Translate your sound into a visual identity. Get color, type, and layout recommendations that match your creative energy.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🚀</div>
+          <h3>Founders &amp; Startups</h3>
+          <p>Need a brand direction before you can afford a designer? Get a full visual brief to hand off — or build yourself.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How It <span class="accent">Works</span></h2>
+      <ol class="steps">
+        <li>
+          <div class="step-content">
+            <h3>Upload a photo or describe your vibe</h3>
+            <p>Share a photo that represents your aesthetic — or describe it in words. "Dark academia meets coastal grandmother" is a totally valid input. The AI knows what to do with it.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h3>Choose your direction</h3>
+            <p>Refine with a few quick choices: Are you going minimal or maximalist? Corporate or creative? Warm tones or cool? These signals help the AI lock in your direction.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h3>Receive your complete aesthetic package</h3>
+            <p>In seconds, you get: a 5-color palette with hex codes, 2 font pairings, logo style direction, social media layout recommendations, and content tone guidelines — all in one place.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Aesthetic <span class="accent">Styles We Cover</span></h2>
+      <p>Aesthetic AI has been trained across hundreds of visual identity archetypes and style categories:</p>
+      <div class="vibe-tags">
+        <span class="vibe-tag">🌙 Dark Academia</span>
+        <span class="vibe-tag">🌊 Coastal Calm</span>
+        <span class="vibe-tag">🌿 Earthy Minimal</span>
+        <span class="vibe-tag">⚡ Bold Maximalist</span>
+        <span class="vibe-tag">🌸 Soft Romantic</span>
+        <span class="vibe-tag">🔥 Street &amp; Urban</span>
+        <span class="vibe-tag">🤍 Clean Luxury</span>
+        <span class="vibe-tag">🎨 Colorful Creative</span>
+        <span class="vibe-tag">🏙️ Corporate Modern</span>
+        <span class="vibe-tag">✨ Cottagecore</span>
+        <span class="vibe-tag">🖤 Monochrome Edge</span>
+        <span class="vibe-tag">+ hundreds more</span>
+      </div>
+    </section>
+
+  </article>
+
+  <div class="email-section">
+    <h2>✦ Get Your Free Aesthetic Report</h2>
+    <p>Subscribe and we'll send you a free personalized aesthetic analysis — plus weekly visual inspiration drops matched to your style.</p>
+    <form class="email-form" onsubmit="handleEmailSubmit(event)">
+      <input type="email" id="aboutEmail" placeholder="your@email.com" required>
+      <button type="submit">Get My Report</button>
+    </form>
+  </div>
+
+  <section class="section">
+    <h2>Explore <span class="accent">More Tools</span></h2>
+    <p>Aesthetic AI is one of 8 AI-powered apps in the dubltap.io ecosystem:</p>
+    <div class="internal-links">
+      <a href="https://fork.dubltap.io" class="internal-link"><span class="link-icon">🍴</span>Bad Mutha Forker</a>
+      <a href="https://hustle.dubltap.io" class="internal-link"><span class="link-icon">🚀</span>Side Hustle Copilot</a>
+      <a href="https://mind.dubltap.io" class="internal-link"><span class="link-icon">🧠</span>Mind Expander</a>
+      <a href="https://maven.dubltap.io" class="internal-link"><span class="link-icon">📊</span>Market Maven</a>
+      <a href="https://cliff.dubltap.io" class="internal-link"><span class="link-icon">📚</span>CLIFF NOTEZ</a>
+      <a href="https://vibe.dubltap.io" class="internal-link"><span class="link-icon">🎵</span>VibeCurate</a>
+      <a href="https://bizdev.dubltap.io" class="internal-link"><span class="link-icon">💼</span>Pro BizDev</a>
+      <a href="https://dubltap.io/blog" class="internal-link"><span class="link-icon">✍️</span>dubltap Blog</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p style="margin-bottom:8px;">
+    <a href="https://aesthetic.dubltap.io">Try the App</a> ·
+    <a href="https://dubltap.io/blog">Blog</a> ·
+    <a href="https://dubltap.io/privacy">Privacy</a> ·
+    <a href="https://dubltap.io/terms">Terms</a> ·
+    <a href="https://dubltap.io">dubltap.io</a>
+  </p>
+  <small style="opacity:0.5;">© 2026 dubltap.io LLC — All rights reserved.</small>
+</footer>
+
+<script>
+async function handleEmailSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('aboutEmail').value;
+  try {
+    await fetch('https://api.dubltap.io/api/email-capture', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email, source: 'aesthetic-about', tags: ['aesthetic-user', 'about-page']})
+    });
+  } catch {}
+  document.querySelector('.email-form').innerHTML = '<p style="color:#f472b6;font-weight:700;font-size:18px;">✦ Your aesthetic report is on the way!</p>';
+  setTimeout(() => { window.location.href = 'https://aesthetic.dubltap.io'; }, 2000);
+}
+</script>
+</body>
+</html>
