@@ -800,7 +800,6 @@
             <input class="email-input" id="emailInput" type="email" placeholder="your@email.com">
             <button class="email-submit" onclick="submitEmail()">Join Free →</button>
           </div>
-          <button class="email-dismiss" onclick="dismissEmail()">Continue without saving</button>
         </div>
 
         <!-- Cross-sell -->
@@ -823,6 +822,18 @@
 
   <!-- Toast -->
   <div class="toast" id="toast"></div>
+
+    <!-- Email Gate Modal -->
+      <div class="modal-overlay" id="emailModal">
+          <div class="modal">
+                <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1rem;">Unlock Your Results</h3>
+                      <p style="color:rgba(240,237,232,0.6);margin-bottom:1.5rem;">Enter your email to see your AI-generated creative assets.</p>
+                            <div class="email-row" style="max-width:420px;margin:0 auto;">
+                                    <input class="email-input" id="emailModalInput" type="email" placeholder="your@email.com">
+                                            <button class="email-submit" onclick="submitEmail('modal')">Get Results →</button>
+                                                  </div>
+                                                      </div>
+                                                        </div>-->
 <script>
 // ═══════════════════════════════════════════════════════════
 // AESTHETIC AI v2 — CREATIVE SHOWCASE STUDIO
@@ -1050,6 +1061,12 @@ async function pressGroovyButton() {
   localStorage.setItem('ae_usage', state.usageCount.toString());
 
   // Apply behavior-specific reveal
+
+    // Email gate — require email before showing results
+      if (!state.email) {
+          $('emailModal').classList.add('active');
+              return;
+                }
   showStage('resultStage');
   renderResults();
 
@@ -1764,23 +1781,38 @@ function renderCrossSell(type) {
 }
 
 // ── EMAIL CAPTURE ──
-async function submitEmail() {
-  const email = $('emailInput').value.trim();
-  if (!email || !email.includes('@')) { $('emailInput').style.borderColor = '#E76F51'; return; }
-  state.email = email;
-  localStorage.setItem('ae_email', email);
+async function submitEmail(source) {
+  const inputId = source === 'modal' ? 'emailModalInput' : 'emailInput';
+    const email = $(inputId).value.trim();
+      if (!email || !email.includes('@')) { $(inputId).style.borderColor = '#E76F51'; return; }
+        state.email = email;
+          localStorage.setItem('ae_email', email);
+          
+            try {
+                await fetch(`${API_BASE}/api/email-capture`, {
+                      method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({ email, source: 'aesthetic-ai', tags: ['aesthetic-ai', 'brand-studio'] })
+                                      });
+                                        } catch {}
+                                        
+                                          $('emailCard').style.display = 'none';
+                                          
+                                            // Close email gate modal if open
+                                              const modal = $('emailModal');
+                                                if (modal) modal.classList.remove('active');
 
-  try {
-    await fetch(`${API_BASE}/api/email-capture`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'aesthetic-ai', tags: ['aesthetic-ai', 'brand-studio'] })
-    });
-  } catch {}
-
-  $('emailCard').style.display = 'none';
-  showToast('✓ Saved! Check your inbox.');
-}
+                                                  // Show results after email capture
+                                                    if (state.result) {
+                                                        showStage('resultStage');
+                                                            renderResults();
+                                                              }
+                                                
+                                                  // Fire Reddit conversion pixel
+                                                    if (typeof rdt === 'function') rdt('track', 'Lead');
+                                                    
+                                                      showToast('✓ Saved! Check your inbox.');
+                                                      }}
 
 function dismissEmail() { $('emailCard').style.display = 'none'; }
 
