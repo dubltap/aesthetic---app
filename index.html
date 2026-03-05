@@ -3,3016 +3,1704 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aesthetic AI - Discover Your Visual Identity</title>
-  <meta name="description" content="AI-powered aesthetic generator. Get your personalized color palette, fonts, logo, and social media ready content in 60 seconds.">
-  <meta property="og:title" content="Aesthetic AI - Discover Your Visual Identity">
-  <meta property="og:description" content="Upload a photo, choose your vibe, get your complete aesthetic package. Free.">
-  <meta property="og:image" content="https://aesthetic.dublthap.io/og-image.png">
+  <title>Aesthetic AI — Make It Real</title>
+  <meta name="description" content="AI-powered creative studio. Brand identity, music release pages, art showcases, editorial layouts. 60 seconds. Free.">
+  <meta property="og:title" content="Aesthetic AI — Make It Real">
+  <meta property="og:description" content="Your creative identity. Business cards, album covers, gallery pages, website mockups. 60 seconds. Free.">
+  <meta property="og:image" content="https://aesthetic.dubltap.io/og-image.png">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aesthetic.dubltap.io/">
   <meta name="twitter:card" content="summary_large_image">
-      <link rel="canonical" href="https://aesthetic.dubltap.io/" />
-      <meta property="og:url" content="https://aesthetic.dubltap.io/" />
+  <link rel="canonical" href="https://aesthetic.dubltap.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600&family=Orbitron:wght@500;600;700;800&family=Space+Mono:wght@400;700&family=Bodoni+Moda:ital,wght@0,400;0,600;1,400&family=Cormorant:wght@400;500;600&family=Italiana&family=Raleway:wght@300;400;500&family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3QEKJFSR0"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y3QEKJFSR0');</script>
+  <!-- Reddit Pixel -->
+  <script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js";t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_ika3zz1e2bhy');rdt('track','PageVisit');</script>
   <style>
-    /*
-     * ???????????????????????????????????????????????????????????????
-     * GOLDEN RATIO DESIGN SYSTEM - φ (Phi) = 1.618033988749895
-     * ???????????????????????????????????????????????????????????????
-     * 
-     * All proportions, spacing, typography, and timing follow φ
-     * Creating natural visual harmony and resonance
-     */
-    
+    /* ═══════════════════════════════════════════════
+       GOLDEN RATIO DESIGN SYSTEM — φ = 1.618
+       ═══════════════════════════════════════════════ */
     :root {
-      /* ?? GOLDEN RATIO CONSTANTS ?? */
-      --phi: 1.618033988749895;
-      --phi-inv: 0.618033988749895;  /* 1/φ */
-      --phi-sq: 2.618033988749895;   /* φ² */
-      --phi-cu: 4.236067977499790;   /* φ³ */
-      
-      /* ?? GOLDEN RATIO TYPOGRAPHY SCALE ?? 
-         Base: 16px, multiplied by φ^n */
-      --text-xs: 9.889px;      /* 16 ÷ φ */
-      --text-sm: 12.944px;     /* 16 ÷ φ^0.5 */
-      --text-base: 16px;       /* Base */
-      --text-lg: 20.944px;     /* 16 × φ^0.5 */
-      --text-xl: 25.888px;     /* 16 × φ */
-      --text-2xl: 33.889px;    /* 16 × φ^1.5 */
-      --text-3xl: 41.888px;    /* 16 × φ² */
-      --text-4xl: 54.833px;    /* 16 × φ^2.5 */
-      --text-5xl: 67.777px;    /* 16 × φ³ */
-      --text-6xl: 88.722px;    /* 16 × φ^3.5 */
-      
-      /* ?? GOLDEN RATIO SPACING SCALE ?? */
-      --space-3xs: 3px;        /* 8 ÷ φ² */
-      --space-2xs: 5px;        /* 8 ÷ φ */
-      --space-xs: 8px;         /* Base unit */
-      --space-sm: 13px;        /* 8 × φ */
-      --space-md: 21px;        /* 8 × φ² */
-      --space-lg: 34px;        /* 8 × φ³ - Fibonacci! */
-      --space-xl: 55px;        /* 8 × φ  - Fibonacci! */
-      --space-2xl: 89px;       /* Fibonacci */
-      --space-3xl: 144px;      /* Fibonacci */
-      
-      /* ?? GOLDEN RATIO ANIMATION TIMING ?? */
-      --duration-fast: 161.8ms;
-      --duration-base: 261.8ms;
-      --duration-slow: 423.6ms;
-      --duration-slower: 685.4ms;
-      --duration-slowest: 1109ms;
-      
-      /* ?? GOLDEN SPIRAL BEZIER CURVE ?? 
-         Derived from golden ratio control points */
-      --ease-golden: cubic-bezier(0.382, 0, 0.618, 1);
-      --ease-golden-in: cubic-bezier(0.618, 0, 1, 0.382);
-      --ease-golden-out: cubic-bezier(0, 0.618, 0.382, 1);
-      --ease-golden-bounce: cubic-bezier(0.382, 1.618, 0.618, 1);
-      
-      /* ?? GOLDEN RATIO COLOR LUMINANCE ?? 
-         Colors spaced by φ in luminance */
-      --lum-1: 6.18%;
-      --lum-2: 10%;
-      --lum-3: 16.18%;
-      --lum-4: 26.18%;
-      --lum-5: 42.36%;
-      --lum-6: 68.54%;
-      --lum-7: 85%;
-      --lum-8: 93.82%;
-      
-      /* ?? BASE COLORS (Enhanced Vibrancy) ?? */
-      --bg-primary: oklch(10% 0.02 280);
-      --bg-secondary: oklch(16.18% 0.04 280);
-      --bg-tertiary: oklch(26.18% 0.06 260);
-      --text-primary: oklch(96% 0.01 280);
-      --text-secondary: oklch(85% 0.02 280);
-      
-      /* ?? ACCENT COLORS (Golden Angle Hues: 137.5°) ?? */
-      --accent-violet: oklch(68.54% 0.18 280);
-      --accent-rose: oklch(68.54% 0.20 350);
-      --accent-gold: oklch(75% 0.16 85);
-      --accent-emerald: oklch(72% 0.17 155);
-      --accent-cyan: oklch(75% 0.14 195);
-      
-      /* ?? GOLDEN RATIO BORDER RADIUS ?? */
-      --radius-sm: 5px;
-      --radius-md: 8px;
-      --radius-lg: 13px;
-      --radius-xl: 21px;
-      --radius-2xl: 34px;
-      --radius-full: 9999px;
-      
-      /* ?? GOLDEN RATIO SHADOWS ?? */
-      --shadow-sm: 0 2px 3px oklch(0% 0 0 / 0.1);
-      --shadow-md: 0 3px 8px oklch(0% 0 0 / 0.12), 0 2px 3px oklch(0% 0 0 / 0.08);
-      --shadow-lg: 0 8px 21px oklch(0% 0 0 / 0.15), 0 3px 8px oklch(0% 0 0 / 0.1);
-      --shadow-xl: 0 13px 34px oklch(0% 0 0 / 0.18), 0 8px 13px oklch(0% 0 0 / 0.12);
-      --shadow-2xl: 0 21px 55px oklch(0% 0 0 / 0.22), 0 13px 21px oklch(0% 0 0 / 0.15);
-      --shadow-glow: 0 0 34px oklch(68.54% 0.18 280 / 0.4);
+      --phi: 1.618;
+      --text-xs: 10px; --text-sm: 13px; --text-base: 16px;
+      --text-lg: 21px; --text-xl: 26px; --text-2xl: 34px;
+      --text-3xl: 42px; --text-4xl: 55px; --text-5xl: 68px;
+      --text-hero: 88px;
+      --space-3xs: 3px; --space-2xs: 5px; --space-xs: 8px;
+      --space-sm: 13px; --space-md: 16px; --space-lg: 26px;
+      --space-xl: 42px; --space-2xl: 68px; --space-3xl: 110px;
+      --radius-sm: 8px; --radius-md: 13px; --radius-lg: 21px; --radius-xl: 34px;
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.18);
+      --shadow-xl: 0 16px 64px rgba(0,0,0,0.22);
+      --shadow-glow: 0 0 60px rgba(244,162,97,0.15);
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --dur-fast: 0.2s; --dur-base: 0.4s; --dur-slow: 0.8s; --dur-theatrical: 1.6s;
     }
-    
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
-    
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      background: linear-gradient(
-        137.5deg, /* Golden angle! */
-        var(--bg-primary) 0%,
-        var(--bg-secondary) 38.2%,
-        var(--bg-tertiary) 100%
-      );
-      color: var(--text-primary);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0a0a0f;
+      color: #f0ede8;
       min-height: 100vh;
       overflow-x: hidden;
-      line-height: var(--phi);
-      letter-spacing: -0.01em;
+      -webkit-font-smoothing: antialiased;
     }
-    
-    /* ?? GOLDEN RATIO CONTAINER ?? */
-    .container {
-      max-width: 809px; /* 500 × φ */
-      margin: 0 auto;
-      padding: var(--space-xl) var(--space-lg);
-      position: relative;
-      z-index: 1;
+
+    /* ── AMBIENT BACKGROUND ── */
+    .ambient-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(244,162,97,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(42,157,143,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(231,111,81,0.03) 0%, transparent 50%);
     }
-    
-    /* ?? GOLDEN SPIRAL BACKGROUND ?? */
-    .golden-spiral-bg {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.618;
-      overflow: hidden;
+    .grain-overlay {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
     }
-    
-    .spiral-arc {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid oklch(100% 0 0 / 0.03);
-      animation: spiralPulse var(--duration-slowest) var(--ease-golden) infinite;
-    }
-    
-    @keyframes spiralPulse {
-      0%, 100% { opacity: 0.618; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.0618); }
-    }
-    
-    /* Generate Fibonacci spiral arcs */
-    .spiral-arc:nth-child(1) { width: 89px; height: 89px; top: 61.8%; left: 61.8%; animation-delay: 0ms; }
-    .spiral-arc:nth-child(2) { width: 144px; height: 144px; top: 55%; left: 55%; animation-delay: 161.8ms; }
-    .spiral-arc:nth-child(3) { width: 233px; height: 233px; top: 45%; left: 45%; animation-delay: 323.6ms; }
-    .spiral-arc:nth-child(4) { width: 377px; height: 377px; top: 30%; left: 30%; animation-delay: 485.4ms; }
-    .spiral-arc:nth-child(5) { width: 610px; height: 610px; top: 10%; left: 10%; animation-delay: 647.2ms; }
-    .spiral-arc:nth-child(6) { width: 987px; height: 987px; top: -15%; left: -15%; animation-delay: 809ms; }
-    
-    /* ?? FLOATING ORBS (Golden positioned) ?? */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle at 38.2% 38.2%, /* Golden ratio position */
-        oklch(100% 0 0 / 0.08) 0%,
-        transparent 61.8%
-      );
-      animation: orbFloat var(--duration-slowest) var(--ease-golden) infinite;
-      filter: blur(1px);
-    }
-    
-    @keyframes orbFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-      38.2% { transform: translateY(-21px) rotate(8deg) scale(1.0618); }
-      61.8% { transform: translateY(-34px) rotate(-5deg) scale(0.9382); }
-    }
-    
-    .orb:nth-child(1) { width: 144px; height: 144px; top: 10%; left: 5%; animation-duration: 6180ms; }
-    .orb:nth-child(2) { width: 233px; height: 233px; top: 30%; right: 10%; animation-duration: 10000ms; animation-delay: 618ms; }
-    .orb:nth-child(3) { width: 89px; height: 89px; bottom: 20%; left: 15%; animation-duration: 8090ms; animation-delay: 1000ms; }
-    .orb:nth-child(4) { width: 377px; height: 377px; bottom: 5%; right: 5%; animation-duration: 13090ms; animation-delay: 1618ms; opacity: 0.3; }
-    
-    /* ?? ANNOUNCEMENT BAR ?? */
-    .announcement-bar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: linear-gradient(
-        90deg,
-        var(--accent-violet) 0%,
-        var(--accent-rose) 61.8%,
-        var(--accent-violet) 100%
-      );
-      background-size: 200% 100%;
-      animation: shimmerGold 4236ms linear infinite;
-      color: white;
-      padding: var(--space-sm) var(--space-lg);
-      text-align: center;
-      font-size: var(--text-sm);
-      font-weight: 500;
-      z-index: 1000;
-      cursor: pointer;
-      transition: transform var(--duration-base) var(--ease-golden);
-      box-shadow: var(--shadow-md);
-    }
-    
-    @keyframes shimmerGold {
-      0% { background-position: 200% center; }
-      100% { background-position: -200% center; }
-    }
-    
-    .announcement-bar:hover {
-      transform: scale(1.01);
-    }
-    
-    .announcement-bar .highlight {
-      background: oklch(100% 0 0 / 0.2);
-      padding: var(--space-3xs) var(--space-sm);
-      border-radius: var(--radius-sm);
-      margin-left: var(--space-xs);
-      font-weight: 600;
-    }
-    
-    body.has-announcement {
-      padding-top: 44px;
-    }
-    
-    /* ?? HEADER ?? */
-    header {
-      text-align: center;
-      margin-bottom: var(--space-xl);
-      animation: fadeSlideUp var(--duration-slow) var(--ease-golden-out);
-    }
-    
-    @keyframes fadeSlideUp {
-      from { 
-        opacity: 0; 
-        transform: translateY(var(--space-lg)); 
-        filter: blur(4px);
-      }
-      to { 
-        opacity: 1; 
-        transform: translateY(0); 
-        filter: blur(0);
-      }
-    }
-    
-    .tagline {
-      font-size: var(--text-sm);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      opacity: 0.618;
-      margin-bottom: var(--space-sm);
-      font-weight: 500;
-    }
-    
-    h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(var(--text-3xl), 8vw, var(--text-5xl));
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      background: linear-gradient(
-        137.5deg,
-        oklch(98% 0.01 280) 0%,
-        var(--accent-violet) 38.2%,
-        var(--accent-rose) 61.8%,
-        var(--accent-gold) 100%
-      );
-      background-size: 300% 300%;
-      animation: gradientShift 6180ms ease infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    
-    .subtitle {
-      font-size: var(--text-lg);
-      opacity: 0.8;
-      margin-top: var(--space-sm);
-      font-weight: 300;
-      letter-spacing: 0.01em;
-    }
-    
-    /* ?? SOCIAL PROOF ?? */
-    .social-proof {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-      flex-wrap: wrap;
-    }
-    
-    .proof-item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      font-size: var(--text-sm);
-      opacity: 0.75;
-    }
-    
-    .proof-avatars {
-      display: flex;
-    }
-    
-    .proof-avatar {
-      width: var(--space-lg);
-      height: var(--space-lg);
-      border-radius: var(--radius-full);
-      border: 2px solid var(--bg-primary);
-      margin-left: calc(var(--space-xs) * -1);
-      background: linear-gradient(137.5deg, var(--accent-violet), var(--accent-rose));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: var(--text-xs);
-      font-weight: 600;
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .proof-avatar:first-child {
-      margin-left: 0;
-    }
-    
-    .proof-stars {
-      color: var(--accent-gold);
-      letter-spacing: 2px;
-    }
-    
-    /* ?? STAGE CONTAINERS ?? */
+
+    /* ── MAIN CONTAINER ── */
+    .app { position: relative; z-index: 2; }
+
+    /* ── STAGES ── */
     .stage {
-      display: none;
-      animation: fadeSlideUp var(--duration-slow) var(--ease-golden-out);
-    }
-    
-    .stage.active {
-      display: block;
-    }
-    
-    /* ?? UPLOAD AREA ?? */
-    .upload-area {
-      border: 2px dashed oklch(100% 0 0 / 0.25);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-2xl) var(--space-xl);
-      text-align: center;
-      cursor: pointer;
-      transition: all var(--duration-base) var(--ease-golden);
-      background: oklch(100% 0 0 / 0.02);
-      backdrop-filter: blur(8px);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .upload-area::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(
-        137.5deg,
-        oklch(68.54% 0.18 280 / 0) 0%,
-        oklch(68.54% 0.18 280 / 0.05) 100%
-      );
-      opacity: 0;
-      transition: opacity var(--duration-base) var(--ease-golden);
-    }
-    
-    .upload-area:hover {
-      border-color: oklch(100% 0 0 / 0.5);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-    }
-    
-    .upload-area:hover::before {
-      opacity: 1;
-    }
-    
-    .upload-icon {
-      font-size: var(--text-4xl);
-      margin-bottom: var(--space-md);
-      display: block;
-      animation: gentleBounce 2618ms var(--ease-golden) infinite;
-    }
-    
-    @keyframes gentleBounce {
-      0%, 100% { transform: translateY(0); }
-      38.2% { transform: translateY(-8px); }
-      61.8% { transform: translateY(-5px); }
-    }
-    
-    .upload-area h3 {
-      font-size: var(--text-xl);
-      font-weight: 600;
-      margin-bottom: var(--space-xs);
-    }
-    
-    .upload-area p {
-      opacity: 0.618;
-      font-size: var(--text-base);
-    }
-    
-    .free-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-      background: linear-gradient(137.5deg, var(--accent-emerald), oklch(65% 0.2 155));
-      color: white;
-      padding: var(--space-xs) var(--space-md);
-      border-radius: var(--radius-full);
-      font-size: var(--text-sm);
-      font-weight: 600;
-      margin-top: var(--space-md);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .privacy-note {
-      margin-top: var(--space-lg);
-      padding: var(--space-md);
-      background: oklch(100% 0 0 / 0.03);
-      border-radius: var(--radius-lg);
-      text-align: center;
-      font-size: var(--text-sm);
-      opacity: 0.618;
-    }
-    
-    /* ?? USAGE COUNTER ?? */
-    .usage-counter {
-      margin-top: var(--space-lg);
-      padding: var(--space-md) var(--space-lg);
-      background: oklch(100% 0 0 / 0.03);
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      backdrop-filter: blur(4px);
-    }
-    
-    .usage-text {
-      font-size: var(--text-sm);
-    }
-    
-    .usage-text strong {
-      color: var(--accent-violet);
-    }
-    
-    .usage-bar {
-      width: 89px; /* Fibonacci */
-      height: var(--space-xs);
-      background: oklch(100% 0 0 / 0.1);
-      border-radius: var(--radius-full);
-      overflow: hidden;
-    }
-    
-    .usage-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose));
-      border-radius: var(--radius-full);
-      transition: width var(--duration-slow) var(--ease-golden);
-    }
-    
-    /* ?? PHOTO PREVIEW ?? */
-    .photo-preview {
-      width: 144px; /* Fibonacci */
-      height: 144px;
-      margin: 0 auto var(--space-lg);
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid oklch(100% 0 0 / 0.2);
-      box-shadow: var(--shadow-xl);
-      position: relative;
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .photo-preview:hover {
-      transform: scale(1.0618);
-      box-shadow: var(--shadow-2xl), var(--shadow-glow);
-    }
-    
-    .photo-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: filter var(--duration-slow) var(--ease-golden);
-    }
-    
-    .photo-preview .overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      mix-blend-mode: overlay;
-      opacity: 0.5;
-    }
-    
-    /* ?? SECTION TITLE ?? */
-    .section-title {
-      text-align: center;
-      font-size: var(--text-xl);
-      font-weight: 600;
-      margin-bottom: var(--space-lg);
-      letter-spacing: -0.01em;
-    }
-    
-    /* ?? VIBE GRID ?? */
-    .vibe-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-sm);
-      margin-bottom: var(--space-lg);
-    }
-    
-    @media (min-width: 610px) { /* 377 × φ */
-      .vibe-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    
-    .vibe-btn {
-      padding: var(--space-md) var(--space-sm);
-      background: oklch(100% 0 0 / 0.03);
-      border: 2px solid transparent;
-      border-radius: var(--radius-xl);
-      cursor: pointer;
-      transition: all var(--duration-base) var(--ease-golden);
-      color: inherit;
-      font-family: inherit;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .vibe-btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(137.5deg, oklch(100% 0 0 / 0.05), transparent);
-      opacity: 0;
-      transition: opacity var(--duration-base) var(--ease-golden);
-    }
-    
-    .vibe-btn:hover {
-      background: oklch(100% 0 0 / 0.08);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .vibe-btn:hover::before {
-      opacity: 1;
-    }
-    
-    .vibe-btn.selected {
-      background: oklch(100% 0 0 / 0.12);
-      border-color: oklch(100% 0 0 / 0.4);
-      box-shadow: var(--shadow-lg), 0 0 21px oklch(68.54% 0.18 280 / 0.2);
-    }
-    
-    .vibe-btn.premium {
-      opacity: 0.618;
-    }
-    
-    .vibe-btn.premium::after {
-      content: '👑';
-      position: absolute;
-      top: var(--space-xs);
-      right: var(--space-xs);
-      font-size: var(--text-xs);
-    }
-    
-    .vibe-emoji {
-      font-size: var(--text-2xl);
-      margin-bottom: var(--space-xs);
-    }
-    
-    .vibe-name {
-      font-size: var(--text-xs);
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
-    
-    .vibe-colors {
-      display: flex;
-      justify-content: center;
-      gap: 3px;
-      margin-top: var(--space-xs);
-    }
-    
-    .vibe-color {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 1px solid oklch(100% 0 0 / 0.15);
-      transition: transform var(--duration-fast) var(--ease-golden);
-    }
-    
-    .vibe-btn:hover .vibe-color {
-      transform: scale(1.2);
-    }
-    
-    /* ?? PRIMARY BUTTON ?? */
-    .btn-primary {
-      width: 100%;
-      padding: var(--space-md) var(--space-lg);
-      font-size: var(--text-base);
-      font-weight: 600;
-      border: none;
-      border-radius: var(--radius-xl);
-      cursor: pointer;
-      background: linear-gradient(137.5deg, var(--accent-violet) 0%, var(--accent-rose) 100%);
-      color: white;
-      transition: all var(--duration-base) var(--ease-golden);
-      font-family: inherit;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-    }
-    
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%; right: 0; bottom: 0;
-      width: 200%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        oklch(100% 0 0 / 0.2),
-        transparent
-      );
-      transition: left var(--duration-slow) var(--ease-golden);
-    }
-    
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-    
-    .btn-primary:disabled {
-      opacity: 0.382;
-      cursor: not-allowed;
-    }
-    
-    .btn-primary:not(:disabled):hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-xl), var(--shadow-glow);
-    }
-    
-    .btn-primary:not(:disabled):active {
-      transform: translateY(-1px);
-    }
-    
-    /* ?? LOADING ?? */
-    .loading-container {
-      text-align: center;
-      padding: var(--space-2xl) var(--space-lg);
-    }
-    
-    .spinner {
-      width: 89px; /* Fibonacci */
-      height: 89px;
-      margin: 0 auto var(--space-lg);
-      border-radius: 50%;
-      border: 3px solid oklch(100% 0 0 / 0.1);
-      border-top-color: var(--accent-violet);
-      animation: goldenSpin 1618ms linear infinite;
-      position: relative;
-    }
-    
-    .spinner::after {
-      content: '';
-      position: absolute;
-      top: 8px; left: 8px; right: 8px; bottom: 8px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      border-top-color: var(--accent-rose);
-      animation: goldenSpin 1000ms linear infinite reverse;
-    }
-    
-    @keyframes goldenSpin {
-      to { transform: rotate(360deg); }
-    }
-    
-    .loading-text {
-      font-size: var(--text-lg);
-      font-weight: 500;
-      margin-bottom: var(--space-lg);
-      min-height: 27px;
-    }
-    
-    .progress-bar {
-      width: 100%;
-      height: var(--space-xs);
-      background: oklch(100% 0 0 / 0.1);
-      border-radius: var(--radius-full);
-      overflow: hidden;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose), var(--accent-gold));
-      background-size: 200% 100%;
-      animation: shimmerGold 1618ms linear infinite;
-      border-radius: var(--radius-full);
-      transition: width var(--duration-slow) var(--ease-golden);
-    }
-    
-    /* ?? RESULT CARDS ?? */
-    .result-card {
-      background: oklch(98% 0.005 280 / 0.95);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-lg);
-      margin-bottom: var(--space-md);
-      box-shadow: var(--shadow-xl);
-      color: oklch(15% 0.02 280);
-      backdrop-filter: blur(8px);
-      transition: all var(--duration-base) var(--ease-golden);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .result-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose), var(--accent-gold));
-      opacity: 0;
-      transition: opacity var(--duration-base) var(--ease-golden);
-    }
-    
-    .result-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-2xl);
-    }
-    
-    .result-card:hover::before {
-      opacity: 1;
-    }
-    
-    .result-card.dark {
-      background: oklch(12% 0.02 280 / 0.95);
-      color: oklch(92% 0.01 280);
-    }
-    
-    .card-label {
-      font-size: var(--text-xs);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: var(--space-sm);
-      font-weight: 500;
-    }
-    
-    /* ?? TRANSFORMED PHOTO ?? */
-    .transformed-photo-container {
-      text-align: center;
-      margin-bottom: var(--space-lg);
-    }
-    
-    .transformed-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      margin: 0 auto;
-      position: relative;
-      box-shadow: var(--shadow-xl);
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .transformed-photo:hover {
-      transform: scale(1.0618);
-    }
-    
-    .transformed-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .transformed-photo .filter-overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-    }
-    
-    /* ?? RESULT HEADLINE ?? */
-    .result-headline {
-      font-size: var(--text-2xl);
-      margin: 0 0 var(--space-xs);
-      text-align: center;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-    
-    .result-tagline {
-      font-size: var(--text-base);
-      text-align: center;
-      opacity: 0.618;
-      font-style: italic;
-      margin-bottom: var(--space-lg);
-      line-height: var(--phi);
-    }
-    
-    /* ?? PALETTE ?? */
-    .palette-row {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-sm);
-      margin-bottom: var(--space-lg);
-    }
-    
-    .palette-swatch {
-      width: 55px; /* Fibonacci */
-      height: 55px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-      position: relative;
-      cursor: pointer;
-      transition: all var(--duration-fast) var(--ease-golden-bounce);
-    }
-    
-    .palette-swatch:hover {
-      transform: scale(1.1618) translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .palette-swatch .hex {
-      position: absolute;
-      bottom: -22px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: var(--text-xs);
-      opacity: 0.5;
-      white-space: nowrap;
-      font-family: 'Space Mono', monospace;
-    }
-    
-    /* ?? FONTS DISPLAY ?? */
-    .fonts-row {
-      display: flex;
-      gap: var(--space-lg);
-      align-items: center;
-    }
-    
-    .font-sample {
-      flex: 1;
-      text-align: center;
-      padding: var(--space-md);
-    }
-    
-    .font-preview {
-      font-size: var(--text-3xl);
-      margin-bottom: var(--space-xs);
-      line-height: 1;
-    }
-    
-    .font-name {
-      font-size: var(--text-sm);
-      opacity: 0.8;
-      font-weight: 500;
-    }
-    
-    .font-role {
-      font-size: var(--text-xs);
-      opacity: 0.5;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: var(--space-3xs);
-    }
-    
-    .font-divider {
-      width: 1px;
-      height: 55px;
-      background: currentColor;
-      opacity: 0.15;
-    }
-    
-    /* ?? LOGO DISPLAY ?? */
-    .logo-container {
-      text-align: center;
-      padding: var(--space-lg);
-      background: oklch(0% 0 0 / 0.03);
-      border-radius: var(--radius-lg);
-    }
-    
-    .logo-svg {
-      max-width: 233px; /* Fibonacci */
-      height: auto;
-      margin-bottom: var(--space-md);
-      cursor: pointer;
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .logo-svg:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 8px 21px oklch(0% 0 0 / 0.15));
-    }
-    
-    .logo-text {
-      font-size: var(--text-sm);
-      opacity: 0.5;
-    }
-    
-    /* ?? STYLE NOTES ?? */
-    .style-list {
-      list-style: none;
-    }
-    
-    .style-list li {
-      padding: var(--space-sm) 0;
-      border-bottom: 1px solid oklch(0% 0 0 / 0.06);
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-sm);
-      font-size: var(--text-sm);
-      line-height: var(--phi);
-    }
-    
-    .style-list li:last-child {
-      border-bottom: none;
-    }
-    
-    .style-bullet {
-      opacity: 0.382;
-      flex-shrink: 0;
-    }
-    
-    /* ?? SOCIAL EXPORT ?? */
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-sm);
-    }
-    
-    @media (min-width: 610px) {
-      .social-grid {
-        grid-template-columns: repeat(6, 1fr);
-      }
-    }
-    
-    .social-btn {
-      padding: var(--space-md) var(--space-sm);
-      border-radius: var(--radius-lg);
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: all var(--duration-base) var(--ease-golden);
-      font-family: inherit;
-      font-size: var(--text-xs);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-xs);
-      position: relative;
-    }
-    
-    .social-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .social-btn.selected {
-      border-color: currentColor;
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .social-btn.locked {
-      opacity: 0.382;
-    }
-    
-    .social-btn.locked::after {
-      content: '🔒';
-      position: absolute;
-      top: var(--space-3xs);
-      right: var(--space-3xs);
-      font-size: var(--text-xs);
-    }
-    
-    .social-icon {
-      font-size: var(--text-xl);
-    }
-    
-    /* ?? PREVIEW CANVAS ?? */
-    .preview-area {
-      margin-top: var(--space-md);
-      text-align: center;
-    }
-    
-    .preview-canvas-container {
-      display: inline-block;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-xl);
-      max-width: 100%;
-      position: relative;
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .preview-canvas-container:hover {
-      transform: scale(1.02);
-    }
-    
-    .watermark-notice {
-      position: absolute;
-      bottom: var(--space-sm);
-      left: 50%;
-      transform: translateX(-50%);
-      background: oklch(0% 0 0 / 0.7);
-      color: white;
-      padding: var(--space-3xs) var(--space-sm);
-      border-radius: var(--radius-lg);
-      font-size: var(--text-xs);
-      backdrop-filter: blur(4px);
-    }
-    
-    #exportCanvas {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    /* ?? ACTION BUTTONS ?? */
-    .action-row {
-      display: flex;
-      gap: var(--space-sm);
-      margin-top: var(--space-md);
-    }
-    
-    .btn-secondary {
-      flex: 1;
-      padding: var(--space-md);
-      border-radius: var(--radius-lg);
-      font-size: var(--text-sm);
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .btn-download {
-      background: oklch(15% 0.02 280);
-      color: white;
-      border: none;
-    }
-    
-    .btn-download:hover {
-      background: oklch(25% 0.02 280);
-      transform: translateY(-2px);
-    }
-    
-    .btn-reset {
-      background: transparent;
-      border: 2px solid oklch(0% 0 0 / 0.15);
-      color: inherit;
-    }
-    
-    .btn-reset:hover {
-      border-color: oklch(0% 0 0 / 0.3);
-      transform: translateY(-2px);
-    }
-    
-    /* ?? SHARE UNLOCK CARD ?? */
-    .share-unlock-card {
-      background: linear-gradient(
-        137.5deg,
-        oklch(68.54% 0.18 280 / 0.15),
-        oklch(68.54% 0.20 350 / 0.15)
-      );
-      border: 2px solid var(--accent-violet);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-lg);
-      margin-bottom: var(--space-md);
-      text-align: center;
-      backdrop-filter: blur(8px);
-    }
-    
-    .share-unlock-card h3 {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-xs);
-      color: white;
-    }
-    
-    .share-unlock-card p {
-      font-size: var(--text-sm);
-      opacity: 0.8;
-      margin-bottom: var(--space-md);
-      color: white;
-    }
-    
-    .share-buttons {
-      display: flex;
-      gap: var(--space-sm);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .share-btn {
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-lg);
-      border: none;
-      font-family: inherit;
-      font-size: var(--text-sm);
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .share-btn.twitter { background: #1da1f2; color: white; }
-    .share-btn.tiktok { background: #000; color: white; }
-    .share-btn.copy-link { background: white; color: oklch(15% 0.02 280); }
-    
-    .share-btn:hover {
-      transform: scale(1.0618);
-      box-shadow: var(--shadow-md);
-    }
-    
-    /* ?? REFERRAL CARD ?? */
-    .referral-card {
-      background: linear-gradient(137.5deg, oklch(92% 0.08 85), oklch(85% 0.12 85));
-      border-radius: var(--radius-2xl);
-      padding: var(--space-lg);
-      margin-bottom: var(--space-md);
-      text-align: center;
-      color: oklch(30% 0.1 85);
-    }
-    
-    .referral-card h3 {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-xs);
-    }
-    
-    .referral-card p {
-      font-size: var(--text-sm);
-      opacity: 0.8;
-      margin-bottom: var(--space-md);
-    }
-    
-    .referral-progress {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-xs);
-      margin-bottom: var(--space-md);
-    }
-    
-    .referral-dot {
-      width: var(--space-lg);
-      height: var(--space-lg);
-      border-radius: 50%;
-      background: oklch(30% 0.1 85 / 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: var(--text-sm);
-      font-weight: 600;
-      transition: all var(--duration-base) var(--ease-golden-bounce);
-    }
-    
-    .referral-dot.filled {
-      background: oklch(30% 0.1 85);
-      color: white;
-      transform: scale(1.1);
-    }
-    
-    .referral-link-box {
-      display: flex;
-      gap: var(--space-xs);
-    }
-    
-    .referral-link-box input {
-      flex: 1;
-      padding: var(--space-sm) var(--space-md);
-      border: 2px solid oklch(30% 0.1 85 / 0.3);
-      border-radius: var(--radius-md);
-      font-family: 'Space Mono', monospace;
-      font-size: var(--text-xs);
-      background: white;
-    }
-    
-    .referral-link-box button {
-      padding: var(--space-sm) var(--space-md);
-      background: oklch(30% 0.1 85);
-      color: white;
-      border: none;
-      border-radius: var(--radius-md);
-      font-family: inherit;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .referral-link-box button:hover {
-      transform: scale(1.05);
-    }
-    
-    /* ?? WATERMARK ?? */
-    .watermark {
-      text-align: center;
-      margin-top: var(--space-lg);
-      opacity: 0.382;
-      font-size: var(--text-xs);
-      letter-spacing: 0.05em;
-    }
-    
-    /* ?? HIDDEN ELEMENTS ?? */
-    .hidden { display: none !important; }
-    #fileInput { display: none; }
-    
-    /* ??????????????????????????????????????????????????????????????
-       MODALS - Enhanced with Golden Ratio
-       ?????????????????????????????????????????????????????????????? */
-    
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: oklch(0% 0 0 / 0.8);
-      backdrop-filter: blur(8px);
-      z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-lg);
-    }
-    
-    .modal-overlay.active {
-      display: flex;
-    }
-    
-    .modal {
-      background: white;
-      border-radius: var(--radius-2xl);
-      max-width: 433px; /* ~267 × φ */
-      width: 100%;
+      display: none; min-height: 100vh;
       padding: var(--space-xl) var(--space-lg);
-      position: relative;
-      animation: modalSlide var(--duration-slow) var(--ease-golden-out);
-      color: oklch(15% 0.02 280);
+      max-width: 800px; margin: 0 auto;
     }
-    
-    @keyframes modalSlide {
-      from {
-        opacity: 0;
-        transform: translateY(var(--space-lg)) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    .stage.active { display: flex; flex-direction: column; }
+    .stage-center { justify-content: center; align-items: center; text-align: center; }
+
+    /* ── HERO STAGE ── */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 100px;
+      background: rgba(244,162,97,0.1); border: 1px solid rgba(244,162,97,0.2);
+      font-size: var(--text-xs); letter-spacing: 0.15em; text-transform: uppercase;
+      color: #F4A261; font-weight: 600; margin-bottom: var(--space-lg);
+      animation: fadeDown 0.8s var(--ease-out) both;
     }
-    
-    .modal-close {
-      position: absolute;
-      top: var(--space-md);
-      right: var(--space-md);
-      background: none;
-      border: none;
-      font-size: var(--text-xl);
-      cursor: pointer;
-      opacity: 0.382;
-      transition: all var(--duration-fast) var(--ease-golden);
-      width: var(--space-lg);
-      height: var(--space-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-full);
-    }
-    
-    .modal-close:hover {
-      opacity: 1;
-      background: oklch(0% 0 0 / 0.05);
-    }
-    
-    .modal-icon {
-      font-size: var(--text-4xl);
-      text-align: center;
-      margin-bottom: var(--space-md);
-    }
-    
-    .modal h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: var(--text-xl);
-      text-align: center;
-      margin-bottom: var(--space-xs);
-      letter-spacing: -0.02em;
-    }
-    
-    .modal .subtitle {
-      text-align: center;
-      font-size: var(--text-sm);
-      color: oklch(50% 0.02 280);
-      margin-bottom: var(--space-lg);
-      line-height: var(--phi);
-    }
-    
-    .modal-input {
-      width: 100%;
-      padding: var(--space-md);
-      border: 2px solid oklch(90% 0.01 280);
-      border-radius: var(--radius-lg);
-      font-family: inherit;
-      font-size: var(--text-base);
-      margin-bottom: var(--space-sm);
-      transition: all var(--duration-fast) var(--ease-golden);
-    }
-    
-    .modal-input:focus {
-      outline: none;
-      border-color: var(--accent-violet);
-      box-shadow: 0 0 0 4px oklch(68.54% 0.18 280 / 0.1);
-    }
-    
-    .modal-btn {
-      width: 100%;
-      padding: var(--space-md);
-      border: none;
-      border-radius: var(--radius-lg);
-      font-family: inherit;
-      font-size: var(--text-base);
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .modal-btn-primary {
-      background: linear-gradient(137.5deg, var(--accent-violet), var(--accent-rose));
-      color: white;
-      box-shadow: var(--shadow-md);
-    }
-    
-    .modal-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-    }
-    
-    .modal-terms {
-      text-align: center;
-      font-size: var(--text-xs);
-      color: oklch(60% 0.01 280);
-      margin-top: var(--space-md);
-      line-height: var(--phi);
-    }
-    
-    .modal-terms a {
-      color: var(--accent-violet);
-      text-decoration: none;
-    }
-    
-    .modal-terms a:hover {
-      text-decoration: underline;
-    }
-    
-    .modal-benefits {
-      background: oklch(97% 0.005 280);
-      border-radius: var(--radius-lg);
-      padding: var(--space-md);
-      margin-bottom: var(--space-md);
-    }
-    
-    .modal-benefits ul {
-      list-style: none;
-      font-size: var(--text-sm);
-    }
-    
-    .modal-benefits li {
-      padding: var(--space-xs) 0;
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    
-    .modal-benefits li::before {
-      content: '✓';
-      color: var(--accent-emerald);
-      font-weight: bold;
-    }
-    
-    /* ?? PREMIUM TIERS ?? */
-    .premium-tier {
-      border: 2px solid oklch(90% 0.01 280);
-      border-radius: var(--radius-xl);
-      padding: var(--space-md);
-      margin-bottom: var(--space-sm);
-      cursor: pointer;
-      transition: all var(--duration-base) var(--ease-golden);
-    }
-    
-    .premium-tier:hover,
-    .premium-tier.selected {
-      border-color: var(--accent-violet);
-      background: oklch(68.54% 0.18 280 / 0.03);
-    }
-    
-    .premium-tier.popular {
-      border-color: var(--accent-gold);
-      position: relative;
-    }
-    
-    .premium-tier.popular::before {
-      content: 'MOST POPULAR';
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, var(--accent-gold), oklch(70% 0.18 60));
-      color: white;
-      font-size: var(--text-xs);
-      font-weight: 700;
-      padding: var(--space-3xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      letter-spacing: 0.05em;
-    }
-    
-    .tier-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--space-xs);
-    }
-    
-    .tier-name {
-      font-weight: 600;
-      font-size: var(--text-base);
-    }
-    
-    .tier-price {
-      font-weight: 700;
-      font-size: var(--text-lg);
-      color: var(--accent-violet);
-    }
-    
-    .tier-price span {
-      font-size: var(--text-sm);
-      font-weight: 400;
-      color: oklch(60% 0.01 280);
-    }
-    
-    .tier-features {
-      font-size: var(--text-sm);
-      color: oklch(50% 0.01 280);
-    }
-    
-    /* ?? EXIT MODAL ?? */
-    .exit-modal .modal {
-      background: linear-gradient(137.5deg, oklch(16.18% 0.04 280), oklch(12% 0.03 260));
-      color: white;
-    }
-    
-    .exit-modal .subtitle {
-      color: oklch(80% 0.02 280);
-    }
-    
-    .exit-modal .modal-input {
-      background: oklch(100% 0 0 / 0.1);
-      border-color: oklch(100% 0 0 / 0.2);
-      color: white;
-    }
-    
-    .exit-modal .modal-input::placeholder {
-      color: oklch(100% 0 0 / 0.5);
-    }
-    
-    .exit-modal .modal-benefits {
-      background: oklch(100% 0 0 / 0.05);
-    }
-    
-    .exit-modal .modal-benefits li {
-      color: white;
-    }
-    
-    .countdown {
-      font-size: var(--text-3xl);
-      font-weight: 700;
-      background: linear-gradient(137.5deg, var(--accent-rose), var(--accent-gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 10vw, var(--text-hero));
+      font-weight: 700; line-height: 1.05;
+      background: linear-gradient(135deg, #f0ede8 0%, #F4A261 50%, #E76F51 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: var(--space-xs);
-      font-family: 'Space Mono', monospace;
+      margin-bottom: var(--space-md);
+      animation: fadeDown 0.8s var(--ease-out) 0.1s both;
     }
-    
-    /* ?? TOAST ?? */
-    .toast {
-      position: fixed;
-      bottom: var(--space-lg);
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: oklch(15% 0.02 280);
-      color: white;
-      padding: var(--space-md) var(--space-lg);
-      border-radius: var(--radius-lg);
-      font-size: var(--text-sm);
-      z-index: 3000;
-      transition: transform var(--duration-base) var(--ease-golden-bounce);
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
+    .hero-sub {
+      font-size: var(--text-lg); color: rgba(240,237,232,0.5);
+      max-width: 500px; line-height: 1.6; margin-bottom: var(--space-xl);
+      animation: fadeDown 0.8s var(--ease-out) 0.2s both;
+    }
+
+    /* ── INPUT FLOW ── */
+    .input-group {
+      width: 100%; max-width: 560px;
+      animation: fadeUp 0.6s var(--ease-out) both;
+    }
+    .input-group.delay-1 { animation-delay: 0.15s; }
+    .input-group.delay-2 { animation-delay: 0.3s; }
+
+    .input-label {
+      font-size: var(--text-sm); color: rgba(240,237,232,0.4);
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+      margin-bottom: var(--space-xs); display: block; text-align: left;
+    }
+    .input-main {
+      width: 100%; padding: var(--space-md) var(--space-lg);
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg); color: #f0ede8;
+      font-family: 'DM Sans', sans-serif; font-size: var(--text-xl);
+      outline: none; transition: all var(--dur-base) var(--ease);
+    }
+    .input-main::placeholder { color: rgba(240,237,232,0.2); }
+    .input-main:focus {
+      border-color: rgba(244,162,97,0.4);
+      box-shadow: 0 0 0 4px rgba(244,162,97,0.08), var(--shadow-glow);
+      background: rgba(255,255,255,0.06);
+    }
+    .input-main.input-lg { font-size: var(--text-3xl); font-family: 'Playfair Display', serif; text-align: center; padding: var(--space-lg); }
+
+    /* ── LIVE TITLE PREVIEW ── */
+    .title-preview {
+      height: 60px; display: flex; align-items: center; justify-content: center;
+      margin: var(--space-md) 0;
+      font-family: 'Playfair Display', serif; font-size: var(--text-2xl);
+      color: rgba(244,162,97,0.6); transition: all var(--dur-base) var(--ease);
+      opacity: 0;
+    }
+    .title-preview.visible { opacity: 1; }
+
+    /* ── UPLOAD ZONE ── */
+    .upload-zone {
+      width: 100%; max-width: 560px; padding: var(--space-xl);
+      border: 2px dashed rgba(255,255,255,0.1); border-radius: var(--radius-xl);
+      text-align: center; cursor: pointer;
+      transition: all var(--dur-base) var(--ease);
+      background: rgba(255,255,255,0.02);
+    }
+    .upload-zone:hover, .upload-zone.dragover {
+      border-color: rgba(244,162,97,0.4); background: rgba(244,162,97,0.03);
+    }
+    .upload-zone-icon { font-size: 40px; margin-bottom: var(--space-sm); opacity: 0.4; }
+    .upload-zone-text { color: rgba(240,237,232,0.4); font-size: var(--text-sm); }
+    .upload-zone-text strong { color: #F4A261; }
+    .upload-preview {
+      display: none; align-items: center; gap: var(--space-md);
+      padding: var(--space-md); background: rgba(244,162,97,0.06);
+      border: 1px solid rgba(244,162,97,0.15); border-radius: var(--radius-md);
+      margin-top: var(--space-md);
+    }
+    .upload-preview.visible { display: flex; }
+    .upload-preview-thumb {
+      width: 48px; height: 48px; border-radius: var(--radius-sm);
+      object-fit: cover; background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center; font-size: 24px;
+    }
+    .upload-preview-info { flex: 1; text-align: left; }
+    .upload-preview-name { font-size: var(--text-sm); font-weight: 600; }
+    .upload-preview-size { font-size: var(--text-xs); color: rgba(240,237,232,0.4); }
+    .upload-remove { background: none; border: none; color: rgba(240,237,232,0.3); cursor: pointer; font-size: 18px; padding: 4px; }
+    .upload-remove:hover { color: #E76F51; }
+
+    .skip-link {
+      display: inline-block; margin-top: var(--space-md);
+      color: rgba(240,237,232,0.3); font-size: var(--text-sm);
+      text-decoration: none; cursor: pointer;
+      transition: color var(--dur-fast);
+    }
+    .skip-link:hover { color: #F4A261; }
+
+    /* ── VIBE GRID ── */
+    .vibe-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md); width: 100%; max-width: 560px;
+    }
+    @media (max-width: 480px) { .vibe-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .vibe-card {
+      padding: var(--space-lg) var(--space-md);
+      border-radius: var(--radius-lg); cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.06);
+      text-align: center; position: relative; overflow: hidden;
+      transition: all var(--dur-base) var(--ease);
+    }
+    .vibe-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.15); }
+    .vibe-card.selected { border-color: #F4A261; box-shadow: 0 0 30px rgba(244,162,97,0.15); }
+    .vibe-card-bg {
+      position: absolute; inset: 0; opacity: 0.15;
+      transition: opacity var(--dur-base) var(--ease);
+    }
+    .vibe-card:hover .vibe-card-bg { opacity: 0.25; }
+    .vibe-card-emoji { font-size: 28px; margin-bottom: var(--space-xs); position: relative; }
+    .vibe-card-name { font-size: var(--text-sm); font-weight: 600; position: relative; letter-spacing: 0.02em; }
+    .vibe-card-preview {
+      font-size: var(--text-xs); margin-top: var(--space-xs);
+      position: relative; opacity: 0.5; font-weight: 500;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .vibe-lock { position: absolute; top: 8px; right: 8px; font-size: 12px; opacity: 0.4; }
+
+    /* ── GROOVY BUTTON ── */
+    .groovy-container {
+      display: flex; flex-direction: column; align-items: center;
+      margin-top: var(--space-xl);
+      animation: groovyPulse 3s ease-in-out infinite;
+    }
+    .groovy-btn {
+      position: relative; padding: var(--space-lg) var(--space-2xl);
+      border: none; border-radius: 100px; cursor: pointer;
+      font-family: 'Outfit', sans-serif; font-size: var(--text-xl);
+      font-weight: 700; letter-spacing: 0.05em; color: #0a0a0f;
+      background: linear-gradient(135deg, #F4A261, #E76F51, #F4A261);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+      box-shadow: 0 8px 40px rgba(244,162,97,0.3), 0 0 80px rgba(244,162,97,0.1);
+      transition: all var(--dur-base) var(--ease-spring);
+      overflow: hidden;
+    }
+    .groovy-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 60px rgba(244,162,97,0.4), 0 0 120px rgba(244,162,97,0.15);
+    }
+    .groovy-btn:active { transform: scale(0.98); }
+    .groovy-btn::before {
+      content: ''; position: absolute; inset: -2px;
+      background: linear-gradient(135deg, #F4A261, #E76F51, #2A9D8F, #F4A261);
+      background-size: 300% 300%; border-radius: 100px;
+      animation: gradientShift 3s ease infinite; z-index: -1;
+      filter: blur(8px); opacity: 0.6;
+    }
+    .groovy-hint {
+      margin-top: var(--space-sm); font-size: var(--text-xs);
+      color: rgba(240,237,232,0.25); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes groovyPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* ── LOADING STAGE ── */
+    .loading-text {
+      font-family: 'Outfit', sans-serif; font-size: var(--text-lg);
+      color: rgba(240,237,232,0.6); margin-bottom: var(--space-lg);
+      transition: opacity 0.3s;
+    }
+    .loading-bar {
+      width: 300px; height: 3px; background: rgba(255,255,255,0.06);
+      border-radius: 2px; overflow: hidden;
+    }
+    .loading-fill {
+      height: 100%; width: 0%; border-radius: 2px;
+      background: linear-gradient(90deg, #F4A261, #E76F51);
+      transition: width 0.4s var(--ease);
+    }
+    .loading-orb {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,162,97,0.3) 0%, transparent 70%);
+      margin-bottom: var(--space-xl);
+      animation: orbFloat 2.5s ease-in-out infinite;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-15px) scale(1.1); }
+    }
+
+    /* ── RESULT CARDS ── */
+    .results-scroll { width: 100%; max-width: 700px; margin: 0 auto; }
+
+    .result-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-xl); padding: var(--space-xl);
+      margin-bottom: var(--space-lg); position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(30px);
+      transition: all var(--dur-slow) var(--ease-out);
+    }
+    .result-card.revealed { opacity: 1; transform: translateY(0); }
+    .result-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--card-accent, #F4A261), transparent);
+      opacity: 0.5;
+    }
+
+    .card-label {
+      font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(240,237,232,0.3); font-weight: 600; margin-bottom: var(--space-md);
+    }
+
+    /* Hero Identity Card */
+    .hero-card {
+      padding: var(--space-3xl) var(--space-xl); text-align: center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    }
+    .hero-card-title {
+      font-size: clamp(36px, 8vw, 72px); font-weight: 700; line-height: 1.1;
+      margin-bottom: var(--space-sm);
+    }
+    .hero-card-tagline {
+      font-size: var(--text-lg); opacity: 0.6; margin-bottom: var(--space-lg);
+      max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .personality-pills {
+      display: flex; gap: var(--space-xs); justify-content: center; flex-wrap: wrap;
+      margin-bottom: var(--space-lg);
+    }
+    .personality-pill {
+      padding: 6px 16px; border-radius: 100px; font-size: var(--text-xs);
+      font-weight: 600; letter-spacing: 0.05em;
+      border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04);
+    }
+    .palette-bar {
+      display: flex; height: 8px; border-radius: 4px; overflow: hidden;
+      margin-top: var(--space-md);
+    }
+    .palette-bar-segment { flex: 1; transition: flex var(--dur-base); }
+    .palette-bar-segment:hover { flex: 2; }
+
+    /* Mockup Cards */
+    .mockup-frame {
+      background: #fff; border-radius: var(--radius-md); overflow: hidden;
+      box-shadow: var(--shadow-lg); position: relative;
+    }
+    .mockup-canvas { width: 100%; display: block; }
+
+    /* Business Card Mockup */
+    .bizcard-container {
+      perspective: 1000px; cursor: pointer; max-width: 400px; margin: 0 auto;
+    }
+    .bizcard-inner {
+      position: relative; width: 100%; aspect-ratio: 3.5/2;
+      transition: transform 0.8s var(--ease); transform-style: preserve-3d;
+    }
+    .bizcard-container:hover .bizcard-inner { transform: rotateY(180deg); }
+    .bizcard-front, .bizcard-back {
+      position: absolute; inset: 0; backface-visibility: hidden;
+      border-radius: var(--radius-md); overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .bizcard-back { transform: rotateY(180deg); }
+    .bizcard-front canvas, .bizcard-back canvas { width: 100%; height: 100%; }
+
+    /* Instagram Post Mockup */
+    .ig-frame {
+      max-width: 400px; margin: 0 auto;
+      border-radius: var(--radius-md); overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .ig-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; background: rgba(255,255,255,0.03);
+    }
+    .ig-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid rgba(244,162,97,0.4);
+    }
+    .ig-name { font-size: 13px; font-weight: 600; }
+    .ig-canvas-wrap { aspect-ratio: 1; position: relative; }
+    .ig-canvas-wrap canvas { width: 100%; height: 100%; }
+    .ig-actions {
+      display: flex; gap: 14px; padding: 10px 14px;
+      font-size: 20px; background: rgba(255,255,255,0.03);
+    }
+    .ig-likes { padding: 4px 14px 10px; font-size: 13px; font-weight: 600; }
+
+    /* Website Hero Mockup */
+    .browser-frame {
+      border-radius: var(--radius-md); overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-lg);
+    }
+    .browser-chrome {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 14px; background: rgba(255,255,255,0.06);
+    }
+    .browser-dots { display: flex; gap: 5px; }
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.1); }
+    .browser-dot:first-child { background: rgba(231,111,81,0.6); }
+    .browser-dot:nth-child(2) { background: rgba(244,162,97,0.6); }
+    .browser-dot:nth-child(3) { background: rgba(42,157,143,0.6); }
+    .browser-url {
+      flex: 1; padding: 4px 12px; border-radius: 6px;
+      background: rgba(255,255,255,0.04); font-size: 11px;
+      color: rgba(240,237,232,0.4); font-family: 'Space Mono', monospace;
+    }
+    .browser-body canvas { width: 100%; display: block; }
+
+    /* Album Cover Mockup */
+    .album-container {
+      max-width: 360px; margin: 0 auto; position: relative;
+    }
+    .album-container canvas {
+      width: 100%; aspect-ratio: 1; border-radius: var(--radius-md);
       box-shadow: var(--shadow-xl);
     }
-    
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
+    .album-vinyl {
+      position: absolute; right: -30px; top: 50%; transform: translateY(-50%);
+      width: 60%; aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, #1a1a1a 30%, #0a0a0a 32%, #1a1a1a 34%, #111 60%, #1a1a1a 62%, #0a0a0a 100%);
+      box-shadow: var(--shadow-lg); z-index: -1;
+      animation: vinylSpin 8s linear infinite paused;
     }
-    
-    .toast.success {
-      background: linear-gradient(137.5deg, var(--accent-emerald), oklch(65% 0.2 155));
-    }
-    
-    /* ?? CONFETTI EFFECT ?? */
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    
-    @keyframes confettiFall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
-  
-    /* ✦ BRAND TOOLKIT CARD ✦ */
-    .toolkit-section { margin-bottom: var(--space-md); }
-    .toolkit-section:last-child { margin-bottom: 0; }
-    .toolkit-header {
+    .album-container:hover .album-vinyl { animation-play-state: running; }
+    @keyframes vinylSpin { to { transform: translateY(-50%) rotate(360deg); } }
+
+    /* Social Kit Card */
+    .social-section { margin-bottom: var(--space-lg); }
+    .social-section:last-child { margin-bottom: 0; }
+    .social-section-header {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: var(--space-sm);
     }
-    .toolkit-label {
-      font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; opacity: 0.7;
+    .social-section-label {
+      font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.05em;
     }
-    .toolkit-copy-btn {
-      font-size: var(--text-xs); padding: 4px 10px; border-radius: 6px;
-      border: 1px solid currentColor; opacity: 0.4; background: transparent;
-      color: inherit; cursor: pointer; transition: all 0.2s;
+    .copy-btn {
+      padding: 4px 12px; border-radius: 6px; font-size: var(--text-xs);
+      border: 1px solid rgba(255,255,255,0.1); background: transparent;
+      color: rgba(240,237,232,0.5); cursor: pointer; transition: all var(--dur-fast);
     }
-    .toolkit-copy-btn:hover { opacity: 0.8; }
-    .toolkit-copy-btn.copied { opacity: 1; border-color: #2A9D8F; color: #2A9D8F; }
+    .copy-btn:hover { border-color: #F4A261; color: #F4A261; }
+    .copy-btn.copied { border-color: #2A9D8F; color: #2A9D8F; }
 
-    .toolkit-colors-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+    .social-content {
+      padding: var(--space-md); border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.03); font-size: var(--text-sm);
+      line-height: 1.7; white-space: pre-line;
     }
-    @media (max-width: 480px) {
-      .toolkit-colors-grid { grid-template-columns: repeat(3, 1fr); }
+    .pillar-card {
+      padding: var(--space-md); border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.03); margin-bottom: var(--space-xs);
     }
-    .toolkit-color-item {
-      text-align: center; cursor: pointer; padding: 8px 4px;
-      border-radius: 8px; transition: all 0.2s;
+    .pillar-name { font-weight: 600; margin-bottom: 4px; }
+    .pillar-desc { font-size: var(--text-sm); opacity: 0.6; }
+    .voice-block { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+    @media (max-width: 500px) { .voice-block { grid-template-columns: 1fr; } }
+    .voice-item {
+      padding: var(--space-md); border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.03);
     }
-    .toolkit-color-item:hover { transform: scale(1.05); }
-    .toolkit-color-swatch {
-      width: 100%; aspect-ratio: 1; border-radius: 8px;
-      margin-bottom: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      border: 2px solid rgba(128,128,128,0.15);
-    }
-    .toolkit-color-hex { font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 600; }
-    .toolkit-color-rgb { font-family: 'Space Mono', monospace; font-size: 9px; opacity: 0.5; margin-top: 2px; }
-    .toolkit-color-role { font-size: 9px; opacity: 0.4; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .voice-label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-xs); }
+    .voice-text { font-size: var(--text-sm); font-style: italic; opacity: 0.7; }
 
-    .toolkit-code-block {
-      background: rgba(0,0,0,0.06); border-radius: 10px; padding: 14px 16px;
-      font-family: 'Space Mono', monospace; font-size: 11px; line-height: 1.7;
-      overflow-x: auto; white-space: pre; position: relative;
-      border: 1px solid rgba(128,128,128,0.1);
-    }
-    .result-card.dark .toolkit-code-block { background: rgba(255,255,255,0.06); }
-
-    .toolkit-font-preview {
-      display: flex; gap: var(--space-md); flex-wrap: wrap;
-    }
-    .toolkit-font-item { flex: 1; min-width: 200px; }
-    .toolkit-font-sample {
-      font-size: var(--text-2xl); margin-bottom: 4px;
-    }
-    .toolkit-font-meta {
-      font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.5;
-    }
-    .toolkit-font-link {
-      display: block; margin-top: var(--space-sm);
-      font-family: 'Space Mono', monospace; font-size: 10px;
-      padding: 10px 14px; border-radius: 8px;
-      background: rgba(0,0,0,0.06); word-break: break-all;
-    }
-    .result-card.dark .toolkit-font-link { background: rgba(255,255,255,0.06); }
-
-    .toolkit-rationale {
-      font-size: var(--text-sm); line-height: 1.7; opacity: 0.8;
-    }
-    .toolkit-rationale p { margin-bottom: var(--space-xs); }
-
-    .toolkit-tabs {
-      display: flex; gap: 6px; margin-bottom: var(--space-sm); flex-wrap: wrap;
-    }
+    /* Brand Toolkit Card */
+    .toolkit-tabs { display: flex; gap: 6px; margin-bottom: var(--space-sm); flex-wrap: wrap; }
     .toolkit-tab {
-      font-size: 11px; padding: 5px 12px; border-radius: 20px;
-      border: 1px solid rgba(128,128,128,0.2); background: transparent;
-      color: inherit; cursor: pointer; opacity: 0.5; transition: all 0.2s;
+      font-size: 11px; padding: 5px 14px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08); background: transparent;
+      color: rgba(240,237,232,0.4); cursor: pointer; transition: all var(--dur-fast);
     }
-    .toolkit-tab.active { opacity: 1; background: rgba(128,128,128,0.1); }
-    .toolkit-tab:hover { opacity: 0.8; }
+    .toolkit-tab.active { color: #F4A261; border-color: rgba(244,162,97,0.3); background: rgba(244,162,97,0.05); }
     .toolkit-tab-content { display: none; }
     .toolkit-tab-content.active { display: block; }
-</style>
+    .code-block {
+      padding: var(--space-md); border-radius: var(--radius-md);
+      background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.04);
+      font-family: 'Space Mono', monospace; font-size: 11px; line-height: 1.7;
+      overflow-x: auto; white-space: pre; color: rgba(240,237,232,0.7);
+    }
+    .palette-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+    }
+    @media (max-width: 400px) { .palette-grid { grid-template-columns: repeat(3, 1fr); } }
+    .palette-item { text-align: center; cursor: pointer; }
+    .palette-swatch {
+      width: 100%; aspect-ratio: 1; border-radius: var(--radius-sm);
+      margin-bottom: 6px; box-shadow: var(--shadow-md);
+      border: 2px solid rgba(255,255,255,0.05);
+    }
+    .palette-hex { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 600; }
+    .palette-role { font-size: 9px; opacity: 0.4; margin-top: 2px; text-transform: uppercase; }
+
+    .contrast-badge {
+      display: inline-flex; padding: 4px 10px; border-radius: 6px;
+      font-size: var(--text-xs); font-weight: 600;
+    }
+    .contrast-aaa { background: rgba(42,157,143,0.15); color: #2A9D8F; }
+    .contrast-aa { background: rgba(244,162,97,0.15); color: #F4A261; }
+    .contrast-fail { background: rgba(231,111,81,0.15); color: #E76F51; }
+
+    /* ── EMAIL CAPTURE INLINE ── */
+    .email-card {
+      text-align: center; padding: var(--space-2xl) var(--space-xl);
+      background: linear-gradient(135deg, rgba(244,162,97,0.06), rgba(42,157,143,0.04));
+      border: 1px solid rgba(244,162,97,0.12);
+    }
+    .email-card h3 { font-family: 'Playfair Display', serif; font-size: var(--text-2xl); margin-bottom: var(--space-xs); }
+    .email-card p { color: rgba(240,237,232,0.5); margin-bottom: var(--space-lg); font-size: var(--text-sm); }
+    .email-row { display: flex; gap: var(--space-xs); max-width: 420px; margin: 0 auto; }
+    @media (max-width: 480px) { .email-row { flex-direction: column; } }
+    .email-input {
+      flex: 1; padding: var(--space-sm) var(--space-md);
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md); color: #f0ede8; font-size: var(--text-base);
+      outline: none; font-family: 'DM Sans', sans-serif;
+    }
+    .email-input:focus { border-color: rgba(244,162,97,0.4); }
+    .email-submit {
+      padding: var(--space-sm) var(--space-lg); border: none;
+      border-radius: var(--radius-md); background: #F4A261;
+      color: #0a0a0f; font-weight: 700; font-size: var(--text-sm);
+      cursor: pointer; white-space: nowrap; transition: all var(--dur-fast);
+    }
+    .email-submit:hover { background: #E76F51; }
+    .email-dismiss {
+      display: block; margin-top: var(--space-sm); color: rgba(240,237,232,0.2);
+      font-size: var(--text-xs); cursor: pointer; background: none; border: none;
+    }
+
+    /* ── UPGRADE CARD ── */
+    .upgrade-card {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(244,162,97,0.08), rgba(231,111,81,0.04));
+      border-color: rgba(244,162,97,0.15);
+    }
+    .upgrade-card h3 { font-family: 'Playfair Display', serif; font-size: var(--text-xl); margin-bottom: var(--space-xs); }
+    .pro-badge {
+      display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px;
+      border-radius: 4px; font-size: 9px; font-weight: 700;
+      background: rgba(244,162,97,0.15); color: #F4A261;
+      letter-spacing: 0.1em; vertical-align: middle;
+    }
+    .upgrade-price { font-size: var(--text-3xl); font-weight: 700; margin: var(--space-md) 0; }
+    .upgrade-price small { font-size: var(--text-base); opacity: 0.5; }
+    .upgrade-btn {
+      display: inline-block; padding: var(--space-sm) var(--space-2xl);
+      border: none; border-radius: 100px; background: #F4A261;
+      color: #0a0a0f; font-weight: 700; font-size: var(--text-base);
+      cursor: pointer; transition: all var(--dur-fast);
+    }
+    .upgrade-btn:hover { background: #E76F51; transform: translateY(-2px); }
+    .usage-note { margin-top: var(--space-md); font-size: var(--text-sm); color: rgba(240,237,232,0.3); }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 5000;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+      justify-content: center; align-items: center; padding: var(--space-lg);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: #141418; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-xl); padding: var(--space-xl);
+      max-width: 440px; width: 100%; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px; background: none;
+      border: none; color: rgba(240,237,232,0.3); font-size: 20px; cursor: pointer;
+    }
+    .modal h3 { font-family: 'Playfair Display', serif; font-size: var(--text-xl); margin-bottom: var(--space-sm); }
+
+    /* ── WATERMARK ── */
+    .watermark-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .watermark-text {
+      font-size: 14px; color: rgba(255,255,255,0.25); font-weight: 600;
+      letter-spacing: 0.1em; transform: rotate(-30deg);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+      padding: 10px 24px; border-radius: 100px; font-size: var(--text-sm); font-weight: 600;
+      background: #1a1a22; border: 1px solid rgba(255,255,255,0.08);
+      color: #f0ede8; z-index: 4000;
+      opacity: 0; transition: all 0.3s var(--ease);
+    }
+    .toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ── PROCEED BUTTON ── */
+    .proceed-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: var(--space-sm) var(--space-xl); border: none;
+      border-radius: 100px; background: rgba(255,255,255,0.06);
+      color: #F4A261; font-size: var(--text-base); font-weight: 600;
+      cursor: pointer; transition: all var(--dur-fast) var(--ease);
+      margin-top: var(--space-lg);
+    }
+    .proceed-btn:hover { background: rgba(244,162,97,0.1); transform: translateY(-2px); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .stage { padding: var(--space-lg) var(--space-md); }
+      .hero-card { padding: var(--space-xl) var(--space-md); }
+      .result-card { padding: var(--space-lg) var(--space-md); }
+      .input-main.input-lg { font-size: var(--text-xl); }
+      .voice-block { grid-template-columns: 1fr; }
+      .album-vinyl { display: none; }
+    }
+  </style>
 </head>
-<body class="has-announcement">
-  <!-- Announcement Bar -->
-  <div class="announcement-bar" id="announcementBar" onclick="showPremiumModal()">
-    🎉 Launch Special: <strong>50% OFF Pro — just $8.25/mo</strong> billed annually · Unlimited aesthetics, no watermarks
-    <span class="highlight">Claim Now →</span>
-  </div>
-  
-  <!-- Golden Spiral Background -->
-  <div class="golden-spiral-bg">
-    <div class="spiral-arc"></div>
-    <div class="spiral-arc"></div>
-    <div class="spiral-arc"></div>
-    <div class="spiral-arc"></div>
-    <div class="spiral-arc"></div>
-    <div class="spiral-arc"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-  </div>
-  
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <div class="tagline">✦ AI-POWERED ✦</div>
-      <h1>AESTHETIC AI</h1>
-      <p class="subtitle">Discover your signature visual identity in 60 seconds</p>
-      
-      <div class="social-proof">
-        <div class="proof-item">
-          <div class="proof-avatars">
-            <div class="proof-avatar">S</div>
-            <div class="proof-avatar">M</div>
-            <div class="proof-avatar">J</div>
-            <div class="proof-avatar">+</div>
+<body>
+  <div class="ambient-bg"></div>
+  <div class="grain-overlay"></div>
+
+  <div class="app">
+
+    <!-- ═══ HERO / INPUT STAGE ═══ -->
+    <div class="stage stage-center active" id="inputStage">
+      <div class="hero-badge">✦ AI-POWERED CREATIVE STUDIO</div>
+      <h1 class="hero-title">Make it real.</h1>
+      <p class="hero-sub">Name it. Describe it. Pick a vibe. Hit the button.</p>
+
+      <!-- Step 1: Title -->
+      <div class="input-group" id="step1">
+        <label class="input-label">What's this called?</label>
+        <input class="input-main input-lg" id="titleInput" type="text" placeholder="Ember Coffee Co." autocomplete="off" autofocus>
+        <div class="title-preview" id="titlePreview"></div>
+      </div>
+
+      <!-- Step 2: Description (hidden initially) -->
+      <div class="input-group delay-1" id="step2" style="display:none">
+        <label class="input-label">Tell me about it</label>
+        <input class="input-main" id="descInput" type="text" placeholder="artisan coffee shop in Brooklyn" autocomplete="off">
+      </div>
+
+      <!-- Step 3: Upload (hidden initially) -->
+      <div class="input-group delay-2" id="step3" style="display:none">
+        <label class="input-label">Got media? (optional)</label>
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-zone-icon">📎</div>
+          <div class="upload-zone-text">Drop a <strong>photo</strong>, <strong>song</strong>, or <strong>video link</strong><br>or click to browse</div>
+          <input type="file" id="fileInput" accept="image/*,audio/*,.txt,.md" style="display:none">
+        </div>
+        <div class="upload-preview" id="uploadPreview">
+          <div class="upload-preview-thumb" id="uploadThumb"></div>
+          <div class="upload-preview-info">
+            <div class="upload-preview-name" id="uploadName"></div>
+            <div class="upload-preview-size" id="uploadSize"></div>
           </div>
-          <span id="userCount">12,847</span> aesthetics created
+          <button class="upload-remove" onclick="removeUpload()">✕</button>
         </div>
-        <div class="proof-item">
-          <span class="proof-stars">★★★★★</span> 4.9 rating
-        </div>
-      </div>
-    </header>
-    
-    <!-- Upload Stage -->
-    <div class="stage active" id="uploadStage">
-      <div class="upload-area" id="uploadArea">
-        <span class="upload-icon">📸</span>
-        <h3>Upload Your Photo</h3>
-        <p>A selfie or portrait works best</p>
-        <div class="free-badge">✨ 100% Free — No credit card</div>
-      </div>
-      <input type="file" id="fileInput" accept="image/*">
-      
-      <div class="usage-counter" id="usageCounter">
-        <div class="usage-text">
-          <span id="usageRemaining">3</span> of <strong>3 free</strong> generations left
-        </div>
-        <div class="usage-bar">
-          <div class="usage-fill" id="usageFill" style="width: 100%"></div>
+        <div style="text-align:center">
+          <span class="skip-link" onclick="showVibeStep()">Skip — just the vibes →</span>
         </div>
       </div>
-      
-      <div class="privacy-note">🔒 Your photo is processed locally and never stored</div>
-    </div>
-    
-    <!-- Vibe Stage -->
-    <div class="stage" id="vibeStage">
-      <div class="vibecurate-banner" id="vibecurateBanner"><div class="vc-label">🎵 VibeCurate Playlist Imported</div><div class="vc-title" id="vcPlaylistTitle"></div><div class="vc-meta" id="vcPlaylistMeta"></div></div>
-      <canvas class="vibecurate-cover-preview" id="vibecurateCoverPreview" width="200" height="200"></canvas>
-      <div class="photo-preview" id="photoPreview">
-        <img id="previewImg" src="" alt="Your photo">
-        <div class="overlay" id="previewOverlay"></div>
+
+      <!-- Step 4: Vibe Selection (hidden initially) -->
+      <div class="input-group delay-2" id="step4" style="display:none">
+        <label class="input-label">Pick your vibe</label>
+        <div class="vibe-grid" id="vibeGrid"></div>
       </div>
-      <h2 class="section-title">Choose Your Vibe ✦</h2>
-      <div class="vibe-grid" id="vibeGrid"></div>
-      <button class="btn-primary" id="generateBtn" disabled>Generate My Aesthetic ✨</button>
-    </div>
-    
-    <!-- Loading Stage -->
-    <div class="stage" id="loadingStage">
-      <div class="loading-container">
-        <div class="spinner"></div>
-        <p class="loading-text" id="loadingText">Initializing...</p>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-        </div>
+
+      <!-- Step 5: Groovy Button (hidden initially) -->
+      <div class="groovy-container" id="step5" style="display:none">
+        <button class="groovy-btn" id="groovyBtn" onclick="pressGroovyButton()">✦ Make It Real ✦</button>
+        <div class="groovy-hint">something different every time</div>
       </div>
     </div>
-    
-    <!-- Results Stage -->
+
+    <!-- ═══ LOADING STAGE ═══ -->
+    <div class="stage stage-center" id="loadingStage">
+      <div class="loading-orb"></div>
+      <div class="loading-text" id="loadingText">Designing your identity...</div>
+      <div class="loading-bar"><div class="loading-fill" id="loadingFill"></div></div>
+    </div>
+
+    <!-- ═══ RESULTS STAGE ═══ -->
     <div class="stage" id="resultStage">
-      <div class="results-container" id="resultsContainer">
-        
-        <!-- Share to Unlock Card -->
-        <div class="share-unlock-card" id="shareUnlockCard">
-          <h3>🔓 Share to Unlock Premium Export</h3>
-          <p>Share your result & get watermark-free downloads instantly!</p>
-          <div class="share-buttons">
-            <button class="share-btn twitter" onclick="shareTwitter()">  Share</button>
-            <button class="share-btn tiktok" onclick="shareTikTok()">🎵 TikTok</button>
-            <button class="share-btn copy-link" onclick="copyShareLink()">🔗 Copy Link</button>
-          </div>
+      <div class="results-scroll" id="resultsScroll">
+
+        <!-- Card 1: Hero Identity -->
+        <div class="result-card hero-card" id="heroCard">
+          <div class="card-label">YOUR IDENTITY</div>
+          <h1 class="hero-card-title" id="rcTitle"></h1>
+          <p class="hero-card-tagline" id="rcTagline"></p>
+          <div class="personality-pills" id="rcPills"></div>
+          <div class="palette-bar" id="rcPalette"></div>
         </div>
-        
-        <!-- Main Result Card -->
-        <div class="result-card" id="mainCard">
-          <div class="transformed-photo-container">
-            <div class="transformed-photo" id="transformedPhoto">
-              <img id="transformedImg" src="" alt="Transformed">
-              <div class="filter-overlay" id="filterOverlay"></div>
+
+        <!-- Card 2: Dynamic Mockup 1 (Business Card / Album Cover / Gallery / Editorial) -->
+        <div class="result-card" id="mockup1Card">
+          <div class="card-label" id="mockup1Label">YOUR BUSINESS CARD</div>
+          <div id="mockup1Content"></div>
+          <div class="watermark-overlay" id="wm1"><span class="watermark-text">Aesthetic AI ✦ aesthetic.dubltap.io</span></div>
+        </div>
+
+        <!-- Card 3: Instagram Post -->
+        <div class="result-card" id="igCard">
+          <div class="card-label">SOCIAL POST</div>
+          <div class="ig-frame">
+            <div class="ig-header">
+              <canvas class="ig-avatar" id="igAvatar" width="32" height="32"></canvas>
+              <div class="ig-name" id="igName"></div>
             </div>
+            <div class="ig-canvas-wrap"><canvas id="igCanvas" width="1080" height="1080"></canvas></div>
+            <div class="ig-actions">❤️ 💬 📤</div>
+            <div class="ig-likes" id="igLikes"></div>
           </div>
-          <div class="card-label" style="text-align:center">YOUR AESTHETIC</div>
-          <h2 class="result-headline" id="resultHeadline"></h2>
-          <p class="result-tagline" id="resultTagline"></p>
-          <div class="palette-row" id="paletteRow"></div>
+          <div class="watermark-overlay" id="wm2"><span class="watermark-text">Aesthetic AI ✦ aesthetic.dubltap.io</span></div>
         </div>
-        
-        <!-- Fonts Card -->
-        <div class="result-card" id="fontsCard">
-          <div class="card-label">YOUR FONTS</div>
-          <div class="fonts-row" id="fontsRow"></div>
+
+        <!-- Card 4: Dynamic Mockup 2 (Website Hero / Release Page / Exhibition / Publication) -->
+        <div class="result-card" id="mockup2Card">
+          <div class="card-label" id="mockup2Label">YOUR WEBSITE</div>
+          <div id="mockup2Content"></div>
+          <div class="watermark-overlay" id="wm3"><span class="watermark-text">Aesthetic AI ✦ aesthetic.dubltap.io</span></div>
         </div>
-        
-        <!-- Logo Card -->
-        <div class="result-card" id="logoCard">
-          <div class="card-label">YOUR LOGO</div>
-          <div class="logo-container" id="logoContainer"></div>
+
+        <!-- Card 5: Social Kit -->
+        <div class="result-card" id="socialCard">
+          <div class="card-label">SOCIAL KIT</div>
+          <div class="social-section">
+            <div class="social-section-header">
+              <span class="social-section-label">Instagram Bio</span>
+              <button class="copy-btn" onclick="copyText('igBio')">Copy</button>
+            </div>
+            <div class="social-content" id="igBio"></div>
+          </div>
+          <div class="social-section">
+            <div class="social-section-header">
+              <span class="social-section-label">Content Pillars</span>
+            </div>
+            <div id="pillarsContent"></div>
+          </div>
+          <div class="social-section">
+            <div class="social-section-header">
+              <span class="social-section-label">Brand Voice</span>
+            </div>
+            <div class="voice-block" id="voiceContent"></div>
+          </div>
+          <div class="social-section">
+            <div class="social-section-header">
+              <span class="social-section-label">Hashtags</span>
+              <button class="copy-btn" onclick="copyText('hashtagsText')">Copy</button>
+            </div>
+            <div class="social-content" id="hashtagsText"></div>
+          </div>
         </div>
-        
-        <!-- Style Notes Card -->
-        <div class="result-card" id="styleCard">
-          <div class="card-label">STYLE NOTES</div>
-          <ul class="style-list" id="styleList"></ul>
-        </div>
-        
-        <!-- Brand Toolkit Card (Tier 1) -->
+
+        <!-- Card 6: Brand Toolkit -->
         <div class="result-card" id="toolkitCard">
           <div class="card-label">BRAND TOOLKIT</div>
-
-          <div class="toolkit-section" id="toolkitColors">
-            <div class="toolkit-header">
-              <span class="toolkit-label">Color System</span>
-              <button class="toolkit-copy-btn" onclick="copyToolkitColors()">Copy All</button>
-            </div>
-            <div class="toolkit-colors-grid" id="toolkitColorsGrid"></div>
-          </div>
-
-          <div class="toolkit-section" id="toolkitFonts">
-            <div class="toolkit-header">
-              <span class="toolkit-label">Typography</span>
-              <button class="toolkit-copy-btn" onclick="copyToolkitFonts()">Copy Import</button>
-            </div>
-            <div class="toolkit-font-preview" id="toolkitFontPreview"></div>
-            <div class="toolkit-font-link" id="toolkitFontLink"></div>
-          </div>
-
-          <div class="toolkit-section" id="toolkitCode">
-            <div class="toolkit-header">
-              <span class="toolkit-label">Developer Ready</span>
-            </div>
+          <div class="palette-grid" id="paletteGrid"></div>
+          <div style="margin-top:var(--space-lg)">
             <div class="toolkit-tabs">
-              <button class="toolkit-tab active" onclick="switchToolkitTab('css')">CSS Variables</button>
-              <button class="toolkit-tab" onclick="switchToolkitTab('tailwind')">Tailwind</button>
-              <button class="toolkit-tab" onclick="switchToolkitTab('head')">HTML Head</button>
+              <button class="toolkit-tab active" onclick="switchTab('css',this)">CSS</button>
+              <button class="toolkit-tab" onclick="switchTab('tailwind',this)">Tailwind</button>
+              <button class="toolkit-tab" onclick="switchTab('html',this)">HTML Head</button>
             </div>
-            <div class="toolkit-tab-content active" id="toolkitTab-css">
-              <div class="toolkit-header" style="margin-bottom:4px">
-                <span></span>
-                <button class="toolkit-copy-btn" onclick="copyToolkitCode('css')">Copy</button>
-              </div>
-              <div class="toolkit-code-block" id="toolkitCodeCSS"></div>
+            <div class="toolkit-tab-content active" id="tab-css">
+              <div style="display:flex;justify-content:flex-end;margin-bottom:4px"><button class="copy-btn" onclick="copyText('codeCss')">Copy</button></div>
+              <div class="code-block" id="codeCss"></div>
             </div>
-            <div class="toolkit-tab-content" id="toolkitTab-tailwind">
-              <div class="toolkit-header" style="margin-bottom:4px">
-                <span></span>
-                <button class="toolkit-copy-btn" onclick="copyToolkitCode('tailwind')">Copy</button>
-              </div>
-              <div class="toolkit-code-block" id="toolkitCodeTailwind"></div>
+            <div class="toolkit-tab-content" id="tab-tailwind">
+              <div style="display:flex;justify-content:flex-end;margin-bottom:4px"><button class="copy-btn" onclick="copyText('codeTw')">Copy</button></div>
+              <div class="code-block" id="codeTw"></div>
             </div>
-            <div class="toolkit-tab-content" id="toolkitTab-head">
-              <div class="toolkit-header" style="margin-bottom:4px">
-                <span></span>
-                <button class="toolkit-copy-btn" onclick="copyToolkitCode('head')">Copy</button>
-              </div>
-              <div class="toolkit-code-block" id="toolkitCodeHead"></div>
+            <div class="toolkit-tab-content" id="tab-html">
+              <div style="display:flex;justify-content:flex-end;margin-bottom:4px"><button class="copy-btn" onclick="copyText('codeHtml')">Copy</button></div>
+              <div class="code-block" id="codeHtml"></div>
             </div>
           </div>
-
-          <div class="toolkit-section">
-            <div class="toolkit-header">
-              <span class="toolkit-label">Design Rationale</span>
-            </div>
-            <div class="toolkit-rationale" id="toolkitRationale"></div>
-          </div>
+          <div style="margin-top:var(--space-md)" id="contrastInfo"></div>
         </div>
 
-        <!-- Social Export Card -->
-        <div class="result-card" id="socialCard">
-          <div class="card-label">EXPORT FOR SOCIAL</div>
-          <div class="social-grid" id="socialGrid"></div>
-          <div class="preview-area" id="previewArea">
-            <div class="preview-canvas-container">
-              <canvas id="exportCanvas"></canvas>
-              <div class="watermark-notice" id="watermarkNotice">Free version includes watermark</div>
-            </div>
+        <!-- Email Capture (inline, not modal) -->
+        <div class="result-card email-card" id="emailCard">
+          <h3>Love it? Save your work.</h3>
+          <p>Get your brand kit saved and unlock Pro features.</p>
+          <div class="email-row">
+            <input class="email-input" id="emailInput" type="email" placeholder="your@email.com">
+            <button class="email-submit" onclick="submitEmail()">Save My Work →</button>
           </div>
-          <div class="action-row">
-            <button class="btn-secondary btn-download" id="downloadBtn">⬇  Download</button>
-            <button class="btn-secondary btn-reset" id="copyBtn">📋 Copy</button>
-          </div>
+          <button class="email-dismiss" onclick="dismissEmail()">Continue without saving</button>
         </div>
-        
-        <!-- Referral Card -->
-        <div class="referral-card" id="referralCard">
-          <h3>  Give 3, Get Pro Free</h3>
-          <p>Invite 3 friends and unlock Pro features forever!</p>
-          <div class="referral-progress">
-            <div class="referral-dot" id="ref1">1</div>
-            <div class="referral-dot" id="ref2">2</div>
-            <div class="referral-dot" id="ref3">3</div>
-          </div>
-          <div class="referral-link-box">
-            <input type="text" id="referralLink" value="" readonly>
-            <button onclick="copyReferralLink()">Copy</button>
-          </div>
-        </div>
-        
-        <div class="action-row">
-          <button class="btn-secondary btn-reset" id="resetBtn" style="flex:1">🔄 Create Another</button>
-        </div>
-        
-        <div class="watermark">Made with Aesthetic AI ✦ aesthetic.dubltap.io</div>
 
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 2rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
-      <div style="margin-bottom: 0.75rem;">
-        <a href="https://dubltap.io/privacy" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 0.75rem; font-size: 0.875rem;">Privacy Policy</a>
-        <span style="opacity: 0.3; color: rgba(255,255,255,0.5);">|</span>
-        <a href="https://dubltap.io/terms" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 0.75rem; font-size: 0.875rem;">Terms of Service</a>
-      </div>
-      <small style="color: rgba(255,255,255,0.5);">© 2026 dubltap.io LLC - ALL RIGHTS RESERVED - dubltap F1</small>
-    </footer>
-      </div>
-    </div>
-  </div>
-  
-  <!-- ?????????????????? MODALS ?????????????????? -->
-  
-  <!-- Email Capture Modal -->
-  <div class="modal-overlay" id="emailModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal('emailModal')">×</button>
-      <div class="modal-icon">✨</div>
-      <h2>Your Aesthetic is Ready!</h2>
-      <p class="subtitle">Enter your email to unlock your results and get weekly aesthetic inspiration.</p>
-      
-      <div class="modal-benefits">
-        <ul>
-          <li>Access your complete aesthetic profile</li>
-          <li>Download logo & social templates</li>
-          <li>Get weekly trend alerts & new vibes</li>
-        </ul>
-      </div>
-      
-      <input type="email" class="modal-input" id="emailInput" placeholder="your@email.com">
-      <button class="modal-btn modal-btn-primary" onclick="submitEmail()">
-        Unlock My Aesthetic →
-      </button>
-      
-      <p class="modal-terms">
-        By continuing, you agree to our <a href="https://dubltap.io/terms" target="_blank" rel="noopener" style="color: inherit;">Terms</a> & <a href="https://dubltap.io/privacy" target="_blank" rel="noopener" style="color: inherit;">Privacy Policy</a>.<br>
-        Unsubscribe anytime.
-      </p>
-    </div>
-  </div>
-  
-  <!-- Premium Upgrade Modal -->
-  <div class="modal-overlay" id="premiumModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal('premiumModal')">×</button>
-      <div class="modal-icon">👑</div>
-      <h2>Upgrade to Pro</h2>
-      <p class="subtitle">Unlimited aesthetics, all vibes, no watermarks.</p>
-      
-      <div class="premium-tier" onclick="selectTier(this, 'monthly')">
-        <div class="tier-header">
-          <span class="tier-name">Monthly</span>
-          <span class="tier-price">$12<span>/mo</span></span>
+        <!-- Upgrade Card -->
+        <div class="result-card upgrade-card" id="upgradeCard">
+          <h3>Unlock Everything</h3>
+          <p style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-md)">Download mockups, HTML pages, and remove watermarks.</p>
+          <div class="upgrade-price">$8.25<small>/mo billed annually</small></div>
+          <button class="upgrade-btn" onclick="subscribePro('annual')">Go Pro →</button>
+          <div style="margin-top:var(--space-xs)">
+            <span style="font-size:var(--text-xs);color:rgba(240,237,232,0.3);cursor:pointer" onclick="subscribePro('monthly')">or $12/month</span>
+          </div>
+          <div class="usage-note" id="usageNote"></div>
         </div>
-        <div class="tier-features">Cancel anytime • All features</div>
-      </div>
-      
-      <div class="premium-tier popular selected" onclick="selectTier(this, 'annual')">
-        <div class="tier-header">
-          <span class="tier-name">Annual</span>
-          <span class="tier-price">$8.25<span>/mo</span></span>
+
+        <!-- Cross-sell -->
+        <div class="result-card" id="crossSellCard" style="text-align:center">
+          <div class="card-label">EXPLORE MORE</div>
+          <p id="crossSellText" style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-md)"></p>
+          <a id="crossSellLink" href="#" target="_blank" style="color:#F4A261;font-weight:600;text-decoration:none"></a>
         </div>
-        <div class="tier-features">Billed $99/year • Save 31%</div>
+
+        <!-- Start Over -->
+        <div style="text-align:center;padding:var(--space-xl) 0">
+          <button class="proceed-btn" onclick="resetApp()">✦ Create Another</button>
+        </div>
+
       </div>
-      
-      
-      
-      <button class="modal-btn modal-btn-primary" onclick="subscribePro()" style="margin-top: var(--space-md)">
-        Start 7-Day Free Trial →
-      </button>
-      
-      <p class="modal-terms">No charge until trial ends. Cancel anytime.</p>
     </div>
-  </div>
-  
-  <!-- Exit Intent Modal -->
-  <div class="modal-overlay exit-modal" id="exitModal">
+
+  </div><!-- /app -->
+
+  <!-- Pro Comparison Modal -->
+  <div class="modal-overlay" id="proModal">
     <div class="modal">
-      <button class="modal-close" onclick="closeModal('exitModal')" style="color:white">×</button>
-      <div class="modal-icon"> </div>
-      <h2>Wait! Special Offer</h2>
-      <p class="subtitle">Get 60% OFF Pro — only for the next:</p>
-      
-      <div class="countdown" id="exitCountdown">14:59</div>
-      
-      <div class="modal-benefits">
-        <ul>
-          <li>Unlimited aesthetic generations</li>
-          <li>All 16+ premium vibes</li>
-          <li>No watermarks on exports</li>
-          <li>Priority AI processing</li>
-        </ul>
+      <button class="modal-close" onclick="closeModal('proModal')">✕</button>
+      <h3>This is a Pro feature</h3>
+      <p style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-lg);font-size:var(--text-sm)" id="proModalText"></p>
+      <button class="upgrade-btn" style="width:100%" onclick="subscribePro('annual')">Go Pro — $8.25/mo →</button>
+      <div style="text-align:center;margin-top:var(--space-xs)">
+        <span style="font-size:var(--text-xs);color:rgba(240,237,232,0.3);cursor:pointer" onclick="subscribePro('monthly')">or $12/month</span>
       </div>
-      
-      <input type="email" class="modal-input" id="exitEmailInput" placeholder="your@email.com">
-      <button class="modal-btn modal-btn-primary" onclick="submitExitEmail()">
-        Claim 60% OFF →
-      </button>
-      
-      <p class="modal-terms" style="color:oklch(100% 0 0 / 0.5)">
-        We'll send your discount code instantly.
-      </p>
     </div>
   </div>
-  
+
   <!-- Toast -->
-  <div class="toast" id="toast">
-    <span id="toastIcon">✓</span>
-    <span id="toastText">Copied!</span>
-  </div>
-
+  <div class="toast" id="toast"></div>
 <script>
-// ???????????????????????????????????????????????????????????????
-// AESTHETIC AI - GOLDEN RATIO ENHANCED
-// All timing, spacing, and proportions follow φ = 1.618033988749895
-// ???????????????????????????????????????????????????????????????
+// ═══════════════════════════════════════════════════════════
+// AESTHETIC AI v2 — CREATIVE SHOWCASE STUDIO
+// ═══════════════════════════════════════════════════════════
 
-const PHI = 1.618033988749895;
-const PHI_INV = 0.618033988749895;
+const $ = id => document.getElementById(id);
+const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : 'https://api.dubltap.io';
 
-// ?? API CONFIGURATION ??
-const API_BASE = window.location.hostname === 'localhost' 
-  ? 'http://localhost:3000/api'
-  : 'https://api.dubltap.io';
+// ── STATE ──
+const state = {
+  title: '',
+  description: '',
+  vibeId: null,
+  mediaFile: null,
+  mediaType: 'none', // image|audio|text|video|none
+  mediaData: null,
+  result: null,
+  email: localStorage.getItem('ae_email') || '',
+  isPro: localStorage.getItem('ae_pro') === 'true',
+  usageCount: parseInt(localStorage.getItem('ae_usage') || '0'),
+  maxFree: 3,
+};
 
-// ?? VIBES DATA (Golden ratio color luminance spacing) ??
+// ── VIBES ──
 const VIBES = [
-  { id: 'dark-academia', name: 'Dark Academia', emoji: '📚', 
-    colors: ['#2C1810', '#5C4033', '#8B7355', '#D4C4B0', '#F5F0E8'], 
-    filter: 'sepia(30%) contrast(110%) brightness(95%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(44,24,16,0.3), rgba(139,115,85,0.2))', 
-    dark: false, premium: false },
-  { id: 'coastal-grandmother', name: 'Coastal Grandmother', emoji: ' ', 
-    colors: ['#1E3A5F', '#5B8A9A', '#9BBEC8', '#E8DED2', '#FAF7F2'], 
-    filter: 'brightness(105%) saturate(90%) contrast(95%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(30,58,95,0.2), rgba(155,190,200,0.15))', 
-    dark: false, premium: false },
-  { id: 'clean-girl', name: 'Clean Girl', emoji: '✨', 
-    colors: ['#2D2D2D', '#6B6B6B', '#A8A8A8', '#E5DDD5', '#FFFAF5'], 
-    filter: 'brightness(105%) contrast(105%) saturate(85%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(45,45,45,0.1), rgba(229,221,213,0.1))', 
-    dark: false, premium: false },
-  { id: 'cottagecore', name: 'Cottagecore', emoji: '🌿', 
-    colors: ['#4A5D4A', '#7D9A6B', '#B5C99A', '#E9D8A6', '#FFF8E7'], 
-    filter: 'saturate(110%) brightness(102%) sepia(10%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(74,93,74,0.2), rgba(181,201,154,0.15))', 
-    dark: false, premium: false },
-  { id: 'y2k-cyber', name: 'Y2K Cyber', emoji: '💿', 
-    colors: ['#FF00FF', '#00FFFF', '#FF69B4', '#C0C0C0', '#FFFFFF'], 
-    filter: 'saturate(140%) contrast(110%) brightness(105%) hue-rotate(10deg)', 
-    overlay: 'linear-gradient(137.5deg, rgba(255,0,255,0.15), rgba(0,255,255,0.15))', 
-    dark: false, premium: false },
-  { id: 'old-money', name: 'Old Money', emoji: '  ', 
-    colors: ['#1C2833', '#2E4053', '#5D6D7E', '#AEB6BF', '#F4F3EE'], 
-    filter: 'contrast(105%) brightness(98%) saturate(80%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(28,40,51,0.25), rgba(93,109,126,0.15))', 
-    dark: false, premium: false },
-  { id: 'soft-romantic', name: 'Soft Romantic', emoji: '🌸', 
-    colors: ['#8B4B6B', '#C08497', '#E6B8C2', '#F5E1E9', '#FFF9FB'], 
-    filter: 'brightness(105%) saturate(95%) contrast(95%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(139,75,107,0.2), rgba(230,184,194,0.15))', 
-    dark: false, premium: false },
-  { id: 'urban-minimalist', name: 'Urban Minimalist', emoji: '  ', 
-    colors: ['#0A0A0A', '#333333', '#666666', '#E0E0E0', '#FFFFFF'], 
-    filter: 'grayscale(30%) contrast(115%) brightness(100%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(10,10,10,0.2), rgba(102,102,102,0.1))', 
-    dark: true, premium: false },
-  // Premium vibes
-  { id: 'ethereal-fairy', name: 'Ethereal Fairy', emoji: '🧚', 
-    colors: ['#4A3F6B', '#7B6BA8', '#B8A9D9', '#E8E0F0', '#FDF8FF'], 
-    filter: 'brightness(108%) saturate(85%) hue-rotate(-10deg)', 
-    overlay: 'linear-gradient(137.5deg, rgba(74,63,107,0.2), rgba(184,169,217,0.2))', 
-    dark: false, premium: true },
-  { id: 'dark-romance', name: 'Dark Romance', emoji: '🥀', 
-    colors: ['#1A0A0A', '#4A1C1C', '#8B3A3A', '#C08080', '#F5E8E8'], 
-    filter: 'contrast(120%) saturate(90%) brightness(90%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(26,10,10,0.4), rgba(139,58,58,0.2))', 
-    dark: true, premium: true },
-  { id: 'golden-hour', name: 'Golden Hour', emoji: '🌅', 
-    colors: ['#8B4513', '#CD853F', '#DEB887', '#F5DEB3', '#FFFAF0'], 
-    filter: 'sepia(20%) saturate(120%) brightness(105%) contrast(105%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(139,69,19,0.2), rgba(222,184,135,0.15))', 
-    dark: false, premium: true },
-  { id: 'neon-nights', name: 'Neon Nights', emoji: '🌃', 
-    colors: ['#0D0D1A', '#1A1A40', '#4A0080', '#FF00AA', '#00FFFF'], 
-    filter: 'contrast(130%) saturate(150%) brightness(95%)', 
-    overlay: 'linear-gradient(137.5deg, rgba(74,0,128,0.3), rgba(255,0,170,0.15))', 
-    dark: true, premium: true },
+  { id: 'dark-academia', name: 'Dark Academia', emoji: '📚', colors: ['#2C1810','#5C4033','#8B7355','#D4C4B0','#F5F0E8'], dark: false },
+  { id: 'coastal-calm', name: 'Coastal Calm', emoji: '🌊', colors: ['#1E3A5F','#5B8A9A','#9BBEC8','#E8DED2','#FAF7F2'], dark: false },
+  { id: 'clean-minimal', name: 'Clean Minimal', emoji: '✨', colors: ['#0A0A0A','#333333','#888888','#E0E0E0','#FFFFFF'], dark: true },
+  { id: 'golden-hour', name: 'Golden Hour', emoji: '🌅', colors: ['#8B4513','#CD853F','#DEB887','#F5DEB3','#FFFAF0'], dark: false },
+  { id: 'neon-nights', name: 'Neon Nights', emoji: '🌃', colors: ['#0D0D1A','#1A1A40','#4A0080','#FF00AA','#00FFFF'], dark: true },
+  { id: 'soft-romantic', name: 'Soft Romantic', emoji: '🌸', colors: ['#8B4B6B','#C08497','#E6B8C2','#F5E1E9','#FFF9FB'], dark: false },
+  // Pro vibes
+  { id: 'old-money', name: 'Old Money', emoji: '👔', colors: ['#1C2833','#2E4053','#5D6D7E','#AEB6BF','#F4F3EE'], dark: false, pro: true },
+  { id: 'y2k-cyber', name: 'Y2K Cyber', emoji: '💿', colors: ['#FF00FF','#00FFFF','#FF69B4','#C0C0C0','#FFFFFF'], dark: false, pro: true },
+  { id: 'cottagecore', name: 'Cottagecore', emoji: '🌿', colors: ['#4A5D4A','#7D9A6B','#B5C99A','#E9D8A6','#FFF8E7'], dark: false, pro: true },
+  { id: 'dark-romance', name: 'Dark Romance', emoji: '🥀', colors: ['#1A0A0A','#4A1C1C','#8B3A3A','#C08080','#F5E8E8'], dark: true, pro: true },
+  { id: 'ethereal', name: 'Ethereal', emoji: '🧚', colors: ['#4A3F6B','#7B6BA8','#B8A9D9','#E8E0F0','#FDF8FF'], dark: false, pro: true },
+  { id: 'urban-edge', name: 'Urban Edge', emoji: '🏙️', colors: ['#0a0a0a','#1a1a1a','#F4A261','#E76F51','#f0ede8'], dark: true, pro: true },
 ];
 
 const FONTS = {
   'dark-academia': { display: 'Playfair Display', body: 'Crimson Text' },
-  'coastal-grandmother': { display: 'Cormorant Garamond', body: 'Lora' },
-  'clean-girl': { display: 'DM Sans', body: 'Outfit' },
-  'cottagecore': { display: 'Libre Baskerville', body: 'Quicksand' },
-  'y2k-cyber': { display: 'Orbitron', body: 'Space Mono' },
-  'old-money': { display: 'Bodoni Moda', body: 'Cormorant' },
-  'soft-romantic': { display: 'Italiana', body: 'Raleway' },
-  'urban-minimalist': { display: 'Bebas Neue', body: 'Work Sans' },
-  'ethereal-fairy': { display: 'Cormorant Garamond', body: 'Raleway' },
-  'dark-romance': { display: 'Playfair Display', body: 'Crimson Text' },
+  'coastal-calm': { display: 'Cormorant Garamond', body: 'Lora' },
+  'clean-minimal': { display: 'Bebas Neue', body: 'Work Sans' },
   'golden-hour': { display: 'Libre Baskerville', body: 'Lora' },
   'neon-nights': { display: 'Orbitron', body: 'Space Mono' },
+  'soft-romantic': { display: 'Italiana', body: 'Raleway' },
+  'old-money': { display: 'Bodoni Moda', body: 'Cormorant' },
+  'y2k-cyber': { display: 'Syne', body: 'Space Grotesk' },
+  'cottagecore': { display: 'Libre Baskerville', body: 'Quicksand' },
+  'dark-romance': { display: 'Playfair Display', body: 'Crimson Text' },
+  'ethereal': { display: 'Cormorant Garamond', body: 'Raleway' },
+  'urban-edge': { display: 'Outfit', body: 'DM Sans' },
 };
 
-const SOCIAL_PLATFORMS = [
-  { id: 'instagram-post', name: 'IG Post', icon: '📷', width: 1080, height: 1080, premium: false },
-  { id: 'instagram-story', name: 'IG Story', icon: '📱', width: 1080, height: 1920, premium: false },
-  { id: 'tiktok', name: 'TikTok', icon: '🎵', width: 1080, height: 1920, premium: true },
-  { id: 'twitter', name: 'X/Twitter', icon: ' ', width: 1200, height: 675, premium: true },
-  { id: 'linkedin', name: 'LinkedIn', icon: '💼', width: 1200, height: 627, premium: true },
-  { id: 'pinterest', name: 'Pinterest', icon: '📌', width: 1000, height: 1500, premium: true },
-];
+const COLOR_ROLES = ['Primary', 'Secondary', 'Accent', 'Surface', 'Background'];
+const PLACEHOLDERS_TITLE = ['Ember Coffee Co.', 'FREQUENCIES EP', 'Solitude Series', 'The Morning Brief', 'Nova Fitness', 'Drift Gallery'];
+const PLACEHOLDERS_DESC = ['artisan coffee shop in Brooklyn', 'lo-fi beats meets jazz fusion', 'oil paintings exploring isolation', 'weekly newsletter for founders', 'boutique fitness studio', 'contemporary art collective'];
+const LOADING_MSGS = ['Reading your vibe...', 'Designing your identity...', 'Styling your business card...', 'Crafting your social presence...', 'Building your mockups...', 'Adding the finishing touches...'];
 
-// Loading messages timed to golden ratio intervals
-const LOADING_MESSAGES = [
-  'Analyzing your unique features...',
-  'Extracting color harmonies...',
-  'Generating your custom logo...',
-  'Curating your perfect palette...',
-  'Matching typography vibes...',
-  'Crafting your aesthetic identity...',
-  'Preparing social templates...',
-  'Finalizing your look...'
-];
-
-// ?? STATE ??
-let state = {
-  imageData: null,
-  selectedVibe: null,
-  result: null,
-  selectedPlatform: 'instagram-post',
-  isPro: false,
-  usageCount: parseInt(localStorage.getItem('usageCount') || '0'),
-  maxFreeUsage: 3,
-  email: localStorage.getItem('userEmail') || null,
-  visitorId: localStorage.getItem('visitorId') || generateVisitorId(),
-  referralCount: parseInt(localStorage.getItem('referralCount') || '0'),
-  hasShared: localStorage.getItem('hasShared') === 'true',
-  selectedTier: 'annual'
-};
-
-function generateVisitorId() {
-  const id = 'u_' + Math.random().toString(36).substr(2, 9);
-  localStorage.setItem('visitorId', id);
-  return id;
+// ── INIT ──
+function init() {
+  renderVibeGrid();
+  cyclePlaceholders();
+  setupUploadZone();
+  setupInputFlow();
+  checkUpgradeSuccess();
 }
 
-// ?? DOM HELPERS ??
-const $ = id => document.getElementById(id);
-
-// ?? INITIALIZATION ??
-async function init() {
-  createVibeGrid();
-  createSocialGrid();
-  bindEvents();
-  updateUsageUI();
-  updateReferralUI();
-  setupExitIntent();
-  await fetchUserCount();
-  checkReferral();
-  checkVibeCurateHandoff();
+// ── PLACEHOLDER CYCLING ──
+let phIdx = 0;
+function cyclePlaceholders() {
+  const ti = $('titleInput'), di = $('descInput');
+  setInterval(() => {
+    phIdx = (phIdx + 1) % PLACEHOLDERS_TITLE.length;
+    ti.placeholder = PLACEHOLDERS_TITLE[phIdx];
+    if (di) di.placeholder = PLACEHOLDERS_DESC[phIdx];
+  }, 3000);
 }
 
-function createVibeGrid() {
-  const grid = $('vibeGrid');
-  VIBES.forEach((vibe, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'vibe-btn' + (vibe.premium && !state.isPro ? ' premium' : '');
-    btn.dataset.id = vibe.id;
-    btn.style.animationDelay = `${i * 61.8}ms`; // Golden timing
-    btn.innerHTML = `
-      <div class="vibe-emoji">${vibe.emoji}</div>
-      <div class="vibe-name">${vibe.name}</div>
-      <div class="vibe-colors">
-        ${vibe.colors.map(c => `<div class="vibe-color" style="background:${c}"></div>`).join('')}
-      </div>
-    `;
-    btn.onclick = () => selectVibe(vibe.id);
-    grid.appendChild(btn);
-  });
-}
+// ── INPUT FLOW (Progressive Disclosure) ──
+function setupInputFlow() {
+  const ti = $('titleInput');
+  const di = $('descInput');
 
-function createSocialGrid() {
-  const grid = $('socialGrid');
-  SOCIAL_PLATFORMS.forEach(platform => {
-    const isLocked = platform.premium && !state.isPro && !state.hasShared;
-    const btn = document.createElement('button');
-    btn.className = 'social-btn' + (platform.id === state.selectedPlatform ? ' selected' : '') + (isLocked ? ' locked' : '');
-    btn.dataset.id = platform.id;
-    btn.innerHTML = `
-      <span class="social-icon">${platform.icon}</span>
-      <span>${platform.name}</span>
-    `;
-    btn.onclick = () => selectPlatform(platform.id);
-    grid.appendChild(btn);
-  });
-}
-
-function bindEvents() {
-  $('uploadArea').onclick = () => $('fileInput').click();
-  $('fileInput').onchange = handleFileSelect;
-  $('generateBtn').onclick = generateAesthetic;
-  $('resetBtn').onclick = resetApp;
-  $('downloadBtn').onclick = downloadExport;
-  $('copyBtn').onclick = copyResults;
-}
-
-function setupExitIntent() {
-  let shown = false;
-  document.addEventListener('mouseout', (e) => {
-    if (!shown && !state.email && e.clientY < 10) {
-      shown = true;
-      showModal('exitModal');
-      startExitCountdown();
-    }
-  });
-}
-
-function startExitCountdown() {
-  let time = 15 * 60;
-  const countdown = $('exitCountdown');
-  const interval = setInterval(() => {
-    time--;
-    const mins = Math.floor(time / 60);
-    const secs = time % 60;
-    countdown.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
-    if (time <= 0) clearInterval(interval);
-  }, 1000);
-}
-
-async function fetchUserCount() {
-  try {
-    const res = await fetch(`${API_BASE}/stats`);
-    const data = await res.json();
-    $('userCount').textContent = (data.totalUsers || 12847).toLocaleString();
-  } catch {
-    // Fallback with golden growth simulation
-    const base = 12847;
-    const hoursSinceLaunch = Math.floor((Date.now() - new Date('2025-01-01').getTime()) / (1000 * 60 * 60));
-    $('userCount').textContent = (base + Math.floor(hoursSinceLaunch * PHI)).toLocaleString();
-  }
-}
-
-function checkReferral() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const ref = urlParams.get('ref');
-  if (ref && ref !== state.visitorId) {
-    localStorage.setItem('referredBy', ref);
-    // Track referral on backend
-    fetch(`${API_BASE}/referral/track`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ referrerId: ref, visitorId: state.visitorId })
-    }).catch(() => {});
-  }
-}
-
-// ?? USAGE MANAGEMENT ??
-function updateUsageUI() {
-  const remaining = Math.max(0, state.maxFreeUsage - state.usageCount);
-  $('usageRemaining').textContent = remaining;
-  $('usageFill').style.width = `${(remaining / state.maxFreeUsage) * 100}%`;
-  
-  if (state.isPro) {
-    $('usageCounter').innerHTML = '<div class="usage-text">👑 <strong>Pro</strong> — Unlimited generations</div>';
-  }
-}
-
-function updateReferralUI() {
-  for (let i = 1; i <= 3; i++) {
-    const dot = $(`ref${i}`);
-    if (state.referralCount >= i) {
-      dot.classList.add('filled');
-      dot.textContent = '✓';
-    }
-  }
-  $('referralLink').value = `https://aesthetic.dubltap.io/?ref=${state.visitorId}`;
-}
-
-// ?? STAGE MANAGEMENT ??
-function showStage(stageId) {
-  document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
-  $(stageId).classList.add('active');
-}
-
-// ?? MODAL MANAGEMENT ??
-function showModal(modalId) {
-  $(modalId).classList.add('active');
-}
-
-function closeModal(modalId) {
-  $(modalId).classList.remove('active');
-}
-
-function showPremiumModal() {
-  showModal('premiumModal');
-}
-
-function selectTier(el, tier) {
-  state.selectedTier = tier;
-  document.querySelectorAll('.premium-tier').forEach(t => t.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-// ?? FILE HANDLING ??
-function handleFileSelect(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  
-  if (!state.isPro && state.usageCount >= state.maxFreeUsage) {
-    showPremiumModal();
-    return;
-  }
-  
-  const reader = new FileReader();
-  reader.onload = (event) => {
-    state.imageData = event.target.result;
-    $('previewImg').src = state.imageData;
-    showStage('vibeStage');
-  };
-  reader.readAsDataURL(file);
-}
-
-// ?? VIBE SELECTION ??
-function selectVibe(vibeId) {
-  const vibe = VIBES.find(v => v.id === vibeId);
-  
-  if (vibe.premium && !state.isPro) {
-    showPremiumModal();
-    return;
-  }
-  
-  state.selectedVibe = vibeId;
-  
-  document.querySelectorAll('.vibe-btn').forEach(btn => {
-    btn.classList.toggle('selected', btn.dataset.id === vibeId);
-  });
-  
-  $('previewImg').style.filter = vibe.filter;
-  $('previewOverlay').style.background = vibe.overlay;
-  $('generateBtn').disabled = false;
-}
-
-// ?? GENERATION ??
-async function generateAesthetic() {
-  showStage('loadingStage');
-  
-  // Golden ratio timed loading animation
-  const goldenDelay = 423.6; // φ² × 100
-  for (let i = 0; i < LOADING_MESSAGES.length; i++) {
-    $('loadingText').textContent = LOADING_MESSAGES[i];
-    $('progressFill').style.width = `${(i + 1) * (100 / LOADING_MESSAGES.length)}%`;
-    await sleep(goldenDelay);
-  }
-  
-  const vibe = VIBES.find(v => v.id === state.selectedVibe);
-  const fonts = FONTS[state.selectedVibe];
-  
-  let aiResult;
-  try {
-    // Call backend API for generation
-    const response = await fetch(`${API_BASE}/generate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        vibeId: state.selectedVibe,
-        vibeName: vibe.name,
-        visitorId: state.visitorId
-      })
-    });
-    
-    if (response.ok) {
-      aiResult = await response.json();
+  ti.addEventListener('input', () => {
+    const preview = $('titlePreview');
+    if (ti.value.length > 0) {
+      preview.textContent = ti.value;
+      preview.classList.add('visible');
     } else {
-      throw new Error('API error');
+      preview.classList.remove('visible');
     }
-  } catch (err) {
-    // Fallback generation
-    aiResult = {
-      headline: `${vibe.name} Energy`,
-      tagline: `Your aesthetic radiates effortless ${vibe.name.toLowerCase()} sophistication.`,
-      styleNotes: [
-        'Lead with your dominant color in headers and key visuals',
-        'Use the lightest shade for backgrounds to create breathing room',
-        'Accent sparingly with your deepest tone for maximum impact',
-        'Pair fonts intentionally—display for headlines, body for readability'
-      ],
-      logoText: vibe.name.split(' ')[0],
-      logoTagline: 'Curated Aesthetic'
-    };
+  });
+
+  ti.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && ti.value.trim().length > 0) {
+      e.preventDefault();
+      state.title = ti.value.trim();
+      $('step2').style.display = '';
+      setTimeout(() => di.focus(), 200);
+    }
+  });
+
+  di.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && di.value.trim().length > 0) {
+      e.preventDefault();
+      state.description = di.value.trim();
+      $('step3').style.display = '';
+    }
+  });
+}
+
+// ── UPLOAD ──
+function setupUploadZone() {
+  const zone = $('uploadZone');
+  const fi = $('fileInput');
+
+  zone.addEventListener('click', () => fi.click());
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault(); zone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fi.addEventListener('change', () => { if (fi.files.length) handleFile(fi.files[0]); });
+}
+
+function handleFile(file) {
+  const type = file.type;
+  if (type.startsWith('image/')) state.mediaType = 'image';
+  else if (type.startsWith('audio/')) state.mediaType = 'audio';
+  else if (type.startsWith('text/') || file.name.endsWith('.md')) state.mediaType = 'text';
+  else { showToast('Unsupported file type'); return; }
+
+  state.mediaFile = file;
+  const reader = new FileReader();
+  reader.onload = e => { state.mediaData = e.target.result; };
+  reader.readAsDataURL(file);
+
+  // Show preview
+  const thumb = $('uploadThumb');
+  if (state.mediaType === 'image') thumb.innerHTML = `<img src="${URL.createObjectURL(file)}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`;
+  else if (state.mediaType === 'audio') thumb.textContent = '🎵';
+  else thumb.textContent = '📄';
+
+  $('uploadName').textContent = file.name;
+  $('uploadSize').textContent = (file.size / 1024).toFixed(1) + ' KB';
+  $('uploadPreview').classList.add('visible');
+  $('uploadZone').style.display = 'none';
+
+  showVibeStep();
+}
+
+function removeUpload() {
+  state.mediaFile = null; state.mediaType = 'none'; state.mediaData = null;
+  $('uploadPreview').classList.remove('visible');
+  $('uploadZone').style.display = '';
+  $('fileInput').value = '';
+}
+
+function showVibeStep() {
+  if (!state.description) state.description = $('descInput').value.trim() || '';
+  if (!state.title) state.title = $('titleInput').value.trim() || 'Untitled';
+  $('step4').style.display = '';
+  updateVibePreview();
+}
+
+// ── VIBE GRID ──
+function renderVibeGrid() {
+  const grid = $('vibeGrid');
+  grid.innerHTML = VIBES.map(v => `
+    <div class="vibe-card ${v.pro ? 'pro-vibe' : ''}" data-vibe="${v.id}" onclick="selectVibe('${v.id}')">
+      <div class="vibe-card-bg" style="background:linear-gradient(135deg,${v.colors[0]},${v.colors[2]},${v.colors[4]})"></div>
+      ${v.pro ? '<span class="vibe-lock">🔒</span>' : ''}
+      <div class="vibe-card-emoji">${v.emoji}</div>
+      <div class="vibe-card-name">${v.name}</div>
+      <div class="vibe-card-preview" id="vibePreview_${v.id}"></div>
+    </div>
+  `).join('');
+}
+
+function updateVibePreview() {
+  VIBES.forEach(v => {
+    const el = $(`vibePreview_${v.id}`);
+    if (el && state.title) {
+      const f = FONTS[v.id];
+      el.textContent = state.title;
+      el.style.fontFamily = `'${f.display}', serif`;
+      el.style.color = v.dark ? v.colors[4] : v.colors[0];
+    }
+  });
+}
+
+function selectVibe(id) {
+  const vibe = VIBES.find(v => v.id === id);
+  if (vibe.pro && !state.isPro) {
+    $('proModalText').textContent = `"${vibe.name}" is a Pro vibe. Unlock all 12 vibes with Pro.`;
+    $('proModal').classList.add('active');
+    return;
   }
+  state.vibeId = id;
+  document.querySelectorAll('.vibe-card').forEach(c => c.classList.remove('selected'));
+  document.querySelector(`.vibe-card[data-vibe="${id}"]`).classList.add('selected');
+
+  // Show groovy button
+  $('step5').style.display = '';
+  $('step5').style.animation = 'fadeUp 0.6s var(--ease-out) both';
+  setTimeout(() => $('groovyBtn').focus(), 300);
+}
+
+// ── GROOVY BUTTON ──
+const GROOVY_BEHAVIORS = ['reveal', 'roulette', 'mashup'];
+
+async function pressGroovyButton() {
+  if (!state.title) { showToast('Give it a name first!'); return; }
+  if (!state.vibeId) { showToast('Pick a vibe!'); return; }
+
+  // Check usage
+  if (!state.isPro && state.usageCount >= state.maxFree) {
+    $('proModalText').textContent = 'You\'ve used all 3 free generations. Go Pro for unlimited.';
+    $('proModal').classList.add('active');
+    return;
+  }
+
+  const behavior = GROOVY_BEHAVIORS[Math.floor(Math.random() * GROOVY_BEHAVIORS.length)];
   
-  state.result = {
-    ...aiResult,
-    vibe,
-    fonts,
-    palette: vibe.colors
-  };
-  
+  // Transition to loading
+  showStage('loadingStage');
+
+  // Loading animation
+  for (let i = 0; i < LOADING_MSGS.length; i++) {
+    $('loadingText').textContent = LOADING_MSGS[i];
+    $('loadingFill').style.width = `${((i + 1) / LOADING_MSGS.length) * 100}%`;
+    await sleep(500);
+  }
+
+  // Generate
+  const vibe = VIBES.find(v => v.id === state.vibeId);
+  const fonts = FONTS[state.vibeId];
+  let aiResult = await fetchAI(vibe);
+
+  state.result = { ...aiResult, vibe, fonts, palette: vibe.colors };
+
   // Increment usage
   state.usageCount++;
-  localStorage.setItem('usageCount', state.usageCount.toString());
-  updateUsageUI();
-  
-  // Track generation
-  trackEvent('generate', { vibe: vibe.id });
-  
-  // Show email gate if not captured yet
-  if (!state.email) {
-    showModal('emailModal');
-  }
-  
-  renderResults();
+  localStorage.setItem('ae_usage', state.usageCount.toString());
+
+  // Apply behavior-specific reveal
   showStage('resultStage');
-  
-  // Celebration confetti
-  createConfetti();
+  renderResults();
+
+  if (behavior === 'roulette') {
+    await vibeRoulette();
+  } else if (behavior === 'mashup') {
+    showToast('✦ Groovy twist applied');
+  }
+
+  // Stagger card reveals
+  const cards = document.querySelectorAll('#resultsScroll .result-card');
+  cards.forEach((card, i) => {
+    setTimeout(() => card.classList.add('revealed'), i * 200);
+  });
+
+  // Update usage note
+  if (!state.isPro) {
+    const rem = Math.max(0, state.maxFree - state.usageCount);
+    $('usageNote').textContent = rem > 0 ? `${rem} free generation${rem === 1 ? '' : 's'} remaining` : 'No free generations remaining';
+  } else {
+    $('usageNote').textContent = '👑 Pro — Unlimited generations';
+  }
+
+  // Hide email card if already captured
+  if (state.email) $('emailCard').style.display = 'none';
+  // Hide upgrade card if pro
+  if (state.isPro) $('upgradeCard').style.display = 'none';
 }
 
-// ?? EMAIL CAPTURE ??
-async function submitEmail() {
-  const email = $('emailInput').value.trim();
-  if (!email || !email.includes('@')) {
-    $('emailInput').style.borderColor = '#ef4444';
-    return;
+async function vibeRoulette() {
+  const rcTitle = $('rcTitle');
+  const origVibe = state.result.vibe;
+  const origFonts = state.result.fonts;
+  const shuffled = [...VIBES].filter(v => !v.pro).sort(() => Math.random() - 0.5);
+  for (let i = 0; i < 8; i++) {
+    const v = shuffled[i % shuffled.length];
+    const f = FONTS[v.id];
+    rcTitle.style.fontFamily = `'${f.display}', serif`;
+    rcTitle.style.color = v.colors[v.dark ? 4 : 0];
+    document.querySelector('.hero-card').style.background = `linear-gradient(135deg, ${v.colors[0]}22, ${v.colors[2]}11)`;
+    await sleep(120 + i * 40);
   }
-  
-  state.email = email;
-  localStorage.setItem('userEmail', email);
-  
+  // Snap back to chosen
+  rcTitle.style.fontFamily = `'${origFonts.display}', serif`;
+  rcTitle.style.color = origVibe.colors[origVibe.dark ? 4 : 0];
+  document.querySelector('.hero-card').style.background = `linear-gradient(135deg, ${origVibe.colors[0]}22, ${origVibe.colors[2]}11)`;
+}
+
+// ── AI CALL ──
+async function fetchAI(vibe) {
   try {
-    await fetch(`${API_BASE}/api/email-capture`, {
+    const response = await fetch(`${API_BASE}/api/ai-query`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        email,
-        visitorId: state.visitorId,
-        source: 'result_modal',
-        referredBy: localStorage.getItem('referredBy') || null
+        app: 'aesthetic-ai',
+        action: 'generate-brand-v2',
+        content: JSON.stringify({
+          title: state.title,
+          description: state.description,
+          vibeId: vibe.id,
+          vibeName: vibe.name,
+          mediaType: state.mediaType,
+        }),
+        email: state.email
       })
     });
-  } catch {}
-  
-  closeModal('emailModal');
-  showToast('Welcome! Your aesthetic is ready.', 'success');
-  trackEvent('email_signup', { source: 'result_modal' });
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success && data.result) {
+        try { return JSON.parse(data.result); } catch { return fallbackAI(vibe); }
+      }
+    }
+    return fallbackAI(vibe);
+  } catch { return fallbackAI(vibe); }
 }
 
-async function submitExitEmail() {
-  const email = $('exitEmailInput').value.trim();
-  if (!email || !email.includes('@')) {
-    $('exitEmailInput').style.borderColor = '#ef4444';
-    return;
-  }
-  
-  state.email = email;
-  localStorage.setItem('userEmail', email);
-  
-  try {
-    await fetch(`${API_BASE}/api/email-capture`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        visitorId: state.visitorId,
-        source: 'exit_intent',
-        discount: '60%',
-        referredBy: localStorage.getItem('referredBy') || null
-      })
-    });
-  } catch {}
-  
-  closeModal('exitModal');
-  showToast('🎉 60% discount code sent to your email!', 'success');
-  trackEvent('email_signup', { source: 'exit_intent' });
-}
-
-function subscribePro(plan) {
-  plan = plan || state.selectedTier || 'annual';
-  trackEvent('subscribe_click', { tier: plan });
-  showToast('Redirecting to checkout...', 'success');
-  
-  const prices = {
-    monthly: 'price_1SteMXBkYqg7J4R7yceADKaS',
-    annual: 'price_1StePzBkYqg7J4R7iaXJuPFm'
+function fallbackAI(vibe) {
+  const t = state.title || 'Untitled';
+  const d = state.description || 'creative project';
+  return {
+    tagline: `Where ${d.split(' ').slice(0, 3).join(' ')} meets intention.`,
+    personality: ['Bold', 'Curated', 'Authentic'],
+    quote: `The best things aren't found — they're made.`,
+    heroHeadline: `${t}. Designed with purpose.`,
+    heroSubheadline: `${d.charAt(0).toUpperCase() + d.slice(1)} — crafted for those who notice the difference.`,
+    ctaText: 'Explore',
+    instagramBio: `✦ ${t}\n${d}\n🔗 Link below`,
+    contentPillars: [
+      { name: 'Behind the Scenes', desc: `The process, craft, and decisions behind ${t}` },
+      { name: 'Curated Inspiration', desc: 'What inspires the work and why it matters' },
+      { name: 'Community', desc: 'Connecting with the people who get it' }
+    ],
+    brandVoice: {
+      soundsLike: `A trusted creative friend who takes their craft seriously but doesn't take themselves too seriously`,
+      neverSoundsLike: 'A generic corporate press release or a desperate sales pitch'
+    },
+    hashtags: ['#CreativeLife', '#DesignMatters', '#MadeWithIntention', '#AestheticAI', '#BrandIdentity'],
+    logoText: t.split(' ')[0].toUpperCase(),
+    logoSubtext: t.split(' ').slice(1).join(' ').toUpperCase() || 'STUDIO',
+    outputType: detectOutputType()
   };
-  
-  const email = state.email || localStorage.getItem('userEmail') || '';
-  const successUrl = encodeURIComponent(window.location.origin + '?upgraded=true');
-  const cancelUrl = encodeURIComponent(window.location.origin);
-  
-  window.location.href = 'https://api.dubltap.io/create-checkout?priceId=' + prices[plan] + '&email=' + email + '&success_url=' + successUrl + '&cancel_url=' + cancelUrl;
 }
 
-// ?? SHARING ??
-function shareTwitter() {
-  const text = `Just discovered my aesthetic is "${state.result.headline}" ✨\n\nFind yours free at aesthetic.dubltap.io/?ref=${state.visitorId}`;
-  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
-  markAsShared();
+function detectOutputType() {
+  const d = (state.description || '').toLowerCase();
+  if (state.mediaType === 'audio') return 'music';
+  if (state.mediaType === 'image' && /paint|art|photo|gallery|exhibit|canvas|illustration/i.test(d)) return 'art';
+  if (state.mediaType === 'text' || /writ|poem|essay|blog|newsletter|article|book|story/i.test(d)) return 'writing';
+  if (/music|song|album|single|EP|beat|track|mix|DJ|producer|band/i.test(d)) return 'music';
+  return 'business';
 }
 
-function shareTikTok() {
-  copyShareLink();
-  showToast('Link copied! Paste in TikTok caption', 'success');
-  markAsShared();
-}
-
-function copyShareLink() {
-  const link = `https://aesthetic.dubltap.io/?ref=${state.visitorId}`;
-  navigator.clipboard?.writeText(link);
-  showToast('Share link copied!', 'success');
-  markAsShared();
-}
-
-async function markAsShared() {
-  state.hasShared = true;
-  localStorage.setItem('hasShared', 'true');
-  
-  document.querySelectorAll('.social-btn.locked').forEach(btn => {
-    btn.classList.remove('locked');
-  });
-  
-  $('shareUnlockCard').style.display = 'none';
-  $('watermarkNotice').textContent = '🎉 Watermark-free unlocked!';
-  
-  try {
-    await fetch(`${API_BASE}/share`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ visitorId: state.visitorId })
-    });
-  } catch {}
-  
-  trackEvent('share_complete');
-}
-
-function copyReferralLink() {
-  const link = $('referralLink').value;
-  navigator.clipboard?.writeText(link);
-  showToast('Referral link copied!', 'success');
-}
-
-// ?? RESULTS RENDERING ??
+// ── RENDER RESULTS ──
 function renderResults() {
-  const { result } = state;
-  const { vibe, fonts, palette } = result;
-  
-  // Update page theme with golden gradient
-  document.body.style.background = `linear-gradient(137.5deg, ${palette[4]} 0%, ${palette[3]} 38.2%, ${palette[2]}22 100%)`;
-  document.body.style.color = palette[0];
-  
-  // Transform photo
-  $('transformedImg').src = state.imageData;
-  $('transformedImg').style.filter = vibe.filter;
-  $('filterOverlay').style.background = vibe.overlay;
-  
-  // Main card
-  $('resultHeadline').textContent = result.headline;
-  $('resultHeadline').style.fontFamily = `'${fonts.display}', serif`;
-  $('resultTagline').textContent = result.tagline;
-  $('resultTagline').style.fontFamily = `'${fonts.body}', sans-serif`;
-  
-  // Palette with golden spacing
-  $('paletteRow').innerHTML = palette.map(color => `
-    <div class="palette-swatch" style="background:${color}" onclick="copyColor('${color}')">
-      <span class="hex">${color}</span>
-    </div>
-  `).join('');
-  
-  // Fonts
-  $('fontsRow').innerHTML = `
-    <div class="font-sample">
-      <div class="font-preview" style="font-family:'${fonts.display}',serif">Aa</div>
-      <div class="font-name">${fonts.display}</div>
-      <div class="font-role">Headlines</div>
-    </div>
-    <div class="font-divider"></div>
-    <div class="font-sample">
-      <div class="font-preview" style="font-family:'${fonts.body}',sans-serif">Aa</div>
-      <div class="font-name">${fonts.body}</div>
-      <div class="font-role">Body Text</div>
-    </div>
-  `;
-  
-  renderLogo();
-  renderToolkit();
-  
-  // Style notes
-  $('styleList').innerHTML = result.styleNotes.map(note => `
-    <li><span class="style-bullet">✦</span> ${note}</li>
-  `).join('');
-  
-  // Update card colors
-  document.querySelectorAll('.result-card').forEach(card => {
-    card.style.color = vibe.dark ? '#f0f0f0' : palette[0];
-    if (vibe.dark) card.classList.add('dark');
+  const { vibe, fonts, palette } = state.result;
+  const r = state.result;
+  const outputType = r.outputType || detectOutputType();
+
+  // Hero Identity Card
+  const heroCard = document.querySelector('.hero-card');
+  heroCard.style.setProperty('--card-accent', palette[2]);
+  heroCard.style.background = `linear-gradient(135deg, ${palette[0]}22, ${palette[2]}11)`;
+  $('rcTitle').textContent = state.title;
+  $('rcTitle').style.fontFamily = `'${fonts.display}', serif`;
+  $('rcTitle').style.color = vibe.dark ? palette[4] : palette[0];
+  $('rcTagline').textContent = r.tagline;
+  $('rcTagline').style.fontFamily = `'${fonts.body}', sans-serif`;
+  $('rcTagline').style.color = vibe.dark ? `${palette[4]}99` : `${palette[0]}99`;
+  $('rcPills').innerHTML = (r.personality || []).map(p =>
+    `<span class="personality-pill" style="color:${palette[2]};border-color:${palette[2]}33">${p}</span>`
+  ).join('');
+  $('rcPalette').innerHTML = palette.map(c => `<div class="palette-bar-segment" style="background:${c}"></div>`).join('');
+
+  // Dynamic mockups based on output type
+  renderMockup1(outputType, r);
+  renderIG(r);
+  renderMockup2(outputType, r);
+  renderSocialKit(r);
+  renderToolkit(r);
+  renderCrossSell(outputType);
+
+  // Set card accent colors
+  document.querySelectorAll('.result-card').forEach(c => {
+    c.style.setProperty('--card-accent', palette[2]);
   });
-  
-  // Social buttons
-  document.querySelectorAll('.social-btn').forEach(btn => {
-    btn.style.background = palette[3];
-    btn.style.color = palette[0];
-  });
-  
-  $('shareUnlockCard').style.display = state.hasShared ? 'none' : 'block';
-  
-  renderExport();
 }
 
-function renderLogo() {
-  const { result } = state;
-  const { palette, fonts } = result;
-  
-  // Golden ratio proportioned logo
-  const logoSvg = `
-    <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" class="logo-svg" onclick="downloadLogo()">
-      <defs>
-        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:${palette[4]}"/>
-          <stop offset="61.8%" style="stop-color:${palette[3]}"/>
-          <stop offset="100%" style="stop-color:${palette[2]}"/>
-        </linearGradient>
-      </defs>
-      <rect x="10" y="10" width="280" height="100" rx="13" fill="url(#logoGrad)" stroke="${palette[2]}" stroke-width="2"/>
-      <circle cx="40" cy="60" r="21" fill="${palette[1]}" opacity="0.25"/>
-      <circle cx="260" cy="60" r="13" fill="${palette[2]}" opacity="0.25"/>
-      <text x="150" y="55" text-anchor="middle" font-family="${fonts.display}, serif" font-size="28" font-weight="600" fill="${palette[0]}">
-        ${result.logoText || 'AESTHETIC'}
-      </text>
-      <text x="150" y="80" text-anchor="middle" font-family="${fonts.body}, sans-serif" font-size="12" fill="${palette[1]}" letter-spacing="3">
-        ${(result.logoTagline || 'CURATED STYLE').toUpperCase()}
-      </text>
-      <line x1="74" y1="92" x2="226" y2="92" stroke="${palette[2]}" stroke-width="1" opacity="0.382"/>
-    </svg>
+// ── MOCKUP 1: Business Card / Album Cover / Gallery / Editorial ──
+function renderMockup1(type, r) {
+  const { palette, fonts, vibe } = r;
+  const container = $('mockup1Content');
+
+  if (type === 'music') {
+    $('mockup1Label').textContent = 'ALBUM COVER';
+    const wrap = document.createElement('div');
+    wrap.className = 'album-container';
+    wrap.innerHTML = `<canvas id="albumCanvas" width="800" height="800"></canvas><div class="album-vinyl"></div>`;
+    container.innerHTML = '';
+    container.appendChild(wrap);
+    setTimeout(() => drawAlbumCover($('albumCanvas'), r), 50);
+  } else if (type === 'art') {
+    $('mockup1Label').textContent = 'GALLERY SHOWCASE';
+    container.innerHTML = `<div class="mockup-frame" style="padding:40px;background:#f5f5f0;text-align:center">
+      <div style="border:8px solid #ddd;display:inline-block;box-shadow:inset 0 0 20px rgba(0,0,0,0.1)">
+        ${state.mediaData ? `<img src="${state.mediaData}" style="max-width:100%;max-height:400px;display:block">` : `<canvas id="artCanvas" width="600" height="400"></canvas>`}
+      </div>
+      <div style="margin-top:20px;font-family:'${fonts.display}',serif;font-size:18px;color:${palette[0]}">${state.title}</div>
+      <div style="font-family:'${fonts.body}',sans-serif;font-size:13px;color:${palette[1]};margin-top:4px">${state.description}</div>
+    </div>`;
+    if (!state.mediaData) setTimeout(() => drawArtPlaceholder($('artCanvas'), r), 50);
+  } else if (type === 'writing') {
+    $('mockup1Label').textContent = 'EDITORIAL SPREAD';
+    container.innerHTML = `<div class="mockup-frame" style="padding:40px 32px;background:${palette[4]};text-align:left">
+      <div style="font-family:'${fonts.display}',serif;font-size:32px;color:${palette[0]};line-height:1.2;margin-bottom:16px">${state.title}</div>
+      <div style="width:60px;height:3px;background:${palette[2]};margin-bottom:16px"></div>
+      <div style="font-family:'${fonts.body}',sans-serif;font-size:14px;color:${palette[1]};line-height:1.8;max-height:200px;overflow:hidden">
+        ${r.quote ? `<em>"${r.quote}"</em>` : state.description}
+      </div>
+      <div style="margin-top:20px;font-family:'${fonts.body}',sans-serif;font-size:12px;color:${palette[2]}">— ${state.title}</div>
+    </div>`;
+  } else {
+    // Business card
+    $('mockup1Label').textContent = 'YOUR BUSINESS CARD';
+    container.innerHTML = `<div class="bizcard-container">
+      <div class="bizcard-inner">
+        <div class="bizcard-front"><canvas id="bizcardFront" width="700" height="400"></canvas></div>
+        <div class="bizcard-back"><canvas id="bizcardBack" width="700" height="400"></canvas></div>
+      </div>
+      <div style="text-align:center;margin-top:12px;font-size:11px;color:rgba(240,237,232,0.3)">Hover to flip</div>
+    </div>`;
+    setTimeout(() => { drawBizCardFront($('bizcardFront'), r); drawBizCardBack($('bizcardBack'), r); }, 50);
+  }
+}
+
+// ── MOCKUP 2: Website Hero / Release Page / Exhibition / Publication ──
+function renderMockup2(type, r) {
+  const { palette, fonts } = r;
+  const container = $('mockup2Content');
+  const slug = state.title.toLowerCase().replace(/[^a-z0-9]+/g, '') + '.com';
+
+  if (type === 'music') {
+    $('mockup2Label').textContent = 'RELEASE PAGE';
+  } else if (type === 'art') {
+    $('mockup2Label').textContent = 'EXHIBITION PAGE';
+  } else if (type === 'writing') {
+    $('mockup2Label').textContent = 'PUBLICATION PAGE';
+  } else {
+    $('mockup2Label').textContent = 'YOUR WEBSITE';
+  }
+
+  container.innerHTML = `<div class="browser-frame">
+    <div class="browser-chrome">
+      <div class="browser-dots"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div></div>
+      <div class="browser-url">${slug}</div>
+    </div>
+    <div class="browser-body"><canvas id="webCanvas" width="800" height="500"></canvas></div>
+  </div>`;
+  setTimeout(() => drawWebHero($('webCanvas'), r, type), 50);
+}
+
+// ── CANVAS: BUSINESS CARD FRONT ──
+function drawBizCardFront(canvas, r) {
+  const ctx = canvas.getContext('2d');
+  const { palette, fonts } = r;
+  const w = canvas.width, h = canvas.height;
+
+  // Background
+  const grad = ctx.createLinearGradient(0, 0, w, h);
+  grad.addColorStop(0, palette[4]); grad.addColorStop(1, palette[3]);
+  ctx.fillStyle = grad; roundRect(ctx, 0, 0, w, h, 16); ctx.fill();
+
+  // Accent stripe
+  ctx.fillStyle = palette[2]; ctx.fillRect(0, h - 6, w, 6);
+
+  // Logo text
+  ctx.fillStyle = palette[0]; ctx.font = `700 36px '${fonts.display}', serif`;
+  ctx.textAlign = 'left'; ctx.fillText(r.logoText || state.title.split(' ')[0].toUpperCase(), 40, h * 0.42);
+
+  // Subtext
+  ctx.fillStyle = palette[1]; ctx.font = `400 14px '${fonts.body}', sans-serif`;
+  ctx.letterSpacing = '3px';
+  ctx.fillText((r.logoSubtext || '').toUpperCase(), 42, h * 0.42 + 28);
+
+  // Tagline
+  ctx.fillStyle = palette[2]; ctx.font = `italic 13px '${fonts.body}', sans-serif`;
+  ctx.fillText(r.tagline.substring(0, 50), 40, h - 30);
+}
+
+// ── CANVAS: BUSINESS CARD BACK ──
+function drawBizCardBack(canvas, r) {
+  const ctx = canvas.getContext('2d');
+  const { palette, fonts } = r;
+  const w = canvas.width, h = canvas.height;
+
+  ctx.fillStyle = palette[0]; roundRect(ctx, 0, 0, w, h, 16); ctx.fill();
+
+  ctx.fillStyle = palette[4]; ctx.font = `600 20px '${fonts.display}', serif`;
+  ctx.textAlign = 'left'; ctx.fillText('Your Name', 40, 80);
+
+  ctx.fillStyle = palette[3]; ctx.font = `400 13px '${fonts.body}', sans-serif`;
+  ctx.fillText('Founder', 40, 108);
+
+  ctx.fillStyle = palette[2]; ctx.font = `400 13px '${fonts.body}', sans-serif`;
+  const lines = ['hello@' + state.title.toLowerCase().replace(/\s+/g, '') + '.com', state.title.toLowerCase().replace(/\s+/g, '') + '.com', '+1 (555) 000-0000'];
+  lines.forEach((l, i) => ctx.fillText(l, 40, 160 + i * 28));
+
+  // Accent dot
+  ctx.beginPath(); ctx.arc(w - 60, h - 60, 20, 0, Math.PI * 2);
+  ctx.fillStyle = palette[2]; ctx.globalAlpha = 0.3; ctx.fill(); ctx.globalAlpha = 1;
+}
+
+// ── CANVAS: INSTAGRAM POST ──
+function renderIG(r) {
+  const { palette, fonts, vibe } = r;
+  const canvas = $('igCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+
+  // Background gradient
+  const grad = ctx.createLinearGradient(0, 0, w, h);
+  grad.addColorStop(0, palette[0]); grad.addColorStop(0.618, palette[1]); grad.addColorStop(1, palette[2]);
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+
+  // Texture overlay
+  ctx.globalAlpha = 0.03;
+  for (let i = 0; i < 5000; i++) {
+    ctx.fillStyle = Math.random() > 0.5 ? '#fff' : '#000';
+    ctx.fillRect(Math.random() * w, Math.random() * h, 1, 1);
+  }
+  ctx.globalAlpha = 1;
+
+  // Quote
+  const textColor = vibe.dark ? palette[4] : palette[4];
+  ctx.fillStyle = textColor; ctx.textAlign = 'center';
+  ctx.font = `600 ${Math.min(48, w * 0.044)}px '${fonts.display}', serif`;
+  wrapText(ctx, `"${r.quote}"`, w / 2, h * 0.35, w * 0.75, 58);
+
+  // Divider
+  ctx.strokeStyle = palette[3]; ctx.globalAlpha = 0.3; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(w * 0.35, h * 0.72); ctx.lineTo(w * 0.65, h * 0.72); ctx.stroke();
+  ctx.globalAlpha = 1;
+
+  // Brand name
+  ctx.fillStyle = textColor; ctx.globalAlpha = 0.6;
+  ctx.font = `400 ${w * 0.022}px '${fonts.body}', sans-serif`;
+  ctx.fillText(state.title, w / 2, h * 0.82);
+  ctx.globalAlpha = 1;
+
+  // IG frame extras
+  const av = $('igAvatar').getContext('2d');
+  av.beginPath(); av.arc(16, 16, 16, 0, Math.PI * 2);
+  av.fillStyle = palette[2]; av.fill();
+  av.fillStyle = palette[4]; av.font = 'bold 14px sans-serif'; av.textAlign = 'center';
+  av.fillText(state.title.charAt(0), 16, 21);
+
+  $('igName').textContent = state.title.toLowerCase().replace(/\s+/g, '');
+  $('igLikes').textContent = `${Math.floor(Math.random() * 500 + 100)} likes`;
+}
+
+// ── CANVAS: ALBUM COVER ──
+function drawAlbumCover(canvas, r) {
+  const ctx = canvas.getContext('2d');
+  const { palette, fonts } = r;
+  const w = canvas.width, h = canvas.height;
+
+  // Abstract background
+  const grad = ctx.createRadialGradient(w * 0.3, h * 0.3, 0, w * 0.5, h * 0.5, w * 0.8);
+  grad.addColorStop(0, palette[2]); grad.addColorStop(0.5, palette[1]); grad.addColorStop(1, palette[0]);
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+
+  // Abstract shapes
+  for (let i = 0; i < 5; i++) {
+    ctx.beginPath();
+    ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 150 + 50, 0, Math.PI * 2);
+    ctx.fillStyle = palette[Math.floor(Math.random() * 3)] + '22';
+    ctx.fill();
+  }
+
+  // Overlay image if available
+  if (state.mediaData && state.mediaType === 'image') {
+    const img = new Image();
+    img.onload = () => {
+      ctx.globalAlpha = 0.5; ctx.drawImage(img, 0, 0, w, h); ctx.globalAlpha = 1;
+      drawAlbumText(ctx, r, w, h);
+    };
+    img.src = state.mediaData;
+  } else {
+    drawAlbumText(ctx, r, w, h);
+  }
+}
+
+function drawAlbumText(ctx, r, w, h) {
+  const { palette, fonts } = r;
+  // Title
+  ctx.fillStyle = palette[4]; ctx.textAlign = 'center';
+  ctx.font = `700 ${w * 0.08}px '${fonts.display}', serif`;
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 20;
+  wrapText(ctx, state.title.toUpperCase(), w / 2, h * 0.45, w * 0.8, w * 0.09);
+  ctx.shadowBlur = 0;
+
+  // Subtitle
+  ctx.font = `400 ${w * 0.025}px '${fonts.body}', sans-serif`;
+  ctx.globalAlpha = 0.7; ctx.fillText(state.description, w / 2, h * 0.88); ctx.globalAlpha = 1;
+}
+
+// ── CANVAS: WEBSITE HERO ──
+function drawWebHero(canvas, r, type) {
+  const ctx = canvas.getContext('2d');
+  const { palette, fonts } = r;
+  const w = canvas.width, h = canvas.height;
+
+  // Background
+  ctx.fillStyle = palette[4]; ctx.fillRect(0, 0, w, h);
+
+  // Nav bar
+  ctx.fillStyle = palette[0] + '08'; ctx.fillRect(0, 0, w, 50);
+  ctx.fillStyle = palette[0]; ctx.font = `700 16px '${fonts.display}', serif`;
+  ctx.textAlign = 'left'; ctx.fillText(state.title, 30, 32);
+  ctx.fillStyle = palette[1]; ctx.font = `400 12px '${fonts.body}', sans-serif`;
+  const navItems = type === 'music' ? ['Music', 'Tour', 'About'] : type === 'art' ? ['Work', 'About', 'Contact'] : ['About', 'Services', 'Contact'];
+  navItems.forEach((item, i) => ctx.fillText(item, w - 200 + i * 70, 32));
+
+  // Hero
+  ctx.textAlign = 'center';
+  ctx.fillStyle = palette[0]; ctx.font = `700 ${Math.min(42, w * 0.05)}px '${fonts.display}', serif`;
+  wrapText(ctx, r.heroHeadline || state.title, w / 2, h * 0.38, w * 0.7, 50);
+
+  ctx.fillStyle = palette[1]; ctx.font = `400 ${w * 0.02}px '${fonts.body}', sans-serif`;
+  wrapText(ctx, r.heroSubheadline || state.description, w / 2, h * 0.58, w * 0.6, 26);
+
+  // CTA button
+  const btnW = 180, btnH = 44, btnX = (w - btnW) / 2, btnY = h * 0.72;
+  ctx.fillStyle = palette[2]; roundRect(ctx, btnX, btnY, btnW, btnH, 22); ctx.fill();
+  ctx.fillStyle = palette[4]; ctx.font = `600 14px '${fonts.body}', sans-serif`;
+  ctx.fillText(r.ctaText || 'Get Started', w / 2, btnY + 28);
+}
+
+// ── CANVAS: ART PLACEHOLDER ──
+function drawArtPlaceholder(canvas, r) {
+  const ctx = canvas.getContext('2d');
+  const { palette } = r;
+  const w = canvas.width, h = canvas.height;
+  const grad = ctx.createLinearGradient(0, 0, w, h);
+  grad.addColorStop(0, palette[1]); grad.addColorStop(1, palette[3]);
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+  for (let i = 0; i < 8; i++) {
+    ctx.beginPath(); ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 80 + 20, 0, Math.PI * 2);
+    ctx.fillStyle = palette[Math.floor(Math.random() * 5)] + '33'; ctx.fill();
+  }
+}
+
+// ── SOCIAL KIT ──
+function renderSocialKit(r) {
+  $('igBio').textContent = r.instagramBio || '';
+  $('pillarsContent').innerHTML = (r.contentPillars || []).map(p =>
+    `<div class="pillar-card"><div class="pillar-name">${p.name}</div><div class="pillar-desc">${p.desc || p.description || ''}</div></div>`
+  ).join('');
+  $('voiceContent').innerHTML = `
+    <div class="voice-item"><div class="voice-label" style="color:#2A9D8F">Sounds Like</div><div class="voice-text">"${r.brandVoice?.soundsLike || ''}"</div></div>
+    <div class="voice-item"><div class="voice-label" style="color:#E76F51">Never Sounds Like</div><div class="voice-text">"${r.brandVoice?.neverSoundsLike || ''}"</div></div>
   `;
-  
-  $('logoContainer').innerHTML = `${logoSvg}<p class="logo-text">Click to download SVG</p>`;
+  $('hashtagsText').textContent = (r.hashtags || []).join('  ');
 }
 
-// ✦ BRAND TOOLKIT (Tier 1) ✦
-function hexToRgb(hex) {
-  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
-  return {r,g,b,str:`rgb(${r}, ${g}, ${b})`};
-}
-function hexToHsl(hex) {
-  let {r,g,b} = hexToRgb(hex);
-  r/=255; g/=255; b/=255;
-  const max=Math.max(r,g,b), min=Math.min(r,g,b), l=(max+min)/2;
-  let h=0,s=0;
-  if(max!==min){
-    const d=max-min; s=l>0.5?d/(2-max-min):d/(max+min);
-    if(max===r) h=((g-b)/d+(g<b?6:0))/6;
-    else if(max===g) h=((b-r)/d+2)/6;
-    else h=((r-g)/d+4)/6;
-  }
-  return `hsl(${Math.round(h*360)}, ${Math.round(s*100)}%, ${Math.round(l*100)}%)`;
-}
-function contrastRatio(hex1, hex2) {
-  function lum(hex) {
-    let {r,g,b} = hexToRgb(hex);
-    [r,g,b] = [r,g,b].map(v => { v/=255; return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4); });
-    return 0.2126*r + 0.7152*g + 0.0722*b;
-  }
-  const l1=lum(hex1), l2=lum(hex2);
-  const ratio = (Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05);
-  return Math.round(ratio*100)/100;
-}
-const COLOR_ROLES = ['Primary / Text', 'Secondary', 'Accent', 'Surface', 'Background'];
+// ── BRAND TOOLKIT ──
+function renderToolkit(r) {
+  const { palette, fonts, vibe } = r;
 
-function renderToolkit() {
-  const { palette, fonts, vibe } = state.result;
-
-  // Colors grid
-  $('toolkitColorsGrid').innerHTML = palette.map((hex, i) => {
+  // Palette grid
+  $('paletteGrid').innerHTML = palette.map((hex, i) => {
     const rgb = hexToRgb(hex);
-    return `
-      <div class="toolkit-color-item" onclick="copyColor('${hex}')" title="Click to copy">
-        <div class="toolkit-color-swatch" style="background:${hex}"></div>
-        <div class="toolkit-color-hex">${hex}</div>
-        <div class="toolkit-color-rgb">${rgb.r}, ${rgb.g}, ${rgb.b}</div>
-        <div class="toolkit-color-role">${COLOR_ROLES[i]}</div>
-      </div>`;
+    return `<div class="palette-item" onclick="copyToClip('${hex}')">
+      <div class="palette-swatch" style="background:${hex}"></div>
+      <div class="palette-hex">${hex}</div>
+      <div class="palette-role">${COLOR_ROLES[i]}</div>
+    </div>`;
   }).join('');
 
-  // Font preview
-  $('toolkitFontPreview').innerHTML = `
-    <div class="toolkit-font-item">
-      <div class="toolkit-font-sample" style="font-family:'${fonts.display}',serif">${fonts.display}</div>
-      <div class="toolkit-font-meta">Display / Headlines — ${fonts.display}</div>
-    </div>
-    <div class="toolkit-font-item">
-      <div class="toolkit-font-sample" style="font-family:'${fonts.body}',sans-serif">${fonts.body}</div>
-      <div class="toolkit-font-meta">Body / UI — ${fonts.body}</div>
-    </div>`;
+  // Code blocks
+  const fontUrl = `https://fonts.googleapis.com/css2?family=${fonts.display.replace(/ /g,'+')}:wght@400;600;700&family=${fonts.body.replace(/ /g,'+')}:wght@400;500;600&display=swap`;
 
-  const fontImport = `https://fonts.googleapis.com/css2?family=${fonts.display.replace(/ /g,'+')}:wght@400;600;700&family=${fonts.body.replace(/ /g,'+')}:wght@400;500;600&display=swap`;
-  $('toolkitFontLink').textContent = fontImport;
+  $('codeCss').textContent = `:root {\n  /* ${vibe.name} — Aesthetic AI */\n  --color-primary: ${palette[0]};\n  --color-secondary: ${palette[1]};\n  --color-accent: ${palette[2]};\n  --color-surface: ${palette[3]};\n  --color-bg: ${palette[4]};\n  --font-display: '${fonts.display}', serif;\n  --font-body: '${fonts.body}', sans-serif;\n}`;
 
-  // CSS Variables
-  const cssVars = `:root {
-  /* ${vibe.name} — Generated by Aesthetic AI */
-  --color-primary: ${palette[0]};
-  --color-secondary: ${palette[1]};
-  --color-accent: ${palette[2]};
-  --color-surface: ${palette[3]};
-  --color-background: ${palette[4]};
+  $('codeTw').textContent = `// tailwind.config.js\ncolors: {\n  brand: {\n    primary: '${palette[0]}',\n    secondary: '${palette[1]}',\n    accent: '${palette[2]}',\n    surface: '${palette[3]}',\n    bg: '${palette[4]}',\n  }\n},\nfontFamily: {\n  display: ['${fonts.display}', 'serif'],\n  body: ['${fonts.body}', 'sans-serif'],\n}`;
 
-  --font-display: '${fonts.display}', serif;
-  --font-body: '${fonts.body}', sans-serif;
+  $('codeHtml').textContent = `<link rel="preconnect" href="https://fonts.googleapis.com">\n<link href="${fontUrl}" rel="stylesheet">\n<meta name="theme-color" content="${palette[2]}">\n<style>\n  body { font-family: '${fonts.body}', sans-serif; background: ${palette[4]}; color: ${palette[0]}; }\n  h1, h2, h3 { font-family: '${fonts.display}', serif; }\n</style>`;
 
-  /* Golden Ratio Scale */
-  --space-xs: 0.382rem;
-  --space-sm: 0.618rem;
-  --space-md: 1rem;
-  --space-lg: 1.618rem;
-  --space-xl: 2.618rem;
-}`;
-  $('toolkitCodeCSS').textContent = cssVars;
-
-  // Tailwind config
-  const twConfig = `// tailwind.config.js — ${vibe.name}
-colors: {
-  brand: {
-    primary: '${palette[0]}',
-    secondary: '${palette[1]}',
-    accent: '${palette[2]}',
-    surface: '${palette[3]}',
-    bg: '${palette[4]}',
-  }
-},
-fontFamily: {
-  display: ['${fonts.display}', 'serif'],
-  body: ['${fonts.body}', 'sans-serif'],
-}`;
-  $('toolkitCodeTailwind').textContent = twConfig;
-
-  // HTML head block
-  const headBlock = `<!-- ${vibe.name} Brand — Aesthetic AI -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="${fontImport}" rel="stylesheet">
-<meta name="theme-color" content="${palette[2]}">
-<style>
-  body {
-    font-family: '${fonts.body}', sans-serif;
-    background: ${palette[4]};
-    color: ${palette[0]};
-  }
-  h1, h2, h3 {
-    font-family: '${fonts.display}', serif;
-  }
-</style>`;
-  $('toolkitCodeHead').textContent = headBlock;
-
-  // Design Rationale
+  // Contrast info
   const cr = contrastRatio(palette[0], palette[4]);
-  const wcag = cr >= 7 ? 'AAA' : cr >= 4.5 ? 'AA' : cr >= 3 ? 'AA Large' : 'Needs adjustment';
-  $('toolkitRationale').innerHTML = `
-    <p><strong>Why this works:</strong> ${vibe.name} pairs <em>${fonts.display}</em> (display) with <em>${fonts.body}</em> (body) for a contrast between personality and legibility. The display font carries your brand voice; the body font stays out of the way.</p>
-    <p><strong>Color hierarchy:</strong> Your 5-color system moves from dark (${palette[0]}) to light (${palette[4]}), giving you a natural reading direction. Use your accent (${palette[2]}) for CTAs and interactive elements — it draws the eye without overwhelming.</p>
-    <p><strong>Accessibility:</strong> Primary text on background contrast ratio is <strong>${cr}:1</strong> — WCAG ${wcag}. ${cr >= 4.5 ? 'Your palette is accessible for standard body text.' : 'Consider using your secondary color (' + palette[1] + ') on the background for better readability.'}</p>
-  `;
+  const level = cr >= 7 ? 'AAA' : cr >= 4.5 ? 'AA' : 'Low';
+  const cls = cr >= 7 ? 'aaa' : cr >= 4.5 ? 'aa' : 'fail';
+  $('contrastInfo').innerHTML = `<span style="font-size:12px;color:rgba(240,237,232,0.4)">Text/Background Contrast: </span><span class="contrast-badge contrast-${cls}">${cr.toFixed(1)}:1 WCAG ${level}</span>`;
 }
 
-function switchToolkitTab(tab) {
+// ── CROSS SELL ──
+function renderCrossSell(type) {
+  const d = state.description.toLowerCase();
+  let text, link, label;
+  if (type === 'music' || /music|song|beat/i.test(d)) {
+    text = 'Curate playlists that match your vibe';
+    link = 'https://vibe.dubltap.io'; label = 'Try VibeCurate →';
+  } else if (/food|recipe|restaurant|cafe|coffee|bakery/i.test(d)) {
+    text = 'Transform your recipes into shareable cards';
+    link = 'https://fork.dubltap.io'; label = 'Try Bad Mutha Forker →';
+  } else if (/business|consult|coach|freelan|agency/i.test(d)) {
+    text = 'Know your competition inside and out';
+    link = 'https://maven.dubltap.io'; label = 'Try Market Maven →';
+  } else {
+    text = 'Find your next income stream with AI';
+    link = 'https://hustle.dubltap.io'; label = 'Try Side Hustle Copilot →';
+  }
+  $('crossSellText').textContent = text;
+  $('crossSellLink').textContent = label;
+  $('crossSellLink').href = link;
+}
+
+// ── EMAIL CAPTURE ──
+async function submitEmail() {
+  const email = $('emailInput').value.trim();
+  if (!email || !email.includes('@')) { $('emailInput').style.borderColor = '#E76F51'; return; }
+  state.email = email;
+  localStorage.setItem('ae_email', email);
+
+  try {
+    await fetch(`${API_BASE}/api/email-capture`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'aesthetic-ai', tags: ['aesthetic-ai', 'brand-studio'] })
+    });
+  } catch {}
+
+  $('emailCard').style.display = 'none';
+  showToast('✓ Saved! Check your inbox.');
+}
+
+function dismissEmail() { $('emailCard').style.display = 'none'; }
+
+// ── STRIPE ──
+function subscribePro(plan) {
+  plan = plan || 'annual';
+  showToast('Redirecting to checkout...');
+  const prices = { monthly: 'price_1SteMXBkYqg7J4R7yceADKaS', annual: 'price_1StePzBkYqg7J4R7iaXJuPFm' };
+  const email = state.email || '';
+  const s = encodeURIComponent(window.location.origin + '?upgraded=true');
+  const c = encodeURIComponent(window.location.origin);
+  window.location.href = `https://api.dubltap.io/create-checkout?priceId=${prices[plan]}&email=${email}&success_url=${s}&cancel_url=${c}`;
+}
+
+function checkUpgradeSuccess() {
+  if (window.location.search.includes('upgraded=true')) {
+    state.isPro = true;
+    localStorage.setItem('ae_pro', 'true');
+    showToast('👑 Welcome to Pro!');
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+}
+
+// ── UTILITIES ──
+function showStage(id) {
+  document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+  $(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function showToast(msg) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.add('visible');
+  setTimeout(() => t.classList.remove('visible'), 2500);
+}
+
+function closeModal(id) { $(id).classList.remove('active'); }
+
+function resetApp() {
+  state.title = ''; state.description = ''; state.vibeId = null;
+  state.mediaFile = null; state.mediaType = 'none'; state.mediaData = null;
+  state.result = null;
+  $('titleInput').value = ''; $('descInput').value = '';
+  $('step2').style.display = 'none'; $('step3').style.display = 'none';
+  $('step4').style.display = 'none'; $('step5').style.display = 'none';
+  $('titlePreview').classList.remove('visible');
+  removeUpload();
+  document.querySelectorAll('.vibe-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.result-card').forEach(c => c.classList.remove('revealed'));
+  showStage('inputStage');
+  setTimeout(() => $('titleInput').focus(), 300);
+}
+
+function switchTab(tab, btn) {
   document.querySelectorAll('.toolkit-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.toolkit-tab-content').forEach(c => c.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('toolkitTab-' + tab).classList.add('active');
+  btn.classList.add('active');
+  $('tab-' + tab).classList.add('active');
 }
 
-function copyToolkitColors() {
-  const { palette } = state.result;
-  const text = palette.map((hex, i) => {
-    const rgb = hexToRgb(hex);
-    const hsl = hexToHsl(hex);
-    return `${COLOR_ROLES[i]}: ${hex} | ${rgb.str} | ${hsl}`;
-  }).join('\n');
-  navigator.clipboard.writeText(text);
-  showCopied(event.target);
-}
-
-function copyToolkitFonts() {
-  const { fonts } = state.result;
-  const link = `<link href="${$('toolkitFontLink').textContent}" rel="stylesheet">`;
-  navigator.clipboard.writeText(link);
-  showCopied(event.target);
-}
-
-function copyToolkitCode(tab) {
-  const el = document.getElementById('toolkitTab-' + tab).querySelector('.toolkit-code-block');
-  navigator.clipboard.writeText(el.textContent);
-  showCopied(event.target);
-}
-
-function showCopied(btn) {
+function copyText(id) {
+  navigator.clipboard.writeText($(id).textContent);
+  const btn = $(id).closest('.social-section')?.querySelector('.copy-btn') || event.target;
   const orig = btn.textContent;
-  btn.textContent = '✓ Copied';
-  btn.classList.add('copied');
+  btn.textContent = '✓ Copied'; btn.classList.add('copied');
   setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
 }
 
-// ?? SOCIAL EXPORT ??
-function selectPlatform(platformId) {
-  const platform = SOCIAL_PLATFORMS.find(p => p.id === platformId);
-  
-  if (platform.premium && !state.isPro && !state.hasShared) {
-    showToast('Share to unlock this format! ↑', '');
-    return;
+function copyToClip(text) {
+  navigator.clipboard.writeText(text);
+  showToast(`Copied ${text}`);
+}
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+  return { r, g, b };
+}
+
+function contrastRatio(hex1, hex2) {
+  function lum(hex) {
+    let { r, g, b } = hexToRgb(hex);
+    [r, g, b] = [r, g, b].map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
   }
-  
-  state.selectedPlatform = platformId;
-  
-  document.querySelectorAll('.social-btn').forEach(btn => {
-    btn.classList.toggle('selected', btn.dataset.id === platformId);
-  });
-  
-  renderExport();
+  const l1 = lum(hex1), l2 = lum(hex2);
+  return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
 }
 
-function renderExport() {
-  const platform = SOCIAL_PLATFORMS.find(p => p.id === state.selectedPlatform);
-  const { result, imageData } = state;
-  const { palette, fonts, vibe } = result;
-  
-  const canvas = $('exportCanvas');
-  const ctx = canvas.getContext('2d');
-  
-  // Golden ratio scaled preview
-  const scale = Math.min(377 / platform.width, 610 / platform.height); // Fibonacci numbers
-  canvas.width = platform.width * scale;
-  canvas.height = platform.height * scale;
-  
-  canvas.dataset.actualWidth = platform.width;
-  canvas.dataset.actualHeight = platform.height;
-  
-  // Golden gradient background
-  const gradient = ctx.createLinearGradient(0, 0, canvas.width * PHI_INV, canvas.height);
-  gradient.addColorStop(0, palette[4]);
-  gradient.addColorStop(0.382, palette[3]);
-  gradient.addColorStop(1, palette[2] + '44');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  const img = new Image();
-  img.crossOrigin = 'anonymous';
-  img.onload = () => {
-    let imgSize, imgX, imgY;
-    
-    if (platform.id.includes('story') || platform.id === 'tiktok' || platform.id === 'pinterest') {
-      imgSize = canvas.width * PHI_INV; // Golden ratio sizing
-      imgX = (canvas.width - imgSize) / 2;
-      imgY = canvas.height * 0.1;
-    } else {
-      imgSize = canvas.height * 0.382; // Golden ratio
-      imgX = (canvas.width - imgSize) / 2;
-      imgY = canvas.height * 0.1;
-    }
-    
-    // Draw circular image
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(imgX + imgSize/2, imgY + imgSize/2, imgSize/2, 0, Math.PI * 2);
-    ctx.closePath();
-    ctx.clip();
-    ctx.filter = vibe.filter;
-    ctx.drawImage(img, imgX, imgY, imgSize, imgSize);
-    ctx.filter = 'none';
-    ctx.restore();
-    
-    // Golden ratio border
-    ctx.strokeStyle = palette[2];
-    ctx.lineWidth = 3 * scale;
-    ctx.beginPath();
-    ctx.arc(imgX + imgSize/2, imgY + imgSize/2, imgSize/2, 0, Math.PI * 2);
-    ctx.stroke();
-    
-    // Text with golden positioning
-    let textY = imgY + imgSize + (canvas.height * 0.0618); // φ ²
-    
-    ctx.fillStyle = palette[0];
-    ctx.font = `bold ${Math.round(24 * scale)}px "${fonts.display}", serif`;
-    ctx.textAlign = 'center';
-    ctx.fillText(result.headline, canvas.width / 2, textY);
-    
-    textY += 30 * scale * PHI_INV;
-    ctx.fillStyle = palette[1];
-    ctx.font = `italic ${Math.round(14 * scale)}px "${fonts.body}", sans-serif`;
-    ctx.fillText(result.tagline, canvas.width / 2, textY);
-    
-    // Palette with golden spacing
-    textY += 40 * scale;
-    const swatchSize = 34 * scale; // Fibonacci
-    const gap = 8 * scale;
-    const totalWidth = (swatchSize * 5) + (gap * 4);
-    let swatchX = (canvas.width - totalWidth) / 2;
-    
-    palette.forEach(color => {
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.roundRect(swatchX, textY, swatchSize, swatchSize, 8 * scale);
-      ctx.fill();
-      swatchX += swatchSize + gap;
-    });
-    
-    // Watermark
-    if (!state.hasShared && !state.isPro) {
-      ctx.fillStyle = palette[0];
-      ctx.globalAlpha = 0.5;
-      ctx.font = `bold ${Math.round(11 * scale)}px "Space Grotesk", sans-serif`;
-      ctx.fillText('Made with AestheticAI.app', canvas.width / 2, canvas.height - (21 * scale));
-      ctx.globalAlpha = 1;
-    }
-  };
-  img.src = imageData;
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
 }
 
-// ?? DOWNLOADS ??
-function downloadExport() {
-  trackEvent('download', { platform: state.selectedPlatform });
-  
-  const canvas = $('exportCanvas');
-  const link = document.createElement('a');
-  link.download = `aesthetic-${state.result.vibe.id}-${state.selectedPlatform}.png`;
-  link.href = canvas.toDataURL('image/png');
-  link.click();
-}
-
-function downloadLogo() {
-  const svg = $('logoContainer').querySelector('.logo-svg');
-  const svgData = new XMLSerializer().serializeToString(svg);
-  const blob = new Blob([svgData], { type: 'image/svg+xml' });
-  const url = URL.createObjectURL(blob);
-  
-  const link = document.createElement('a');
-  link.download = `logo-${state.result.vibe.id}.svg`;
-  link.href = url;
-  link.click();
-  
-  URL.revokeObjectURL(url);
-  trackEvent('download_logo');
-}
-
-function copyColor(color) {
-  navigator.clipboard?.writeText(color);
-  showToast(`Copied ${color}!`);
-}
-
-function copyResults() {
-  const { result } = state;
-  const text = `My Aesthetic: ${result.headline}
-${result.tagline}
-
-🎨 Palette: ${result.palette.join(' ')}
- ?  Fonts: ${result.fonts.display} + ${result.fonts.body}
-
-${result.styleNotes.map(n => '✦ ' + n).join('\n')}
-
-Generated by Aesthetic AI ✦ aesthetic.dubltap.io`;
-  
-  navigator.clipboard?.writeText(text);
-  showToast('Copied to clipboard!');
-}
-
-// ?? RESET ??
-function resetApp() {
-  if (!state.isPro && state.usageCount >= state.maxFreeUsage) {
-    showPremiumModal();
-    return;
+function wrapText(ctx, text, x, y, maxW, lineH) {
+  const words = text.split(' ');
+  let line = '';
+  for (let i = 0; i < words.length; i++) {
+    const test = line + words[i] + ' ';
+    if (ctx.measureText(test).width > maxW && i > 0) {
+      ctx.fillText(line.trim(), x, y);
+      line = words[i] + ' '; y += lineH;
+    } else { line = test; }
   }
-  
-  state.imageData = null;
-  state.selectedVibe = null;
-  state.result = null;
-  state.selectedPlatform = 'instagram-post';
-  
-  document.body.style.background = '';
-  document.body.style.color = '';
-  $('fileInput').value = '';
-  $('previewImg').style.filter = '';
-  $('previewOverlay').style.background = '';
-  $('generateBtn').disabled = true;
-  
-  document.querySelectorAll('.vibe-btn').forEach(btn => btn.classList.remove('selected'));
-  document.querySelectorAll('.result-card').forEach(card => card.classList.remove('dark'));
-  
-  showStage('uploadStage');
-  updateUsageUI();
+  ctx.fillText(line.trim(), x, y);
 }
 
-// ?? UTILITIES ??
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function showToast(message, type = '') {
-  const toast = $('toast');
-  $('toastText').textContent = message;
-  toast.className = 'toast show' + (type ? ` ${type}` : '');
-  
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2618); // Golden timing
-}
-
-function createConfetti() {
-  const colors = state.result.palette;
-  for (let i = 0; i < 55; i++) { // Fibonacci
-    const confetti = document.createElement('div');
-    confetti.className = 'confetti';
-    confetti.style.left = `${Math.random() * 100}%`;
-    confetti.style.top = '50%';
-    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-    confetti.style.width = `${5 + Math.random() * 8}px`;
-    confetti.style.height = confetti.style.width;
-    confetti.style.animation = `confettiFall ${1618 + Math.random() * 1000}ms ease-out forwards`;
-    confetti.style.animationDelay = `${i * 34}ms`; // Fibonacci
-    document.body.appendChild(confetti);
-    
-    setTimeout(() => confetti.remove(), 3000);
-  }
-}
-
-function trackEvent(event, data = {}) {
-  // Send to backend analytics
-  fetch(`${API_BASE}/track`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      event,
-      data,
-      visitorId: state.visitorId,
-      timestamp: Date.now()
-    })
-  }).catch(() => {});
-}
-
-// ?? START ??
+// ── BOOT ──
 document.addEventListener('DOMContentLoaded', init);
-
-  function generateVibeCurateCover(playlist,canvas){const SIZE=canvas.width,ctx=canvas.getContext('2d'),songs=playlist.songs||[],prompt=playlist.prompt||'';const pals=[['#0f0c29','#302b63','#24243e','#8e2de2','#4a00e0'],['#1a1a2e','#16213e','#0f3460','#e94560','#f5a623'],['#0d0d0d','#1a1a1a','#2a9d8f','#e9c46a','#f4a261'],['#1b1b2f','#2e294e','#541388','#f1d302','#e8d5b7'],['#03045e','#023e8a','#0077b6','#00b4d8','#90e0ef']];const pal=pals[Math.abs(prompt.split('').reduce((a,c)=>a+c.charCodeAt(0),0))%pals.length];const bg=ctx.createLinearGradient(0,0,SIZE,SIZE);bg.addColorStop(0,pal[0]);bg.addColorStop(.5,pal[1]);bg.addColorStop(1,pal[2]);ctx.fillStyle=bg;ctx.fillRect(0,0,SIZE,SIZE);ctx.globalAlpha=.15;[[SIZE*.85,SIZE*.15,SIZE*.55],[SIZE*.1,SIZE*.9,SIZE*.45]].forEach(([x,y,r])=>{const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,pal[3]);g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=.07;ctx.font=Math.round(SIZE*.065)+'px serif';ctx.fillStyle=pal[3];for(let r=0;r<6;r++)for(let c=0;c<6;c++)ctx.fillText('♫',c*(SIZE/5)-SIZE*.03,r*(SIZE/5)+SIZE*.1);ctx.globalAlpha=1;ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(0,0,SIZE,SIZE*.22);ctx.fillStyle=pal[3];ctx.font='bold '+Math.round(SIZE*.022)+'px system-ui,sans-serif';ctx.textAlign='left';ctx.fillText('VIBECURATE PLAYLIST',SIZE*.07,SIZE*.09);ctx.fillStyle='#fff';ctx.font='bold '+Math.round(SIZE*.037)+'px system-ui,sans-serif';ctx.fillText(prompt.length>36?prompt.substring(0,33)+'…':prompt,SIZE*.07,SIZE*.16);const maxS=Math.min(songs.length,8),rowH=SIZE*.076;for(let i=0;i<maxS;i++){const s=songs[i],y=SIZE*.23+i*rowH;ctx.fillStyle=i%2===0?'rgba(255,255,255,.05)':'rgba(0,0,0,.2)';ctx.fillRect(SIZE*.04,y,SIZE*.92,rowH-SIZE*.007);ctx.fillStyle=pal[3];ctx.font='bold '+Math.round(SIZE*.022)+'px system-ui';ctx.textAlign='right';ctx.fillText(String(i+1).padStart(2,'0'),SIZE*.12,y+rowH*.38);ctx.fillStyle='#fff';ctx.textAlign='left';ctx.fillText((s.title||'Unknown').substring(0,28),SIZE*.14,y+rowH*.38);ctx.fillStyle='rgba(255,255,255,.55)';ctx.font=Math.round(SIZE*.019)+'px system-ui';ctx.fillText((s.artist||'').substring(0,32),SIZE*.14,y+rowH*.72);ctx.fillStyle=pal[4];ctx.font=Math.round(SIZE*.022)+'px serif';ctx.textAlign='right';ctx.fillText('♪',SIZE*.94,y+rowH*.38)}ctx.fillStyle='rgba(0,0,0,.55)';ctx.fillRect(SIZE*.04,SIZE*.91,SIZE*.92,SIZE*.056);ctx.fillStyle=pal[3];ctx.font='bold '+Math.round(SIZE*.018)+'px system-ui';ctx.textAlign='center';ctx.fillText('vibe.dubltap.io ★ '+songs.length+' tracks curated by AI',SIZE/2,SIZE*.95)}
-
-  function checkVibeCurateHandoff(){const hash=window.location.hash;if(!hash||!hash.startsWith('#vibecurate='))return;let playlist;try{playlist=JSON.parse(decodeURIComponent(hash.slice(12)))}catch(e){return}if(!playlist||!playlist.prompt||!playlist.songs||!playlist.songs.length)return;const bigCanvas=document.createElement('canvas');bigCanvas.width=600;bigCanvas.height=600;generateVibeCurateCover(playlist,bigCanvas);state.imageData=bigCanvas.toDataURL('image/png');const previewImg=document.getElementById('previewImg');if(previewImg)previewImg.src=state.imageData;const previewCanvas=document.getElementById('vibecurateCoverPreview');if(previewCanvas){generateVibeCurateCover(playlist,previewCanvas);previewCanvas.classList.add('visible')}const banner=document.getElementById('vibecurateBanner');if(banner){const t=document.getElementById('vcPlaylistTitle'),m=document.getElementById('vcPlaylistMeta');if(t)t.textContent='“'+playlist.prompt+'”';if(m)m.textContent=playlist.songs.length+' tracks • imported from VibeCurate AI';banner.classList.add('visible')}showStage('vibeStage');history.replaceState(null,'',window.location.pathname+window.location.search)}('DOMContentLoaded', init);
 </script>
-<style>.dubltap-ribbon{position:fixed;bottom:0;left:0;right:0;z-index:9000;background:#264653;color:white;overflow:hidden;transition:transform .4s;border-top:2px solid #F4A261}.dubltap-ribbon.hidden{transform:translateY(100%)}.dubltap-ribbon-inner{display:flex;align-items:center;padding:6px 16px;position:relative}.dubltap-ribbon-text{white-space:nowrap;animation:dubltapScrollCTA 30s linear infinite;display:flex;gap:40px;font-size:13px;font-weight:500}.dubltap-ribbon-text a{color:#F4A261;text-decoration:none;white-space:nowrap;transition:color .2s}.dubltap-ribbon-text a:hover{color:#FFBE98}.dubltap-ribbon-text .dbl-div{color:#A8DADC;opacity:.4}.dubltap-ribbon-dismiss{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:white;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;line-height:1}.dubltap-ribbon-dismiss:hover{background:rgba(255,255,255,.3)}@keyframes dubltapScrollCTA{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.dubltap-mascot{position:fixed;width:150px;height:auto;right:20px;top:50%;transform:translateY(-50%) rotate(-5deg);z-index:9999;opacity:.92;filter:drop-shadow(0 8px 24px rgba(244,162,97,.35));animation:dubltapMascotFloat 5s ease-in-out infinite;transition:opacity .4s,transform .4s;cursor:pointer;pointer-events:auto}.dubltap-mascot:hover{transform:translateY(-50%) rotate(0deg) scale(1.08);filter:drop-shadow(0 12px 32px rgba(244,162,97,.5))}@keyframes dubltapMascotFloat{0%,100%{transform:translateY(-50%) rotate(-5deg)}50%{transform:translateY(calc(-50% - 12px)) rotate(-3deg)}}.vibecurate-banner{display:none;background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(42,157,143,.15));border:1px solid rgba(124,58,237,.4);border-radius:14px;padding:14px 18px;margin-bottom:18px;text-align:center;animation:vcFadeIn .5s ease}.vibecurate-banner.visible{display:block}.vibecurate-banner .vc-label{font-size:.72rem;font-weight:700;letter-spacing:2px;color:#a78bfa;text-transform:uppercase;margin-bottom:4px}.vibecurate-banner .vc-title{font-size:1rem;font-weight:600;color:#f0f0f0;margin-bottom:2px}.vibecurate-banner .vc-meta{font-size:.8rem;color:rgba(255,255,255,.55)}.vibecurate-cover-preview{display:none;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.5);margin:0 auto 16px;max-width:200px;width:100%}.vibecurate-cover-preview.visible{display:block}@keyframes vcFadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}@media(max-width:768px){.dubltap-mascot{width:80px;right:8px}}</style><img class="dubltap-mascot" src="https://dubltap.io/dubltap-mascot.png" alt="dub-L-tap" onclick="window.open('https://dubltap.io','_blank')" />
-<div class="dubltap-ribbon" id="dubltapRibbon"><div class="dubltap-ribbon-inner"><div class="dubltap-ribbon-text"><a href="https://fork.dubltap.io" target="_blank" rel="noopener">🍴 Bad Mutha Forker</a><span class="dbl-div">•</span><a href="https://hustle.dubltap.io" target="_blank" rel="noopener">🚀 Side Hustle Copilot</a><span class="dbl-div">•</span><a href="https://mind.dubltap.io" target="_blank" rel="noopener">🧠 Mind Expander — FREE</a><span class="dbl-div">•</span><a href="https://maven.dubltap.io" target="_blank" rel="noopener">📊 Market Maven</a><span class="dbl-div">•</span><a href="https://cliff.dubltap.io" target="_blank" rel="noopener">📚 CLIFF NOTEZ</a><span class="dbl-div">•</span><a href="https://aesthetic.dubltap.io" target="_blank" rel="noopener">🎨 Aesthetic AI</a><span class="dbl-div">•</span><a href="https://vibe.dubltap.io" target="_blank" rel="noopener">🎵 VibeCurate</a><span class="dbl-div">•</span><a href="https://dubltap.io/#bundle" target="_blank" rel="noopener">🔥 FULL BUNDLE — $59/mo or $499/yr</a><span class="dbl-div">•</span><a href="https://fork.dubltap.io" target="_blank" rel="noopener">🍴 Bad Mutha Forker</a><span class="dbl-div">•</span><a href="https://hustle.dubltap.io" target="_blank" rel="noopener">🚀 Side Hustle Copilot</a><span class="dbl-div">•</span><a href="https://mind.dubltap.io" target="_blank" rel="noopener">🧠 Mind Expander — FREE</a><span class="dbl-div">•</span><a href="https://maven.dubltap.io" target="_blank" rel="noopener">📊 Market Maven</a><span class="dbl-div">•</span><a href="https://cliff.dubltap.io" target="_blank" rel="noopener">📚 CLIFF NOTEZ</a><span class="dbl-div">•</span><a href="https://aesthetic.dubltap.io" target="_blank" rel="noopener">🎨 Aesthetic AI</a><span class="dbl-div">•</span><a href="https://vibe.dubltap.io" target="_blank" rel="noopener">🎵 VibeCurate</a><span class="dbl-div">•</span><a href="https://dubltap.io/#bundle" target="_blank" rel="noopener">🔥 FULL BUNDLE — $59/mo or $499/yr</a><span class="dbl-div">•</span></div><button class="dubltap-ribbon-dismiss" onclick="document.getElementById('dubltapRibbon').classList.add('hidden')">✕</button></div></div>
+
+<style>.dubltap-ribbon{position:fixed;bottom:0;left:0;right:0;z-index:9000;background:#264653;color:white;overflow:hidden;transition:transform .4s;border-top:2px solid #F4A261}.dubltap-ribbon.hidden{transform:translateY(100%)}.dubltap-ribbon-inner{display:flex;align-items:center;padding:6px 16px;position:relative}.dubltap-ribbon-text{white-space:nowrap;animation:dubltapScrollCTA 30s linear infinite;display:flex;gap:40px;font-size:13px;font-weight:500}.dubltap-ribbon-text a{color:#F4A261;text-decoration:none;white-space:nowrap;transition:color .2s}.dubltap-ribbon-text a:hover{color:#FFBE98}.dubltap-ribbon-text .dbl-div{color:#A8DADC;opacity:.4}.dubltap-ribbon-dismiss{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:white;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;line-height:1}.dubltap-ribbon-dismiss:hover{background:rgba(255,255,255,.3)}@keyframes dubltapScrollCTA{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.dubltap-mascot{position:fixed;width:150px;height:auto;right:20px;top:50%;transform:translateY(-50%) rotate(-5deg);z-index:9999;opacity:.92;filter:drop-shadow(0 8px 24px rgba(244,162,97,.35));animation:dubltapMascotFloat 5s ease-in-out infinite;transition:opacity .4s,transform .4s;cursor:pointer;pointer-events:auto}.dubltap-mascot:hover{transform:translateY(-50%) rotate(0deg) scale(1.08);filter:drop-shadow(0 12px 32px rgba(244,162,97,.5))}@keyframes dubltapMascotFloat{0%,100%{transform:translateY(-50%) rotate(-5deg)}50%{transform:translateY(calc(-50% - 12px)) rotate(-3deg)}}@media(max-width:768px){.dubltap-mascot{width:80px;right:8px}}</style>
+<img class="dubltap-mascot" src="https://dubltap.io/dubltap-mascot.png" alt="dub-L-tap" onclick="window.open('https://dubltap.io','_blank')">
+<div class="dubltap-ribbon" id="dubltapRibbon"><div class="dubltap-ribbon-inner"><div class="dubltap-ribbon-text"><a href="https://fork.dubltap.io" target="_blank" rel="noopener">🍴 Bad Mutha Forker</a><span class="dbl-div">•</span><a href="https://hustle.dubltap.io" target="_blank" rel="noopener">🚀 Side Hustle Copilot</a><span class="dbl-div">•</span><a href="https://mind.dubltap.io" target="_blank" rel="noopener">🧠 Mind Expander — FREE</a><span class="dbl-div">•</span><a href="https://maven.dubltap.io" target="_blank" rel="noopener">📊 Market Maven</a><span class="dbl-div">•</span><a href="https://cliff.dubltap.io" target="_blank" rel="noopener">📚 CLIFF NOTEZ</a><span class="dbl-div">•</span><a href="https://aesthetic.dubltap.io" target="_blank" rel="noopener">🎨 Aesthetic AI</a><span class="dbl-div">•</span><a href="https://vibe.dubltap.io" target="_blank" rel="noopener">🎵 VibeCurate</a><span class="dbl-div">•</span><a href="https://dubltap.io/#bundle" target="_blank" rel="noopener">🔥 FULL BUNDLE — $59/mo or $499/yr</a><span class="dbl-div">•</span><a href="https://fork.dubltap.io" target="_blank" rel="noopener">🍴 Bad Mutha Forker</a><span class="dbl-div">•</span><a href="https://hustle.dubltap.io" target="_blank" rel="noopener">🚀 Side Hustle Copilot</a><span class="dbl-div">•</span><a href="https://mind.dubltap.io" target="_blank" rel="noopener">🧠 Mind Expander — FREE</a><span class="dbl-div">•</span><a href="https://maven.dubltap.io" target="_blank" rel="noopener">📊 Market Maven</a><span class="dbl-div">•</span><a href="https://cliff.dubltap.io" target="_blank" rel="noopener">📚 CLIFF NOTEZ</a><span class="dbl-div">•</span><a href="https://aesthetic.dubltap.io" target="_blank" rel="noopener">🎨 Aesthetic AI</a><span class="dbl-div">•</span><a href="https://vibe.dubltap.io" target="_blank" rel="noopener">🎵 VibeCurate</a><span class="dbl-div">•</span><a href="https://dubltap.io/#bundle" target="_blank" rel="noopener">🔥 FULL BUNDLE — $59/mo or $499/yr</a><span class="dbl-div">•</span></div><button class="dubltap-ribbon-dismiss" onclick="document.getElementById('dubltapRibbon')?.classList.add('hidden')">✕</button></div></div>
 <script>(function(){var m=document.querySelector('.dubltap-mascot');if(!m)return;var l=window.scrollY;function s(){var y=window.scrollY,d=y>l?'down':'up';l=y;var p=Math.min(y/Math.max(document.body.scrollHeight-window.innerHeight,1),1),t=10+p*80;m.style.top=t+'%';m.style.transform='translateY(-50%) rotate('+(d==='down'?'5':'-5')+'deg)'}window.addEventListener('scroll',s,{passive:true})})();</script>
 </body>
+</html>
