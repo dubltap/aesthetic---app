@@ -1266,13 +1266,21 @@ function renderMockup1(type, r) {
       container.insertAdjacentHTML('beforeend', ph);
     }
   } else if (type === 'art') {
-    $('mockup1Label').textContent = 'GALLERY SHOWCASE';
-    container.innerHTML = `<div class="mockup-frame" style="padding:40px;background:#f5f5f0;text-align:center">
-      <div style="border:8px solid #ddd;display:inline-block;box-shadow:inset 0 0 20px rgba(0,0,0,0.1)">
-        ${(state.uploads.find(u=>u.type==="image")) ? `<img src="${state.uploads.find(u=>u.type==="image").objectUrl}" style="max-width:100%;max-height:400px;display:block">` : `<canvas id="artCanvas" width="600" height="400"></canvas>`}
-      </div>
-      <div style="margin-top:20px;font-family:'${fonts.display}',serif;font-size:18px;color:${palette[0]}">${state.title}</div>
-      <div style="font-family:'${fonts.body}',sans-serif;font-size:13px;color:${palette[1]};margin-top:4px">${state.description}</div>
+    $('mockup1Label').textContent = 'YOUR SHOWCASE';
+    const allImages = state.uploads.filter(u => u.type === 'image');
+    const heroImg = allImages.length ? allImages[0] : null;
+    const galleryImgs = allImages.slice(1);
+    container.innerHTML = `<div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-xl)">
+      ${heroImg ? `<div style="position:relative;overflow:hidden">
+        <img src="${heroImg.objectUrl}" style="width:100%;display:block;max-height:500px;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,${palette[0]}ee 0%,transparent 50%)"></div>
+        <div style="position:absolute;bottom:24px;left:24px;right:24px">
+          <div style="font-family:'${fonts.display}',serif;font-size:28px;font-weight:700;color:${palette[4]};text-shadow:0 2px 15px rgba(0,0,0,0.5)">${state.title}</div>
+          <div style="font-family:'${fonts.body}',sans-serif;font-size:14px;color:${palette[3]};margin-top:6px">${state.description}</div>
+        </div>
+      </div>` : `<canvas id="artCanvas" width="600" height="400"></canvas>`}
+      ${galleryImgs.length ? `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:2px;background:${palette[0]}">` +
+        galleryImgs.map(img => `<img src="${img.objectUrl}" style="width:100%;aspect-ratio:1;object-fit:cover;display:block">`).join('') + '</div>' : ''}
     </div>`;
     if (!state.mediaData) setTimeout(() => drawArtPlaceholder($('artCanvas'), r), 50);
   } else if (type === 'writing') {
@@ -1325,32 +1333,221 @@ function renderMockup2(type, r) {
   setTimeout(() => drawWebHero($('webCanvas'), r, type), 50);
 }
 
+// ── CANVAS HELPERS: Color Effects ──
+function applyDuotone(ctx, w, h, darkColor, lightColor) {
+  const dk = hexToRgb(darkColor), lt = hexToRgb(lightColor);
+  const imgData = ctx.getImageData(0, 0, w, h);
+  const d = imgData.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const gray = (d[i] * 0.299 + d[i+1] * 0.587 + d[i+2] * 0.114) / 255;
+    d[i]   = dk.r + (lt.r - dk.r) * gray;
+    d[i+1] = dk.g + (lt.g - dk.g) * gray;
+    d[i+2] = dk.b + (lt.b - dk.b) * gray;
+  }
+  ctx.putImageData(imgData, 0, 0);
+}
+
+function applyGrain(ctx, w, h, amount) {
+  const imgData = ctx.getImageData(0, 0, w, h);
+  const d = imgData.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const noise = (Math.random() - 0.5) * amount;
+    d[i] += noise; d[i+1] += noise; d[i+2] += noise;
+  }
+  ctx.putImageData(imgData, 0, 0);
+}
+
+function applyVignette(ctx, w, h, strength) {
+  const grad = ctx.createRadialGradient(w/2, h/2, w*0.25, w/2, h/2, w*0.75);
+  grad.addColorStop(0, 'rgba(0,0,0,0)');
+  grad.addColorStop(1, `rgba(0,0,0,${strength})`);
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+}
+
+function drawImageCover(ctx, img, w, h) {
+  const ar = img.width / img.height;
+  const tar = w / h;
+  let sw, sh, sx, sy;
+  if (ar > tar) { sh = img.height; sw = sh * tar; sx = (img.width - sw) / 2; sy = 0; }
+  else { sw = img.width; sh = sw / tar; sx = 0; sy = (img.height - sh) / 2; }
+  ctx.drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
+}
+
+function drawStyledTitle(ctx, text, x, y, maxW, font, color, options = {}) {
+  ctx.save();
+  ctx.textAlign = options.align || 'center';
+  ctx.fillStyle = color;
+  ctx.font = font;
+  if (options.shadow) {
+    ctx.shadowColor = options.shadow; ctx.shadowBlur = options.shadowBlur || 20;
+    ctx.shadowOffsetX = 0; ctx.shadowOffsetY = options.shadowY || 4;
+  }
+  if (options.outline) {
+    ctx.strokeStyle = options.outline; ctx.lineWidth = options.outlineWidth || 2;
+    wrapText(ctx, text, x, y, maxW, options.lineH || 60, true);
+  }
+  wrapText(ctx, text, x, y, maxW, options.lineH || 60);
+  ctx.restore();
+}
+
+function wrapText(ctx, text, x, y, maxW, lineH, strokeOnly) {
+  const words = text.split(' ');
+  let line = '';
+  for (let i = 0; i < words.length; i++) {
+    const test = line + words[i] + ' ';
+    if (ctx.measureText(test).width > maxW && i > 0) {
+      if (strokeOnly) ctx.strokeText(line.trim(), x, y);
+      else ctx.fillText(line.trim(), x, y);
+      line = words[i] + ' '; y += lineH;
+    } else { line = test; }
+  }
+  if (strokeOnly) ctx.strokeText(line.trim(), x, y);
+  else ctx.fillText(line.trim(), x, y);
+}
+
+// ── CANVAS: ALBUM COVER (DRAMATIC) ──
+function drawAlbumCover(canvas, r) {
+  const ctx = canvas.getContext('2d');
+  const { palette, fonts, vibe } = r;
+  const w = canvas.width, h = canvas.height;
+  const uploadedImg = state.uploads.find(u => u.type === 'image');
+
+  if (uploadedImg && uploadedImg.objectUrl) {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      // Draw image full bleed
+      drawImageCover(ctx, img, w, h);
+      // Apply duotone color grading
+      applyDuotone(ctx, w, h, palette[0], palette[3]);
+      // Add color overlay for vibe
+      ctx.globalCompositeOperation = 'overlay';
+      const grad = ctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, palette[2] + '66'); grad.addColorStop(1, palette[0] + '44');
+      ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+      ctx.globalCompositeOperation = 'source-over';
+      // Vignette
+      applyVignette(ctx, w, h, 0.6);
+      // Grain
+      applyGrain(ctx, w, h, 25);
+      // Title
+      drawAlbumText(ctx, r, w, h);
+    };
+    img.src = uploadedImg.objectUrl;
+  } else {
+    // No image: generate abstract art
+    const grad = ctx.createRadialGradient(w*0.3, h*0.4, 0, w*0.5, h*0.5, w*0.9);
+    grad.addColorStop(0, palette[2]); grad.addColorStop(0.4, palette[1]); grad.addColorStop(1, palette[0]);
+    ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+    // Abstract geometric shapes
+    for (let i = 0; i < 12; i++) {
+      ctx.save();
+      ctx.globalAlpha = Math.random() * 0.15 + 0.02;
+      ctx.translate(Math.random()*w, Math.random()*h);
+      ctx.rotate(Math.random() * Math.PI);
+      const size = Math.random() * 300 + 80;
+      if (Math.random() > 0.5) {
+        ctx.beginPath(); ctx.arc(0, 0, size/2, 0, Math.PI*2);
+        ctx.fillStyle = palette[Math.floor(Math.random()*5)]; ctx.fill();
+      } else {
+        ctx.fillStyle = palette[Math.floor(Math.random()*5)];
+        ctx.fillRect(-size/2, -size/2, size, size * 0.618);
+      }
+      ctx.restore();
+    }
+    // Halftone-ish dots for texture
+    ctx.globalAlpha = 0.04;
+    for (let x = 0; x < w; x += 8) {
+      for (let y = 0; y < h; y += 8) {
+        ctx.beginPath(); ctx.arc(x, y, 1.5, 0, Math.PI*2);
+        ctx.fillStyle = '#fff'; ctx.fill();
+      }
+    }
+    ctx.globalAlpha = 1;
+    applyVignette(ctx, w, h, 0.5);
+    applyGrain(ctx, w, h, 20);
+    drawAlbumText(ctx, r, w, h);
+  }
+}
+
+function drawAlbumText(ctx, r, w, h) {
+  const { palette, fonts } = r;
+  const titleSize = Math.min(w * 0.1, 80);
+
+  // Title with dramatic shadow and optional outline
+  drawStyledTitle(ctx, state.title.toUpperCase(), w/2, h*0.45, w*0.85,
+    `800 ${titleSize}px '${fonts.display}', serif`, palette[4],
+    { shadow: 'rgba(0,0,0,0.7)', shadowBlur: 30, shadowY: 6, lineH: titleSize * 1.1 }
+  );
+
+  // Accent line
+  ctx.save();
+  ctx.globalAlpha = 0.5;
+  const lineW = Math.min(200, w * 0.25);
+  ctx.strokeStyle = palette[3]; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo((w - lineW)/2, h*0.65); ctx.lineTo((w + lineW)/2, h*0.65); ctx.stroke();
+  ctx.restore();
+
+  // Subtitle
+  ctx.save();
+  ctx.globalAlpha = 0.8;
+  ctx.fillStyle = palette[4]; ctx.textAlign = 'center';
+  ctx.font = `300 ${w*0.028}px '${fonts.body}', sans-serif`;
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 10;
+  ctx.fillText(state.description.substring(0, 60), w/2, h*0.73);
+  ctx.restore();
+}
+
 // ── CANVAS: BUSINESS CARD FRONT ──
 function drawBizCardFront(canvas, r) {
   const ctx = canvas.getContext('2d');
   const { palette, fonts } = r;
   const w = canvas.width, h = canvas.height;
+  const uploadedImg = state.uploads.find(u => u.type === 'image');
 
   // Background
-  const grad = ctx.createLinearGradient(0, 0, w, h);
-  grad.addColorStop(0, palette[4]); grad.addColorStop(1, palette[3]);
-  ctx.fillStyle = grad; roundRect(ctx, 0, 0, w, h, 16); ctx.fill();
+  if (uploadedImg && uploadedImg.objectUrl) {
+    const img = new Image();
+    img.onload = () => {
+      ctx.globalAlpha = 0.15; drawImageCover(ctx, img, w, h); ctx.globalAlpha = 1;
+      applyDuotone(ctx, w, h, palette[4], palette[3]);
+      drawBizFrontContent(ctx, r, w, h);
+    };
+    img.src = uploadedImg.objectUrl;
+  } else {
+    const grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, palette[4]); grad.addColorStop(1, palette[3]);
+    ctx.fillStyle = grad; roundRect(ctx, 0, 0, w, h, 16); ctx.fill();
+    drawBizFrontContent(ctx, r, w, h);
+  }
+}
 
-  // Accent stripe
-  ctx.fillStyle = palette[2]; ctx.fillRect(0, h - 6, w, 6);
+function drawBizFrontContent(ctx, r, w, h) {
+  const { palette, fonts } = r;
+  // Accent stripe at bottom
+  const stripGrad = ctx.createLinearGradient(0, 0, w, 0);
+  stripGrad.addColorStop(0, palette[2]); stripGrad.addColorStop(1, palette[1]);
+  ctx.fillStyle = stripGrad; ctx.fillRect(0, h - 8, w, 8);
+
+  // Geometric accent
+  ctx.globalAlpha = 0.08;
+  ctx.beginPath(); ctx.arc(w * 0.85, h * 0.25, 120, 0, Math.PI*2);
+  ctx.fillStyle = palette[2]; ctx.fill();
+  ctx.globalAlpha = 1;
 
   // Logo text
-  ctx.fillStyle = palette[0]; ctx.font = `700 36px '${fonts.display}', serif`;
-  ctx.textAlign = 'left'; ctx.fillText(r.logoText || state.title.split(' ')[0].toUpperCase(), 40, h * 0.42);
+  ctx.fillStyle = palette[0]; ctx.textAlign = 'left';
+  ctx.font = `800 ${Math.min(42, w*0.06)}px '${fonts.display}', serif`;
+  ctx.fillText(r.logoText || state.title.split(' ')[0].toUpperCase(), 40, h * 0.4);
 
   // Subtext
-  ctx.fillStyle = palette[1]; ctx.font = `400 14px '${fonts.body}', sans-serif`;
-  ctx.letterSpacing = '3px';
-  ctx.fillText((r.logoSubtext || '').toUpperCase(), 42, h * 0.42 + 28);
+  ctx.fillStyle = palette[1]; ctx.font = `500 ${Math.min(14, w*0.02)}px '${fonts.body}', sans-serif`;
+  ctx.letterSpacing = '4px';
+  ctx.fillText((r.logoSubtext || state.title.split(' ').slice(1).join(' ') || 'STUDIO').toUpperCase(), 42, h * 0.4 + 30);
 
-  // Tagline
-  ctx.fillStyle = palette[2]; ctx.font = `italic 13px '${fonts.body}', sans-serif`;
-  ctx.fillText(r.tagline.substring(0, 50), 40, h - 30);
+  // Tagline at bottom
+  ctx.fillStyle = palette[2]; ctx.font = `italic ${Math.min(13, w*0.018)}px '${fonts.body}', sans-serif`;
+  ctx.fillText(r.tagline.substring(0, 55), 40, h - 26);
 }
 
 // ── CANVAS: BUSINESS CARD BACK ──
@@ -1361,146 +1558,164 @@ function drawBizCardBack(canvas, r) {
 
   ctx.fillStyle = palette[0]; roundRect(ctx, 0, 0, w, h, 16); ctx.fill();
 
-  ctx.fillStyle = palette[4]; ctx.font = `600 20px '${fonts.display}', serif`;
-  ctx.textAlign = 'left'; ctx.fillText('Your Name', 40, 80);
+  // Accent pattern
+  ctx.globalAlpha = 0.04;
+  for (let i = 0; i < 6; i++) {
+    ctx.beginPath(); ctx.arc(w * (0.7 + Math.random()*0.3), h * Math.random(), 40 + Math.random()*80, 0, Math.PI*2);
+    ctx.fillStyle = palette[2]; ctx.fill();
+  }
+  ctx.globalAlpha = 1;
 
-  ctx.fillStyle = palette[3]; ctx.font = `400 13px '${fonts.body}', sans-serif`;
-  ctx.fillText('Founder', 40, 108);
+  ctx.fillStyle = palette[4]; ctx.textAlign = 'left';
+  ctx.font = `700 22px '${fonts.display}', serif`; ctx.fillText('Your Name', 40, 75);
+  ctx.fillStyle = palette[3]; ctx.font = `400 13px '${fonts.body}', sans-serif`; ctx.fillText('Founder', 40, 100);
 
+  const slug = state.title.toLowerCase().replace(/\s+/g, '');
   ctx.fillStyle = palette[2]; ctx.font = `400 13px '${fonts.body}', sans-serif`;
-  const lines = ['hello@' + state.title.toLowerCase().replace(/\s+/g, '') + '.com', state.title.toLowerCase().replace(/\s+/g, '') + '.com', '+1 (555) 000-0000'];
-  lines.forEach((l, i) => ctx.fillText(l, 40, 160 + i * 28));
+  ['hello@' + slug + '.com', slug + '.com', '+1 (555) 000-0000'].forEach((l, i) => ctx.fillText(l, 40, 155 + i * 28));
 
-  // Accent dot
-  ctx.beginPath(); ctx.arc(w - 60, h - 60, 20, 0, Math.PI * 2);
-  ctx.fillStyle = palette[2]; ctx.globalAlpha = 0.3; ctx.fill(); ctx.globalAlpha = 1;
+  // Accent line
+  ctx.strokeStyle = palette[2]; ctx.globalAlpha = 0.2; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(40, 120); ctx.lineTo(w * 0.4, 120); ctx.stroke();
+  ctx.globalAlpha = 1;
 }
 
-// ── CANVAS: INSTAGRAM POST ──
+// ── CANVAS: INSTAGRAM POST (uses uploaded media) ──
 function renderIG(r) {
   const { palette, fonts, vibe } = r;
   const canvas = $('igCanvas');
   const ctx = canvas.getContext('2d');
   const w = canvas.width, h = canvas.height;
+  const uploadedImg = state.uploads.find(u => u.type === 'image');
 
-  // Background gradient
-  const grad = ctx.createLinearGradient(0, 0, w, h);
-  grad.addColorStop(0, palette[0]); grad.addColorStop(0.618, palette[1]); grad.addColorStop(1, palette[2]);
-  ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+  function drawIGOverlay() {
+    // Color overlay
+    ctx.globalCompositeOperation = 'multiply';
+    const grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, palette[0] + 'aa'); grad.addColorStop(1, palette[2] + '88');
+    ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'source-over';
 
-  // Texture overlay
-  ctx.globalAlpha = 0.03;
-  for (let i = 0; i < 5000; i++) {
-    ctx.fillStyle = Math.random() > 0.5 ? '#fff' : '#000';
-    ctx.fillRect(Math.random() * w, Math.random() * h, 1, 1);
+    // Vignette
+    applyVignette(ctx, w, h, 0.4);
+
+    // Quote text
+    ctx.fillStyle = palette[4]; ctx.textAlign = 'center';
+    drawStyledTitle(ctx, `"${r.quote}"`, w/2, h*0.32, w*0.78,
+      `600 ${Math.min(52, w*0.048)}px '${fonts.display}', serif`, palette[4],
+      { shadow: 'rgba(0,0,0,0.6)', shadowBlur: 25, lineH: 62 }
+    );
+
+    // Divider
+    ctx.save(); ctx.globalAlpha = 0.4; ctx.strokeStyle = palette[3]; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(w*0.3, h*0.7); ctx.lineTo(w*0.7, h*0.7); ctx.stroke(); ctx.restore();
+
+    // Brand name
+    ctx.save(); ctx.globalAlpha = 0.7; ctx.fillStyle = palette[4]; ctx.textAlign = 'center';
+    ctx.font = `500 ${w*0.025}px '${fonts.body}', sans-serif`;
+    ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 8;
+    ctx.fillText(state.title, w/2, h*0.8);
+    ctx.restore();
+
+    // Subtle grain
+    applyGrain(ctx, w, h, 15);
   }
-  ctx.globalAlpha = 1;
 
-  // Quote
-  const textColor = vibe.dark ? palette[4] : palette[4];
-  ctx.fillStyle = textColor; ctx.textAlign = 'center';
-  ctx.font = `600 ${Math.min(48, w * 0.044)}px '${fonts.display}', serif`;
-  wrapText(ctx, `"${r.quote}"`, w / 2, h * 0.35, w * 0.75, 58);
-
-  // Divider
-  ctx.strokeStyle = palette[3]; ctx.globalAlpha = 0.3; ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(w * 0.35, h * 0.72); ctx.lineTo(w * 0.65, h * 0.72); ctx.stroke();
-  ctx.globalAlpha = 1;
-
-  // Brand name
-  ctx.fillStyle = textColor; ctx.globalAlpha = 0.6;
-  ctx.font = `400 ${w * 0.022}px '${fonts.body}', sans-serif`;
-  ctx.fillText(state.title, w / 2, h * 0.82);
-  ctx.globalAlpha = 1;
+  if (uploadedImg && uploadedImg.objectUrl) {
+    const img = new Image();
+    img.onload = () => {
+      drawImageCover(ctx, img, w, h);
+      drawIGOverlay();
+    };
+    img.src = uploadedImg.objectUrl;
+  } else {
+    // Abstract background
+    const grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, palette[0]); grad.addColorStop(0.5, palette[1]); grad.addColorStop(1, palette[2]);
+    ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+    // Texture
+    for (let i = 0; i < 15; i++) {
+      ctx.save(); ctx.globalAlpha = 0.06;
+      ctx.beginPath(); ctx.arc(Math.random()*w, Math.random()*h, Math.random()*200+50, 0, Math.PI*2);
+      ctx.fillStyle = palette[Math.floor(Math.random()*5)]; ctx.fill(); ctx.restore();
+    }
+    drawIGOverlay();
+  }
 
   // IG frame extras
   const av = $('igAvatar').getContext('2d');
-  av.beginPath(); av.arc(16, 16, 16, 0, Math.PI * 2);
-  av.fillStyle = palette[2]; av.fill();
-  av.fillStyle = palette[4]; av.font = 'bold 14px sans-serif'; av.textAlign = 'center';
-  av.fillText(state.title.charAt(0), 16, 21);
-
-  $('igName').textContent = state.title.toLowerCase().replace(/\s+/g, '');
-  $('igLikes').textContent = `${Math.floor(Math.random() * 500 + 100)} likes`;
-}
-
-// ── CANVAS: ALBUM COVER ──
-function drawAlbumCover(canvas, r) {
-  const ctx = canvas.getContext('2d');
-  const { palette, fonts } = r;
-  const w = canvas.width, h = canvas.height;
-
-  // Abstract background
-  const grad = ctx.createRadialGradient(w * 0.3, h * 0.3, 0, w * 0.5, h * 0.5, w * 0.8);
-  grad.addColorStop(0, palette[2]); grad.addColorStop(0.5, palette[1]); grad.addColorStop(1, palette[0]);
-  ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
-
-  // Abstract shapes
-  for (let i = 0; i < 5; i++) {
-    ctx.beginPath();
-    ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 150 + 50, 0, Math.PI * 2);
-    ctx.fillStyle = palette[Math.floor(Math.random() * 3)] + '22';
-    ctx.fill();
-  }
-
-  // Overlay image if available
-  const albumImg = state.uploads.find(u => u.type === 'image');
-  if (albumImg && albumImg.objectUrl) {
-    const img = new Image();
-    img.onload = () => {
-      ctx.globalAlpha = 0.5; ctx.drawImage(img, 0, 0, w, h); ctx.globalAlpha = 1;
-      drawAlbumText(ctx, r, w, h);
-    };
-    img.src = albumImg.objectUrl;
+  av.clearRect(0, 0, 32, 32);
+  if (uploadedImg && uploadedImg.objectUrl) {
+    const avImg = new Image();
+    avImg.onload = () => { av.beginPath(); av.arc(16,16,16,0,Math.PI*2); av.clip(); av.drawImage(avImg,0,0,32,32); };
+    avImg.src = uploadedImg.objectUrl;
   } else {
-    drawAlbumText(ctx, r, w, h);
+    av.beginPath(); av.arc(16,16,16,0,Math.PI*2); av.fillStyle = palette[2]; av.fill();
+    av.fillStyle = palette[4]; av.font = 'bold 14px sans-serif'; av.textAlign = 'center';
+    av.fillText(state.title.charAt(0), 16, 21);
   }
+  $('igName').textContent = state.title.toLowerCase().replace(/\s+/g, '');
+  $('igLikes').textContent = `${Math.floor(Math.random()*800+200)} likes`;
 }
 
-function drawAlbumText(ctx, r, w, h) {
-  const { palette, fonts } = r;
-  // Title
-  ctx.fillStyle = palette[4]; ctx.textAlign = 'center';
-  ctx.font = `700 ${w * 0.08}px '${fonts.display}', serif`;
-  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 20;
-  wrapText(ctx, state.title.toUpperCase(), w / 2, h * 0.45, w * 0.8, w * 0.09);
-  ctx.shadowBlur = 0;
-
-  // Subtitle
-  ctx.font = `400 ${w * 0.025}px '${fonts.body}', sans-serif`;
-  ctx.globalAlpha = 0.7; ctx.fillText(state.description, w / 2, h * 0.88); ctx.globalAlpha = 1;
-}
-
-// ── CANVAS: WEBSITE HERO ──
+// ── CANVAS: WEBSITE HERO (uses uploaded media) ──
 function drawWebHero(canvas, r, type) {
   const ctx = canvas.getContext('2d');
   const { palette, fonts } = r;
   const w = canvas.width, h = canvas.height;
+  const uploadedImg = state.uploads.find(u => u.type === 'image');
 
-  // Background
-  ctx.fillStyle = palette[4]; ctx.fillRect(0, 0, w, h);
+  function drawHeroContent() {
+    // Dark overlay for text readability
+    const grad = ctx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0, palette[0] + 'cc'); grad.addColorStop(0.5, palette[0] + '88'); grad.addColorStop(1, palette[0] + 'dd');
+    ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
 
-  // Nav bar
-  ctx.fillStyle = palette[0] + '08'; ctx.fillRect(0, 0, w, 50);
-  ctx.fillStyle = palette[0]; ctx.font = `700 16px '${fonts.display}', serif`;
-  ctx.textAlign = 'left'; ctx.fillText(state.title, 30, 32);
-  ctx.fillStyle = palette[1]; ctx.font = `400 12px '${fonts.body}', sans-serif`;
-  const navItems = type === 'music' ? ['Music', 'Tour', 'About'] : type === 'art' ? ['Work', 'About', 'Contact'] : ['About', 'Services', 'Contact'];
-  navItems.forEach((item, i) => ctx.fillText(item, w - 200 + i * 70, 32));
+    // Nav bar
+    ctx.fillStyle = 'rgba(255,255,255,0.04)'; ctx.fillRect(0, 0, w, 50);
+    ctx.fillStyle = palette[4]; ctx.font = `700 16px '${fonts.display}', serif`;
+    ctx.textAlign = 'left'; ctx.fillText(state.title, 30, 32);
+    ctx.fillStyle = palette[3]; ctx.font = `400 12px '${fonts.body}', sans-serif`;
+    const navItems = type==='music'?['Music','Tour','About']:type==='art'?['Work','About','Contact']:['About','Services','Contact'];
+    navItems.forEach((item, i) => ctx.fillText(item, w - 200 + i * 70, 32));
 
-  // Hero
-  ctx.textAlign = 'center';
-  ctx.fillStyle = palette[0]; ctx.font = `700 ${Math.min(42, w * 0.05)}px '${fonts.display}', serif`;
-  wrapText(ctx, r.heroHeadline || state.title, w / 2, h * 0.38, w * 0.7, 50);
+    // Hero headline
+    drawStyledTitle(ctx, r.heroHeadline || state.title, w/2, h*0.36, w*0.65,
+      `700 ${Math.min(44, w*0.055)}px '${fonts.display}', serif`, palette[4],
+      { shadow: 'rgba(0,0,0,0.4)', shadowBlur: 15, lineH: 52 }
+    );
 
-  ctx.fillStyle = palette[1]; ctx.font = `400 ${w * 0.02}px '${fonts.body}', sans-serif`;
-  wrapText(ctx, r.heroSubheadline || state.description, w / 2, h * 0.58, w * 0.6, 26);
+    // Subheadline
+    ctx.save(); ctx.globalAlpha = 0.7; ctx.fillStyle = palette[3]; ctx.textAlign = 'center';
+    ctx.font = `400 ${w*0.02}px '${fonts.body}', sans-serif`;
+    wrapText(ctx, r.heroSubheadline || state.description, w/2, h*0.56, w*0.55, 24);
+    ctx.restore();
 
-  // CTA button
-  const btnW = 180, btnH = 44, btnX = (w - btnW) / 2, btnY = h * 0.72;
-  ctx.fillStyle = palette[2]; roundRect(ctx, btnX, btnY, btnW, btnH, 22); ctx.fill();
-  ctx.fillStyle = palette[4]; ctx.font = `600 14px '${fonts.body}', sans-serif`;
-  ctx.fillText(r.ctaText || 'Get Started', w / 2, btnY + 28);
+    // CTA button
+    const btnW = 200, btnH = 48, btnX = (w-btnW)/2, btnY = h*0.7;
+    const btnGrad = ctx.createLinearGradient(btnX, btnY, btnX+btnW, btnY+btnH);
+    btnGrad.addColorStop(0, palette[2]); btnGrad.addColorStop(1, palette[1]);
+    ctx.fillStyle = btnGrad; roundRect(ctx, btnX, btnY, btnW, btnH, 24); ctx.fill();
+    ctx.fillStyle = palette[4]; ctx.font = `600 15px '${fonts.body}', sans-serif`;
+    ctx.textAlign = 'center'; ctx.fillText(r.ctaText || 'Get Started', w/2, btnY + 30);
+  }
+
+  if (uploadedImg && uploadedImg.objectUrl) {
+    const img = new Image();
+    img.onload = () => {
+      drawImageCover(ctx, img, w, h);
+      // Blur effect for background
+      ctx.filter = 'blur(3px)'; ctx.drawImage(canvas, 0, 0); ctx.filter = 'none';
+      drawHeroContent();
+    };
+    img.src = uploadedImg.objectUrl;
+  } else {
+    // Gradient background
+    const grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, palette[0]); grad.addColorStop(1, palette[1]);
+    ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+    drawHeroContent();
+  }
 }
 
 // ── CANVAS: ART PLACEHOLDER ──
@@ -1511,10 +1726,16 @@ function drawArtPlaceholder(canvas, r) {
   const grad = ctx.createLinearGradient(0, 0, w, h);
   grad.addColorStop(0, palette[1]); grad.addColorStop(1, palette[3]);
   ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
-  for (let i = 0; i < 8; i++) {
-    ctx.beginPath(); ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 80 + 20, 0, Math.PI * 2);
-    ctx.fillStyle = palette[Math.floor(Math.random() * 5)] + '33'; ctx.fill();
+  for (let i = 0; i < 12; i++) {
+    ctx.save(); ctx.globalAlpha = Math.random() * 0.12 + 0.02;
+    ctx.translate(Math.random()*w, Math.random()*h); ctx.rotate(Math.random()*Math.PI);
+    const s = Math.random()*120+40;
+    ctx.fillStyle = palette[Math.floor(Math.random()*5)];
+    if (Math.random()>0.5) { ctx.beginPath(); ctx.arc(0,0,s,0,Math.PI*2); ctx.fill(); }
+    else ctx.fillRect(-s/2,-s/2,s,s*0.618);
+    ctx.restore();
   }
+  applyGrain(ctx, w, h, 15);
 }
 
 // ── SOCIAL KIT ──
@@ -1700,18 +1921,7 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-function wrapText(ctx, text, x, y, maxW, lineH) {
-  const words = text.split(' ');
-  let line = '';
-  for (let i = 0; i < words.length; i++) {
-    const test = line + words[i] + ' ';
-    if (ctx.measureText(test).width > maxW && i > 0) {
-      ctx.fillText(line.trim(), x, y);
-      line = words[i] + ' '; y += lineH;
-    } else { line = test; }
-  }
-  ctx.fillText(line.trim(), x, y);
-}
+// wrapText moved to canvas helpers above
 
 // ── RESULT AUDIO PLAYER ──
 let resultAudioEl = null;
