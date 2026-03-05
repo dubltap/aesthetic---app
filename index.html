@@ -642,7 +642,7 @@
 
       <div class="hero-badge">✦ AI-POWERED CREATIVE STUDIO</div>
       <h1 class="hero-title">Make it real.</h1>
-      <p class="hero-sub">Upload your music, art, photos, or writing.<br>We build something you'll want to share.</p>
+      <p class="hero-sub">Upload your music, art, photos, or writing.<br>Free visual studio — powered by dubltap.io</p>
 
       <div style="width:100%;max-width:620px">
 
@@ -713,7 +713,6 @@
         <div class="result-card" id="mockup1Card">
           <div class="card-label" id="mockup1Label">YOUR BUSINESS CARD</div>
           <div id="mockup1Content"></div>
-          <div class="watermark-overlay" id="wm1"><span class="watermark-text">Aesthetic AI ✦ aesthetic.dubltap.io</span></div>
         </div>
 
         <!-- Card 3: Instagram Post -->
@@ -728,14 +727,12 @@
             <div class="ig-actions">❤️ 💬 📤</div>
             <div class="ig-likes" id="igLikes"></div>
           </div>
-          <div class="watermark-overlay" id="wm2"><span class="watermark-text">Aesthetic AI ✦ aesthetic.dubltap.io</span></div>
         </div>
 
         <!-- Card 4: Dynamic Mockup 2 (Website Hero / Release Page / Exhibition / Publication) -->
         <div class="result-card" id="mockup2Card">
           <div class="card-label" id="mockup2Label">YOUR WEBSITE</div>
           <div id="mockup2Content"></div>
-          <div class="watermark-overlay" id="wm3"><span class="watermark-text">Aesthetic AI ✦ aesthetic.dubltap.io</span></div>
         </div>
 
         <!-- Card 5: Social Kit -->
@@ -797,31 +794,18 @@
 
         <!-- Email Capture (inline, not modal) -->
         <div class="result-card email-card" id="emailCard">
-          <h3>Love it? Save your work.</h3>
-          <p>Get your brand kit saved and unlock Pro features.</p>
+          <h3>Love it? Get more tools like this.</h3>
+          <p>Join 12,000+ creators using dubltap.io — AI tools that actually do stuff.</p>
           <div class="email-row">
             <input class="email-input" id="emailInput" type="email" placeholder="your@email.com">
-            <button class="email-submit" onclick="submitEmail()">Save My Work →</button>
+            <button class="email-submit" onclick="submitEmail()">Join Free →</button>
           </div>
           <button class="email-dismiss" onclick="dismissEmail()">Continue without saving</button>
         </div>
 
-        <!-- Upgrade Card -->
-        <div class="result-card upgrade-card" id="upgradeCard">
-          <h3>Try Pro Free for 7 Days</h3>
-          <p style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-md)">Download mockups, HTML pages, all vibes, no watermarks. Cancel anytime.</p>
-          <div class="upgrade-price">$8.25<small>/mo billed annually</small></div>
-          <button class="upgrade-btn" onclick="subscribePro('annual')">Start Free Trial →</button>
-          <div style="margin-top:var(--space-xs)">
-            <span style="font-size:var(--text-xs);color:rgba(240,237,232,0.3);cursor:pointer" onclick="subscribePro('monthly')">or $12/month</span>
-          </div>
-          <div style="margin-top:var(--space-xs);font-size:var(--text-xs);color:rgba(240,237,232,0.25)">No charge for 7 days. Cancel before trial ends and pay nothing.</div>
-          <div class="usage-note" id="usageNote"></div>
-        </div>
-
         <!-- Cross-sell -->
-        <div class="result-card" id="crossSellCard" style="text-align:center">
-          <div class="card-label">EXPLORE MORE</div>
+        <div class="result-card" id="crossSellCard" style="text-align:center;background:linear-gradient(135deg,rgba(244,162,97,0.08),rgba(42,157,143,0.04));border-color:rgba(244,162,97,0.15)">
+          <div class="card-label">YOUR NEXT TOOL</div>
           <p id="crossSellText" style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-md)"></p>
           <a id="crossSellLink" href="#" target="_blank" style="color:#F4A261;font-weight:600;text-decoration:none"></a>
         </div>
@@ -836,19 +820,6 @@
 
   </div><!-- /app -->
 
-  <!-- Pro Comparison Modal -->
-  <div class="modal-overlay" id="proModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal('proModal')">✕</button>
-      <h3>Try Pro Free for 7 Days</h3>
-      <p style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-lg);font-size:var(--text-sm)" id="proModalText"></p>
-      <button class="upgrade-btn" style="width:100%" onclick="subscribePro('annual')">Start Free Trial →</button>
-      <div style="text-align:center;margin-top:var(--space-xs)">
-        <span style="font-size:var(--text-xs);color:rgba(240,237,232,0.3);cursor:pointer" onclick="subscribePro('monthly')">or $12/month</span>
-      </div>
-      <div style="text-align:center;margin-top:var(--space-xs);font-size:var(--text-xs);color:rgba(240,237,232,0.2)">No charge for 7 days</div>
-    </div>
-  </div>
 
   <!-- Toast -->
   <div class="toast" id="toast"></div>
@@ -884,12 +855,12 @@ const VIBES = [
   { id: 'neon-nights', name: 'Neon Nights', emoji: '🌃', colors: ['#0D0D1A','#1A1A40','#4A0080','#FF00AA','#00FFFF'], dark: true },
   { id: 'soft-romantic', name: 'Soft Romantic', emoji: '🌸', colors: ['#8B4B6B','#C08497','#E6B8C2','#F5E1E9','#FFF9FB'], dark: false },
   // Pro vibes
-  { id: 'old-money', name: 'Old Money', emoji: '👔', colors: ['#1C2833','#2E4053','#5D6D7E','#AEB6BF','#F4F3EE'], dark: false, pro: true },
-  { id: 'y2k-cyber', name: 'Y2K Cyber', emoji: '💿', colors: ['#FF00FF','#00FFFF','#FF69B4','#C0C0C0','#FFFFFF'], dark: false, pro: true },
-  { id: 'cottagecore', name: 'Cottagecore', emoji: '🌿', colors: ['#4A5D4A','#7D9A6B','#B5C99A','#E9D8A6','#FFF8E7'], dark: false, pro: true },
-  { id: 'dark-romance', name: 'Dark Romance', emoji: '🥀', colors: ['#1A0A0A','#4A1C1C','#8B3A3A','#C08080','#F5E8E8'], dark: true, pro: true },
-  { id: 'ethereal', name: 'Ethereal', emoji: '🧚', colors: ['#4A3F6B','#7B6BA8','#B8A9D9','#E8E0F0','#FDF8FF'], dark: false, pro: true },
-  { id: 'urban-edge', name: 'Urban Edge', emoji: '🏙️', colors: ['#0a0a0a','#1a1a1a','#F4A261','#E76F51','#f0ede8'], dark: true, pro: true },
+  { id: 'old-money', name: 'Old Money', emoji: '👔', colors: ['#1C2833','#2E4053','#5D6D7E','#AEB6BF','#F4F3EE'], dark: false, pro: false },
+  { id: 'y2k-cyber', name: 'Y2K Cyber', emoji: '💿', colors: ['#FF00FF','#00FFFF','#FF69B4','#C0C0C0','#FFFFFF'], dark: false, pro: false },
+  { id: 'cottagecore', name: 'Cottagecore', emoji: '🌿', colors: ['#4A5D4A','#7D9A6B','#B5C99A','#E9D8A6','#FFF8E7'], dark: false, pro: false },
+  { id: 'dark-romance', name: 'Dark Romance', emoji: '🥀', colors: ['#1A0A0A','#4A1C1C','#8B3A3A','#C08080','#F5E8E8'], dark: true, pro: false },
+  { id: 'ethereal', name: 'Ethereal', emoji: '🧚', colors: ['#4A3F6B','#7B6BA8','#B8A9D9','#E8E0F0','#FDF8FF'], dark: false, pro: false },
+  { id: 'urban-edge', name: 'Urban Edge', emoji: '🏙️', colors: ['#0a0a0a','#1a1a1a','#F4A261','#E76F51','#f0ede8'], dark: true, pro: false },
 ];
 
 const FONTS = {
@@ -1033,11 +1004,6 @@ function updateVibePreview() {
 
 function selectVibe(id) {
   const vibe = VIBES.find(v => v.id === id);
-  if (vibe.pro && !state.isPro) {
-    $('proModalText').textContent = `"${vibe.name}" is a Pro vibe. Unlock all 12 vibes with Pro.`;
-    $('proModal').classList.add('active');
-    return;
-  }
   state.vibeId = id;
   document.querySelectorAll('.vibe-card').forEach(c => c.classList.remove('selected'));
   document.querySelector(`.vibe-card[data-vibe="${id}"]`).classList.add('selected');
@@ -1059,12 +1025,6 @@ async function pressGroovyButton() {
   if (!state.title && state.uploads.length > 0) state.title = state.uploads[0].name.replace(/\.[^.]+$/, '');
   if (!state.vibeId) { showToast('Pick a vibe!'); return; }
 
-  // Check usage
-  if (!state.isPro && state.usageCount >= state.maxFree) {
-    $('proModalText').textContent = 'You\'ve used all 3 free generations. Start a free 7-day trial for unlimited.';
-    $('proModal').classList.add('active');
-    return;
-  }
 
   const behavior = GROOVY_BEHAVIORS[Math.floor(Math.random() * GROOVY_BEHAVIORS.length)];
   
@@ -1825,24 +1785,9 @@ async function submitEmail() {
 function dismissEmail() { $('emailCard').style.display = 'none'; }
 
 // ── STRIPE ──
-function subscribePro(plan) {
-  plan = plan || 'annual';
-  showToast('Redirecting to checkout...');
-  const prices = { monthly: 'price_1SteMXBkYqg7J4R7yceADKaS', annual: 'price_1StePzBkYqg7J4R7iaXJuPFm' };
-  const email = state.email || '';
-  const s = encodeURIComponent(window.location.origin + '?upgraded=true');
-  const c = encodeURIComponent(window.location.origin);
-  window.location.href = `https://api.dubltap.io/create-checkout?priceId=${prices[plan]}&email=${email}&success_url=${s}&cancel_url=${c}&trial=7`;
-}
+    function subscribePro() { window.location.href = 'https://dubltap.io'; }
 
-function checkUpgradeSuccess() {
-  if (window.location.search.includes('upgraded=true')) {
-    state.isPro = true;
-    localStorage.setItem('ae_pro', 'true');
-    showToast('👑 Welcome to Pro!');
-    window.history.replaceState({}, '', window.location.pathname);
-  }
-}
+    function checkUpgradeSuccess() {}
 
 // ── UTILITIES ──
 function showStage(id) {
