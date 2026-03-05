@@ -145,35 +145,48 @@
 
     /* ── UPLOAD ZONE ── */
     .upload-zone {
-      width: 100%; max-width: 560px; padding: var(--space-xl);
-      border: 2px dashed rgba(255,255,255,0.1); border-radius: var(--radius-xl);
+      width: 100%; padding: var(--space-xl); position: relative;
+      border: 2px dashed rgba(244,162,97,0.3); border-radius: var(--radius-xl);
       text-align: center; cursor: pointer;
       transition: all var(--dur-base) var(--ease);
-      background: rgba(255,255,255,0.02);
+      background: linear-gradient(135deg, rgba(244,162,97,0.04), rgba(42,157,143,0.02));
+    }
+    .upload-zone::after {
+      content: ''; position: absolute; inset: -1px; border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(244,162,97,0.15), rgba(42,157,143,0.1), rgba(231,111,81,0.15));
+      z-index: -1; filter: blur(25px); opacity: 0; transition: opacity var(--dur-base);
     }
     .upload-zone:hover, .upload-zone.dragover {
-      border-color: rgba(244,162,97,0.4); background: rgba(244,162,97,0.03);
+      border-color: rgba(244,162,97,0.6);
+      background: linear-gradient(135deg, rgba(244,162,97,0.08), rgba(42,157,143,0.04));
+      transform: scale(1.01); box-shadow: 0 0 50px rgba(244,162,97,0.12);
     }
-    .upload-zone-icon { font-size: 40px; margin-bottom: var(--space-sm); opacity: 0.4; }
-    .upload-zone-text { color: rgba(240,237,232,0.4); font-size: var(--text-sm); }
+    .upload-zone:hover::after { opacity: 1; }
+    .upload-zone-text { color: rgba(240,237,232,0.5); font-size: var(--text-sm); }
     .upload-zone-text strong { color: #F4A261; }
-    .upload-preview {
-      display: none; align-items: center; gap: var(--space-md);
-      padding: var(--space-md); background: rgba(244,162,97,0.06);
-      border: 1px solid rgba(244,162,97,0.15); border-radius: var(--radius-md);
-      margin-top: var(--space-md);
+    .upload-item {
+      display: flex; align-items: center; gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md); margin-bottom: var(--space-xs);
+      background: rgba(244,162,97,0.06); border: 1px solid rgba(244,162,97,0.15);
+      border-radius: var(--radius-md); animation: fadeUp 0.3s var(--ease-out) both;
     }
-    .upload-preview.visible { display: flex; }
-    .upload-preview-thumb {
-      width: 48px; height: 48px; border-radius: var(--radius-sm);
-      object-fit: cover; background: rgba(255,255,255,0.05);
-      display: flex; align-items: center; justify-content: center; font-size: 24px;
+    .upload-item-thumb {
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.05); display: flex; align-items: center;
+      justify-content: center; font-size: 22px; flex-shrink: 0; overflow: hidden;
     }
-    .upload-preview-info { flex: 1; text-align: left; }
-    .upload-preview-name { font-size: var(--text-sm); font-weight: 600; }
-    .upload-preview-size { font-size: var(--text-xs); color: rgba(240,237,232,0.4); }
-    .upload-remove { background: none; border: none; color: rgba(240,237,232,0.3); cursor: pointer; font-size: 18px; padding: 4px; }
-    .upload-remove:hover { color: #E76F51; }
+    .upload-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .upload-item-info { flex: 1; text-align: left; }
+    .upload-item-name { font-size: var(--text-sm); font-weight: 600; }
+    .upload-item-meta { font-size: var(--text-xs); color: rgba(240,237,232,0.4); }
+    .upload-item-remove { background: none; border: none; color: rgba(240,237,232,0.3); cursor: pointer; font-size: 16px; }
+    .upload-item-remove:hover { color: #E76F51; }
+    .upload-item-play {
+      background: rgba(244,162,97,0.15); border: none; color: #F4A261;
+      width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* upload-preview replaced by upload-item list */
 
     .skip-link {
       display: inline-block; margin-top: var(--space-md);
@@ -614,6 +627,7 @@
       .input-main.input-lg { font-size: var(--text-xl); }
       .voice-block { grid-template-columns: 1fr; }
       .album-vinyl { display: none; }
+      [style*='grid-template-columns'] { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -625,54 +639,53 @@
 
     <!-- ═══ HERO / INPUT STAGE ═══ -->
     <div class="stage stage-center active" id="inputStage">
+
       <div class="hero-badge">✦ AI-POWERED CREATIVE STUDIO</div>
       <h1 class="hero-title">Make it real.</h1>
-      <p class="hero-sub">Name it. Describe it. Pick a vibe. Hit the button.</p>
+      <p class="hero-sub">Upload your music, art, photos, or writing.<br>We build something you'll want to share.</p>
 
-      <!-- Step 1: Title -->
-      <div class="input-group" id="step1">
-        <label class="input-label">What's this called?</label>
-        <input class="input-main input-lg" id="titleInput" type="text" placeholder="Ember Coffee Co." autocomplete="off" autofocus>
-        <div class="title-preview" id="titlePreview"></div>
-      </div>
+      <div style="width:100%;max-width:620px">
 
-      <!-- Step 2: Description (hidden initially) -->
-      <div class="input-group delay-1" id="step2" style="display:none">
-        <label class="input-label">Tell me about it</label>
-        <input class="input-main" id="descInput" type="text" placeholder="artisan coffee shop in Brooklyn" autocomplete="off">
-      </div>
-
-      <!-- Step 3: Upload (hidden initially) -->
-      <div class="input-group delay-2" id="step3" style="display:none">
-        <label class="input-label">Got media? (optional)</label>
-        <div class="upload-zone" id="uploadZone">
-          <div class="upload-zone-icon">📎</div>
-          <div class="upload-zone-text">Drop a <strong>photo</strong>, <strong>song</strong>, or <strong>video link</strong><br>or click to browse</div>
-          <input type="file" id="fileInput" accept="image/*,audio/*,.txt,.md" style="display:none">
-        </div>
-        <div class="upload-preview" id="uploadPreview">
-          <div class="upload-preview-thumb" id="uploadThumb"></div>
-          <div class="upload-preview-info">
-            <div class="upload-preview-name" id="uploadName"></div>
-            <div class="upload-preview-size" id="uploadSize"></div>
+        <!-- ★ UPLOAD — BIG, FIRST ★ -->
+        <div class="upload-zone" id="uploadZone" style="padding:var(--space-2xl) var(--space-xl);margin-bottom:var(--space-md)">
+          <div style="font-size:64px;margin-bottom:var(--space-sm);opacity:0.85">✦</div>
+          <div style="font-size:var(--text-xl);font-weight:700;color:#f0ede8;margin-bottom:var(--space-md)">Drop your creative work here</div>
+          <div class="upload-zone-text" style="font-size:var(--text-base);line-height:2.2">
+            🎵 <strong>Songs & beats</strong> — mp3, wav, m4a<br>
+            🖼️ <strong>Photos & artwork</strong> — jpg, png, webp<br>
+            📄 <strong>Writing & lyrics</strong> — txt, md, pdf<br>
+            🎬 <strong>Video</strong> — paste link below
           </div>
-          <button class="upload-remove" onclick="removeUpload()">✕</button>
+          <div style="margin-top:var(--space-lg);padding:var(--space-sm) var(--space-xl);display:inline-block;border-radius:100px;background:#F4A261;color:#0a0a0f;font-weight:700;font-size:var(--text-base);pointer-events:none">Browse Files</div>
+          <div style="margin-top:var(--space-xs);font-size:var(--text-xs);color:rgba(240,237,232,0.25)">or drag & drop anywhere in this box</div>
+          <input type="file" id="fileInput" accept="image/*,audio/*,.txt,.md,.pdf,.doc,.docx" style="display:none" multiple>
         </div>
-        <div style="text-align:center">
-          <span class="skip-link" onclick="showVibeStep()">Skip — just the vibes →</span>
+
+        <div id="uploadList" style="margin-bottom:var(--space-xs)"></div>
+        <input class="input-main" id="videoLinkInput" type="url" placeholder="🎬 Paste a YouTube or Vimeo link" style="font-size:var(--text-base);margin-bottom:var(--space-lg)" autocomplete="off">
+
+        <!-- ★ NAME + DESCRIBE — compact row ★ -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm);margin-bottom:var(--space-lg)">
+          <div>
+            <label class="input-label">Name it</label>
+            <input class="input-main" id="titleInput" type="text" placeholder="Ember Coffee Co." autocomplete="off" style="font-size:var(--text-lg)">
+          </div>
+          <div>
+            <label class="input-label">Describe it</label>
+            <input class="input-main" id="descInput" type="text" placeholder="artisan coffee shop" autocomplete="off" style="font-size:var(--text-lg)">
+          </div>
         </div>
-      </div>
 
-      <!-- Step 4: Vibe Selection (hidden initially) -->
-      <div class="input-group delay-2" id="step4" style="display:none">
-        <label class="input-label">Pick your vibe</label>
-        <div class="vibe-grid" id="vibeGrid"></div>
-      </div>
+        <!-- ★ VIBE GRID — always visible ★ -->
+        <label class="input-label" style="margin-bottom:var(--space-sm)">Pick your vibe</label>
+        <div class="vibe-grid" id="vibeGrid" style="margin-bottom:var(--space-xl)"></div>
 
-      <!-- Step 5: Groovy Button (hidden initially) -->
-      <div class="groovy-container" id="step5" style="display:none">
-        <button class="groovy-btn" id="groovyBtn" onclick="pressGroovyButton()">✦ Make It Real ✦</button>
-        <div class="groovy-hint">something different every time</div>
+        <!-- ★ GROOVY BUTTON — always visible ★ -->
+        <div class="groovy-container" style="margin-top:0">
+          <button class="groovy-btn" id="groovyBtn" onclick="pressGroovyButton()">✦ Make It Real ✦</button>
+          <div class="groovy-hint">something different every time</div>
+        </div>
+
       </div>
     </div>
 
@@ -795,13 +808,14 @@
 
         <!-- Upgrade Card -->
         <div class="result-card upgrade-card" id="upgradeCard">
-          <h3>Unlock Everything</h3>
-          <p style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-md)">Download mockups, HTML pages, and remove watermarks.</p>
+          <h3>Try Pro Free for 7 Days</h3>
+          <p style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-md)">Download mockups, HTML pages, all vibes, no watermarks. Cancel anytime.</p>
           <div class="upgrade-price">$8.25<small>/mo billed annually</small></div>
-          <button class="upgrade-btn" onclick="subscribePro('annual')">Go Pro →</button>
+          <button class="upgrade-btn" onclick="subscribePro('annual')">Start Free Trial →</button>
           <div style="margin-top:var(--space-xs)">
             <span style="font-size:var(--text-xs);color:rgba(240,237,232,0.3);cursor:pointer" onclick="subscribePro('monthly')">or $12/month</span>
           </div>
+          <div style="margin-top:var(--space-xs);font-size:var(--text-xs);color:rgba(240,237,232,0.25)">No charge for 7 days. Cancel before trial ends and pay nothing.</div>
           <div class="usage-note" id="usageNote"></div>
         </div>
 
@@ -826,12 +840,13 @@
   <div class="modal-overlay" id="proModal">
     <div class="modal">
       <button class="modal-close" onclick="closeModal('proModal')">✕</button>
-      <h3>This is a Pro feature</h3>
+      <h3>Try Pro Free for 7 Days</h3>
       <p style="color:rgba(240,237,232,0.5);margin-bottom:var(--space-lg);font-size:var(--text-sm)" id="proModalText"></p>
-      <button class="upgrade-btn" style="width:100%" onclick="subscribePro('annual')">Go Pro — $8.25/mo →</button>
+      <button class="upgrade-btn" style="width:100%" onclick="subscribePro('annual')">Start Free Trial →</button>
       <div style="text-align:center;margin-top:var(--space-xs)">
         <span style="font-size:var(--text-xs);color:rgba(240,237,232,0.3);cursor:pointer" onclick="subscribePro('monthly')">or $12/month</span>
       </div>
+      <div style="text-align:center;margin-top:var(--space-xs);font-size:var(--text-xs);color:rgba(240,237,232,0.2)">No charge for 7 days</div>
     </div>
   </div>
 
@@ -917,93 +932,78 @@ function cyclePlaceholders() {
   }, 3000);
 }
 
-// ── INPUT FLOW (Progressive Disclosure) ──
+// ── INPUT FLOW ──
 function setupInputFlow() {
-  const ti = $('titleInput');
-  const di = $('descInput');
-
-  ti.addEventListener('input', () => {
-    const preview = $('titlePreview');
-    if (ti.value.length > 0) {
-      preview.textContent = ti.value;
-      preview.classList.add('visible');
-    } else {
-      preview.classList.remove('visible');
-    }
-  });
-
-  ti.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && ti.value.trim().length > 0) {
-      e.preventDefault();
-      state.title = ti.value.trim();
-      $('step2').style.display = '';
-      setTimeout(() => di.focus(), 200);
-    }
-  });
-
-  di.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && di.value.trim().length > 0) {
-      e.preventDefault();
-      state.description = di.value.trim();
-      $('step3').style.display = '';
-    }
+  const vli = $('videoLinkInput');
+  if (vli) vli.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && vli.value.trim()) { e.preventDefault(); addVideoLink(vli.value.trim()); vli.value = ''; }
   });
 }
 
-// ── UPLOAD ──
-function setupUploadZone() {
-  const zone = $('uploadZone');
-  const fi = $('fileInput');
+// ── UPLOAD (Multi-file) ──
+state.uploads = [];
 
-  zone.addEventListener('click', () => fi.click());
+function setupUploadZone() {
+  const zone = $('uploadZone'), fi = $('fileInput');
+  zone.addEventListener('click', e => { if (e.target.closest('.upload-zone')) fi.click(); });
   zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
   zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-  zone.addEventListener('drop', e => {
-    e.preventDefault(); zone.classList.remove('dragover');
-    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
-  });
-  fi.addEventListener('change', () => { if (fi.files.length) handleFile(fi.files[0]); });
+  zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('dragover'); Array.from(e.dataTransfer.files).forEach(f => addUploadFile(f)); });
+  fi.addEventListener('change', () => { Array.from(fi.files).forEach(f => addUploadFile(f)); fi.value = ''; });
 }
 
-function handleFile(file) {
-  const type = file.type;
-  if (type.startsWith('image/')) state.mediaType = 'image';
-  else if (type.startsWith('audio/')) state.mediaType = 'audio';
-  else if (type.startsWith('text/') || file.name.endsWith('.md')) state.mediaType = 'text';
-  else { showToast('Unsupported file type'); return; }
-
-  state.mediaFile = file;
-  const reader = new FileReader();
-  reader.onload = e => { state.mediaData = e.target.result; };
-  reader.readAsDataURL(file);
-
-  // Show preview
-  const thumb = $('uploadThumb');
-  if (state.mediaType === 'image') thumb.innerHTML = `<img src="${URL.createObjectURL(file)}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`;
-  else if (state.mediaType === 'audio') thumb.textContent = '🎵';
-  else thumb.textContent = '📄';
-
-  $('uploadName').textContent = file.name;
-  $('uploadSize').textContent = (file.size / 1024).toFixed(1) + ' KB';
-  $('uploadPreview').classList.add('visible');
-  $('uploadZone').style.display = 'none';
-
-  showVibeStep();
+function addUploadFile(file) {
+  let mt;
+  if (file.type.startsWith('image/')) mt = 'image';
+  else if (file.type.startsWith('audio/')) mt = 'audio';
+  else if (file.type.startsWith('text/') || /\.(md|txt|pdf|doc|docx)$/i.test(file.name)) mt = 'text';
+  else { showToast('Unsupported: ' + file.name); return; }
+  const id = 'u' + Date.now() + Math.random().toString(36).slice(2,5);
+  const entry = { id, file, type: mt, name: file.name, size: file.size, objectUrl: URL.createObjectURL(file), dataUrl: null };
+  const reader = new FileReader(); reader.onload = e => { entry.dataUrl = e.target.result; }; reader.readAsDataURL(file);
+  state.uploads.push(entry);
+  if (state.uploads.length === 1) state.mediaType = mt;
+  renderUploadList();
+  showToast('\u2713 ' + file.name);
 }
 
-function removeUpload() {
-  state.mediaFile = null; state.mediaType = 'none'; state.mediaData = null;
-  $('uploadPreview').classList.remove('visible');
-  $('uploadZone').style.display = '';
-  $('fileInput').value = '';
+function addVideoLink(url) {
+  if (!/youtube|youtu\.be|vimeo/i.test(url)) { showToast('Paste a YouTube or Vimeo link'); return; }
+  const id = 'u' + Date.now();
+  const yt = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  state.uploads.push({ id, type: 'video', name: url.length > 50 ? url.slice(0,47)+'...' : url, url, videoId: yt?yt[1]:'', size: 0 });
+  if (state.uploads.length === 1) state.mediaType = 'video';
+  renderUploadList(); showToast('\u2713 Video added');
 }
 
-function showVibeStep() {
-  if (!state.description) state.description = $('descInput').value.trim() || '';
-  if (!state.title) state.title = $('titleInput').value.trim() || 'Untitled';
-  $('step4').style.display = '';
-  updateVibePreview();
+function renderUploadList() {
+  const list = $('uploadList');
+  if (!list) return;
+  list.innerHTML = state.uploads.map(u => {
+    const thumb = u.type==='image'?'<img src="'+u.objectUrl+'">':u.type==='audio'?'\ud83c\udfb5':u.type==='video'?'\ud83c\udfac':'\ud83d\udcc4';
+    const sz = u.size?(u.size/1024).toFixed(0)+' KB':'Link';
+    const play = u.type==='audio'?'<button class="upload-item-play" onclick="previewAudio(\''+u.id+'\')">\u25b6</button>':'';
+    return '<div class="upload-item"><div class="upload-item-thumb">'+thumb+'</div><div class="upload-item-info"><div class="upload-item-name">'+(u.name.length>40?u.name.slice(0,37)+'...':u.name)+'</div><div class="upload-item-meta">'+u.type.toUpperCase()+' \u00b7 '+sz+'</div></div>'+play+'<button class="upload-item-remove" onclick="removeUploadItem(\''+u.id+'\')">\u2715</button></div>';
+  }).join('');
 }
+
+let _pAudio = null;
+function previewAudio(id) {
+  const u = state.uploads.find(x => x.id === id); if (!u) return;
+  if (!_pAudio) { _pAudio = document.createElement('audio'); document.body.appendChild(_pAudio); }
+  if (_pAudio.src === u.objectUrl && !_pAudio.paused) { _pAudio.pause(); return; }
+  _pAudio.src = u.objectUrl; _pAudio.play().catch(() => {});
+}
+
+function removeUploadItem(id) {
+  const i = state.uploads.findIndex(u => u.id === id);
+  if (i >= 0) { if (state.uploads[i].objectUrl) URL.revokeObjectURL(state.uploads[i].objectUrl); state.uploads.splice(i, 1); }
+  state.mediaType = state.uploads.length ? state.uploads[0].type : 'none';
+  renderUploadList();
+}
+
+function removeUpload() {}
+function showVibeStep() { updateVibePreview(); }
 
 // ── VIBE GRID ──
 function renderVibeGrid() {
@@ -1042,22 +1042,26 @@ function selectVibe(id) {
   document.querySelectorAll('.vibe-card').forEach(c => c.classList.remove('selected'));
   document.querySelector(`.vibe-card[data-vibe="${id}"]`).classList.add('selected');
 
-  // Show groovy button
-  $('step5').style.display = '';
-  $('step5').style.animation = 'fadeUp 0.6s var(--ease-out) both';
-  setTimeout(() => $('groovyBtn').focus(), 300);
+  // Groovy button is always visible — just scroll to it
+  $('groovyBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // ── GROOVY BUTTON ──
 const GROOVY_BEHAVIORS = ['reveal', 'roulette', 'mashup'];
 
 async function pressGroovyButton() {
-  if (!state.title) { showToast('Give it a name first!'); return; }
+  state.title = $('titleInput').value.trim();
+  state.description = $('descInput').value.trim();
+  if (state.uploads.length > 0) state.mediaType = state.uploads[0].type;
+  const vli = $('videoLinkInput');
+  if (vli && vli.value.trim() && !state.uploads.some(u => u.type === 'video')) addVideoLink(vli.value.trim());
+  if (!state.title && state.uploads.length === 0) { showToast('Add your work or name it!'); $('titleInput').focus(); return; }
+  if (!state.title && state.uploads.length > 0) state.title = state.uploads[0].name.replace(/\.[^.]+$/, '');
   if (!state.vibeId) { showToast('Pick a vibe!'); return; }
 
   // Check usage
   if (!state.isPro && state.usageCount >= state.maxFree) {
-    $('proModalText').textContent = 'You\'ve used all 3 free generations. Go Pro for unlimited.';
+    $('proModalText').textContent = 'You\'ve used all 3 free generations. Start a free 7-day trial for unlimited.';
     $('proModal').classList.add('active');
     return;
   }
@@ -1192,8 +1196,11 @@ function fallbackAI(vibe) {
 
 function detectOutputType() {
   const d = (state.description || '').toLowerCase();
-  if (state.mediaType === 'audio') return 'music';
-  if (state.mediaType === 'image' && /paint|art|photo|gallery|exhibit|canvas|illustration/i.test(d)) return 'art';
+  const hasAudio = state.uploads.some(u => u.type === 'audio');
+  const hasImage = state.uploads.some(u => u.type === 'image');
+  const hasText = state.uploads.some(u => u.type === 'text');
+  if (hasAudio || /music|song|album|single|EP|beat|track|mix|DJ|producer|band/i.test(d)) return 'music';
+  if ((hasImage && /paint|art|photo|gallery|exhibit|canvas|illustration|portfolio/i.test(d)) || (hasImage && !hasAudio && !hasText)) return 'art';
   if (state.mediaType === 'text' || /writ|poem|essay|blog|newsletter|article|book|story/i.test(d)) return 'writing';
   if (/music|song|album|single|EP|beat|track|mix|DJ|producer|band/i.test(d)) return 'music';
   return 'business';
@@ -1247,11 +1254,22 @@ function renderMockup1(type, r) {
     container.innerHTML = '';
     container.appendChild(wrap);
     setTimeout(() => drawAlbumCover($('albumCanvas'), r), 50);
+    const audios = state.uploads.filter(u => u.type === 'audio');
+    if (audios.length) {
+      let ph = '<div style="margin-top:var(--space-lg)">';
+      audios.forEach((a, i) => {
+        ph += '<div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.04);border-radius:12px;margin-bottom:8px">' +
+          '<button onclick="playResultAudio(this,\'' + a.id + '\')" style="width:40px;height:40px;border-radius:50%;border:2px solid ' + palette[2] + ';background:transparent;color:' + palette[2] + ';font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">\u25b6</button>' +
+          '<div style="flex:1"><div style="font-family:\'' + fonts.display + '\',serif;font-size:14px">' + a.name.replace(/\.[^.]+$/, '') + '</div><div style="font-size:11px;color:' + palette[2] + ';margin-top:2px">Track ' + (i+1) + '</div></div></div>';
+      });
+      ph += '</div>';
+      container.insertAdjacentHTML('beforeend', ph);
+    }
   } else if (type === 'art') {
     $('mockup1Label').textContent = 'GALLERY SHOWCASE';
     container.innerHTML = `<div class="mockup-frame" style="padding:40px;background:#f5f5f0;text-align:center">
       <div style="border:8px solid #ddd;display:inline-block;box-shadow:inset 0 0 20px rgba(0,0,0,0.1)">
-        ${state.mediaData ? `<img src="${state.mediaData}" style="max-width:100%;max-height:400px;display:block">` : `<canvas id="artCanvas" width="600" height="400"></canvas>`}
+        ${(state.uploads.find(u=>u.type==="image")) ? `<img src="${state.uploads.find(u=>u.type==="image").objectUrl}" style="max-width:100%;max-height:400px;display:block">` : `<canvas id="artCanvas" width="600" height="400"></canvas>`}
       </div>
       <div style="margin-top:20px;font-family:'${fonts.display}',serif;font-size:18px;color:${palette[0]}">${state.title}</div>
       <div style="font-family:'${fonts.body}',sans-serif;font-size:13px;color:${palette[1]};margin-top:4px">${state.description}</div>
@@ -1426,13 +1444,14 @@ function drawAlbumCover(canvas, r) {
   }
 
   // Overlay image if available
-  if (state.mediaData && state.mediaType === 'image') {
+  const albumImg = state.uploads.find(u => u.type === 'image');
+  if (albumImg && albumImg.objectUrl) {
     const img = new Image();
     img.onload = () => {
       ctx.globalAlpha = 0.5; ctx.drawImage(img, 0, 0, w, h); ctx.globalAlpha = 1;
       drawAlbumText(ctx, r, w, h);
     };
-    img.src = state.mediaData;
+    img.src = albumImg.objectUrl;
   } else {
     drawAlbumText(ctx, r, w, h);
   }
@@ -1592,7 +1611,7 @@ function subscribePro(plan) {
   const email = state.email || '';
   const s = encodeURIComponent(window.location.origin + '?upgraded=true');
   const c = encodeURIComponent(window.location.origin);
-  window.location.href = `https://api.dubltap.io/create-checkout?priceId=${prices[plan]}&email=${email}&success_url=${s}&cancel_url=${c}`;
+  window.location.href = `https://api.dubltap.io/create-checkout?priceId=${prices[plan]}&email=${email}&success_url=${s}&cancel_url=${c}&trial=7`;
 }
 
 function checkUpgradeSuccess() {
@@ -1627,9 +1646,9 @@ function resetApp() {
   state.mediaFile = null; state.mediaType = 'none'; state.mediaData = null;
   state.result = null;
   $('titleInput').value = ''; $('descInput').value = '';
-  $('step2').style.display = 'none'; $('step3').style.display = 'none';
-  $('step4').style.display = 'none'; $('step5').style.display = 'none';
-  $('titlePreview').classList.remove('visible');
+  state.uploads.forEach(u => { if (u.objectUrl) URL.revokeObjectURL(u.objectUrl); });
+  state.uploads = []; if ($('uploadList')) $('uploadList').innerHTML = '';
+  if ($('videoLinkInput')) $('videoLinkInput').value = '';
   removeUpload();
   document.querySelectorAll('.vibe-card').forEach(c => c.classList.remove('selected'));
   document.querySelectorAll('.result-card').forEach(c => c.classList.remove('revealed'));
@@ -1692,6 +1711,17 @@ function wrapText(ctx, text, x, y, maxW, lineH) {
     } else { line = test; }
   }
   ctx.fillText(line.trim(), x, y);
+}
+
+// ── RESULT AUDIO PLAYER ──
+let resultAudioEl = null;
+function playResultAudio(btn, uid) {
+  const u = state.uploads.find(x => x.id === uid); if (!u) return;
+  if (!resultAudioEl) { resultAudioEl = document.createElement('audio'); document.body.appendChild(resultAudioEl); }
+  if (resultAudioEl.dataset.playing === uid) { resultAudioEl.pause(); btn.textContent = '\u25b6'; resultAudioEl.dataset.playing = ''; return; }
+  resultAudioEl.src = u.objectUrl; resultAudioEl.dataset.playing = uid;
+  resultAudioEl.play().then(() => btn.textContent = '\u23f8').catch(() => {});
+  resultAudioEl.onended = () => { btn.textContent = '\u25b6'; resultAudioEl.dataset.playing = ''; };
 }
 
 // ── BOOT ──
